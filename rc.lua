@@ -1,8 +1,8 @@
 --[[
-                                             
-     Powerarrow Darker Awesome WM config 2.0 
-     github.com/copycat-killer               
-                                             
+
+     Powerarrow Darker Awesome WM config 2.0
+     github.com/copycat-killer
+
 --]]
 
 -- {{{ Required libraries
@@ -74,11 +74,15 @@ iptraf     = terminal .. " -g 180x54-20+34 -e sudo iptraf-ng -i all "
 musicplr   = terminal .. " -g 130x34-320+16 -e ncmpcpp "
 
 local layouts = {
+
     awful.layout.suit.floating,
     awful.layout.suit.tile,
+    awful.layout.suit.tile.top,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.fair,
     awful.layout.suit.fair.horizontal,
+
+
 }
 -- }}}
 
@@ -246,8 +250,8 @@ netwidget = lain.widgets.net({
 spr = wibox.widget.textbox(' ')
 arrl = wibox.widget.imagebox()
 arrl:set_image(beautiful.arrl)
-arrl_dl = separators.arrow_left(beautiful.bg_focus, "alpha") 
-arrl_ld = separators.arrow_left("alpha", beautiful.bg_focus) 
+arrl_dl = separators.arrow_left(beautiful.bg_focus, "alpha")
+arrl_ld = separators.arrow_left("alpha", beautiful.bg_focus)
 
 -- Create a wibox for each screen and add it
 mywibox = {}
@@ -331,7 +335,7 @@ for s = 1, screen.count() do
 
     -- Widgets that are aligned to the upper right
     local right_layout_toggle = true
-    local function right_layout_add (...)  
+    local function right_layout_add (...)
         local arg = {...}
         if right_layout_toggle then
             right_layout:add(arrl_ld)
@@ -346,7 +350,7 @@ for s = 1, screen.count() do
         end
         right_layout_toggle = not right_layout_toggle
     end
-    
+
     right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
     right_layout:add(spr)

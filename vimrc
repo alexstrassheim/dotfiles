@@ -19,6 +19,8 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'kien/ctrlp.vim'
 Plugin 'chrisbra/SudoEdit.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
 
 " Plugin 'LaTeX-Box-Team/LaTeX-Box'
 
