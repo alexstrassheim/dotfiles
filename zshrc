@@ -25,9 +25,9 @@ plugins=(git gitignore tmuxinator rails ruby colored-man)
 
 # OSX
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin":$PATH
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
 # export MANPATH="/usr/local/man:$MANPATH"
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -60,17 +60,11 @@ source /usr/local/opt/chruby/share/chruby/chruby.sh
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
 
-#------
-# Theos
-#------
-export THEOS=/opt/theos
-# export THEOS_DEVICE_IP=example.local THEOS_DEVICE_PORT=22
-
 #----------------
 # Custom settings
 #----------------
-source ~/.private
 alias vim="stty stop '' -ixoff ; vim"
 stty -ixon
 # screenfetch
+source .zshrc_contents/private
 # source .zshrc_contents/aliases
