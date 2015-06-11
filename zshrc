@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/alex/.oh-my-zsh
+export ZSH=/home/lex/.oh-my-zsh
 ZSH_THEME="avit"
 
 # Uncomment the following line to disable auto-setting terminal title.
@@ -53,18 +53,18 @@ export EDITOR='vim'
 # Ruby
 #-----
 # Linux
-# source /usr/share/chruby/chruby.sh
+source /usr/share/chruby/chruby.sh
 
 # OSX
-source /usr/local/opt/chruby/share/chruby/chruby.sh
-source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
+# source /usr/local/opt/chruby/share/chruby/chruby.sh
+# # source /usr/local/share/chruby/chruby.sh
+# source /usr/local/share/chruby/auto.sh
 
 #----------------
 # Custom settings
 #----------------
 alias vim="stty stop '' -ixoff ; vim"
 stty -ixon
-# screenfetch
-source .zshrc_contents/private
-# source .zshrc_contents/aliases
+screenfetch
+# source .zshrc_contents/private
+source .zshrc_contents/aliases
