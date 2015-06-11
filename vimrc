@@ -19,12 +19,12 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'kien/ctrlp.vim'
 Plugin 'a0lex/Theosvi'
 Plugin 'terryma/vim-multiple-cursors'
-" Plugin 'scrooloose/syntastic'
-" Plugin 'tpope/vim-fugitive'
-" Plugin 'SirVer/ultisnips'
-Plugin 'lervag/vimtex'
-" Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-fugitive'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 " Plugin 'ervandew/supertab'
+" Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -68,6 +68,16 @@ set pastetoggle=<F2>
 " ctrlP
 let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_working_path_mode = 'ra'
+
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsListSnippets="<c-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 " quick save
 map <C-s> <ESC>:w<CR>
@@ -120,13 +130,13 @@ inoremap <leader>, <C-x><C-o>
 let g:EclimCompletionMethod = 'omnifunc'
 
 " YouCompleteMe Setup {{{
-set completeopt-=preview
+" set completeopt-=preview
 "let g:ycm_confirm_extra_conf = 0
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+" let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 "let g:ycm_collect_identifiers_from_tags_files = 1
 "let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
+" let g:ycm_autoclose_preview_window_after_insertion = 1
+" let g:ycm_autoclose_preview_window_after_completion = 1
 " let g:ycm_key_invoke_completion = '<Nul>'
 " let g:ycm_semantic_triggers = {'haskell' : ['.']}
 "nnoremap <leader>h :YcmCompleter GoToDeclaration<CR>
@@ -137,6 +147,17 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 " " set dark background and color scheme
 set background=dark
 colorscheme base16-3024
+
+" hint to keep lines short
+if exists('+colorcolumn')
+  set colorcolumn=80
+endif
+
+" " split navigation
+" nnoremap <C-j> <C-w><C-j>
+" nnoremap <C-k> <C-w><C-k>
+" nnoremap <C-l> <C-w><C-l>
+" nnoremap <C-h> <C-w><C-h>
 
 " set up some custom colors
 highlight clear SignColumn
@@ -154,13 +175,4 @@ highlight Pmenu        ctermbg=240 ctermfg=12
 highlight PmenuSel     ctermbg=3   ctermfg=1
 highlight SpellBad     ctermbg=0   ctermfg=1
 
-" hint to keep lines short
-if exists('+colorcolumn')
-  set colorcolumn=80
-endif
 
-" split navigation
-nnoremap <C-j> <C-w><C-j>
-nnoremap <C-k> <C-w><C-k>
-nnoremap <C-l> <C-w><C-l>
-nnoremap <C-h> <C-w><C-h>
