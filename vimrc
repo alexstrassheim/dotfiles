@@ -10,19 +10,21 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'chriskempson/base16-vim'
-" Plugin 'a0lex/Theosvi'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'scrooloose/nerdtree'
-" Plugin 'Valloric/YouCompleteMe'
+Plugin 'chrisbra/SudoEdit.vim'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'kien/ctrlp.vim'
-Plugin 'chrisbra/SudoEdit.vim'
-Plugin 'SirVer/ultisnips'
-Plugin 'LaTeX-Box-Team/LaTeX-Box'
-
-" Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'a0lex/Theosvi'
+Plugin 'terryma/vim-multiple-cursors'
+" Plugin 'scrooloose/syntastic'
+" Plugin 'tpope/vim-fugitive'
+" Plugin 'SirVer/ultisnips'
+Plugin 'lervag/vimtex'
+" Plugin 'Valloric/YouCompleteMe'
+" Plugin 'ervandew/supertab'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -33,6 +35,7 @@ set encoding=utf-8
 syntax on                         " show syntax highlighting
 set autoindent                    " set auto indent
 set ts=4                          " set indent to 2 spaces
+set tw=80                         " set text width to 80
 set shiftwidth=2
 set expandtab                     " use spaces, not tab characters
 set relativenumber                " show relative line numbers
@@ -58,6 +61,9 @@ runtime macros/matchit.vim        " use % to jump between start/end of methods
 
 set backspace=2
 set pastetoggle=<F2>
+
+" powerline
+" let g:Powerline_symbols = 'fancy'
 
 " ctrlP
 let g:ctrlp_follow_symlinks = 1
@@ -128,9 +134,9 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 "nnoremap <leader>d :YcmCompleter GoToDefinition<CR>
 " }}}
 
-" set dark background and color scheme
+" " set dark background and color scheme
 set background=dark
-colorscheme base16-railscasts
+colorscheme base16-3024
 
 " set up some custom colors
 highlight clear SignColumn
@@ -150,7 +156,7 @@ highlight SpellBad     ctermbg=0   ctermfg=1
 
 " hint to keep lines short
 if exists('+colorcolumn')
-  set colorcolumn=120
+  set colorcolumn=80
 endif
 
 " split navigation
