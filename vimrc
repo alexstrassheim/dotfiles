@@ -23,7 +23,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-" Plugin 'ervandew/supertab'
+Plugin 'ervandew/supertab'
 " Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
@@ -62,8 +62,17 @@ runtime macros/matchit.vim        " use % to jump between start/end of methods
 set backspace=2
 set pastetoggle=<F2>
 
-" powerline
-" let g:Powerline_symbols = 'fancy'
+" set dark background and color scheme
+set t_Co=256
+set background=dark
+let base16colorspace=256  " Access colors present in 256 colorspace
+colorscheme base16-default
+
+" hint to keep lines short
+if exists('+colorcolumn')
+  set colorcolumn=80
+endif
+
 
 " Ctrl-Space for completions. Heck Yeah!
 let mapleader="\<space>"
@@ -71,22 +80,21 @@ nnoremap <leader>rv :source $MYVIMRC<CR>
 "inoremap <leader>, <C-x><C-o>
 
 " ctrlP
-let g:ctrlp_follow_symlinks = 1
-let g:ctrlp_working_path_mode = 'ra'
-
+"" let g:ctrlp_follow_symlinks = 1
+"" let g:ctrlp_working_path_mode = 'ra'
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsListSnippets="<c-a>"
+let g:UltiSnipsListSnippets="<c-tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsJumpBackwardTrigger="<c-+>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
 " quick save
-map <C-s> <ESC>:w<CR>
-imap <C-s> <ESC>:w<CR>
+noremap <C-s> <ESC>:w<CR>
+inoremap <C-s> <ESC>:w<CR>
 
 "toggel linenumber
 function! ToggleNu()
@@ -146,36 +154,27 @@ let g:EclimCompletionMethod = 'omnifunc'
 "nnoremap <leader>d :YcmCompleter GoToDefinition<CR>
 " }}}
 
-" " set dark background and color scheme
-set t_Co=256
-set background=dark
- colorscheme base16-mocha
-
-" hint to keep lines short
-if exists('+colorcolumn')
-  set colorcolumn=80
-endif
-
-" " split navigation
-" nnoremap <C-j> <C-w><C-j>
-" nnoremap <C-k> <C-w><C-k>
-" nnoremap <C-l> <C-w><C-l>
-" nnoremap <C-h> <C-w><C-h>
+" split navigation
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
+nnoremap <C-h> <C-w><C-h>
 
 " set up some custom colors
-highlight clear SignColumn
-highlight VertSplit    ctermbg=236
-highlight ColorColumn  ctermbg=237
-highlight LineNr       ctermbg=236 ctermfg=240
-highlight CursorLineNr ctermbg=236 ctermfg=240
-highlight CursorLine   ctermbg=236
-highlight StatusLineNC ctermbg=238 ctermfg=0
-highlight StatusLine   ctermbg=240 ctermfg=12
-highlight IncSearch    ctermbg=3   ctermfg=1
-highlight Search       ctermbg=1   ctermfg=3
-highlight Visual       ctermbg=3   ctermfg=0
-highlight Pmenu        ctermbg=240 ctermfg=12
-highlight PmenuSel     ctermbg=3   ctermfg=1
-highlight SpellBad     ctermbg=0   ctermfg=1
+
+" highlight clear SignColumn
+" highlight VertSplit    ctermbg=236
+" highlight ColorColumn  ctermbg=237
+" highlight LineNr       ctermbg=236 ctermfg=240
+" highlight CursorLineNr ctermbg=236 ctermfg=240
+" highlight CursorLine   ctermbg=236
+" highlight StatusLineNC ctermbg=238 ctermfg=0
+" highlight StatusLine   ctermbg=240 ctermfg=12
+" highlight IncSearch    ctermbg=3   ctermfg=1
+" highlight Search       ctermbg=1   ctermfg=3
+" highlight Visual       ctermbg=3   ctermfg=0
+" highlight Pmenu        ctermbg=240 ctermfg=12
+" highlight PmenuSel     ctermbg=3   ctermfg=1
+" highlight SpellBad     ctermbg=0   ctermfg=1
 
 
