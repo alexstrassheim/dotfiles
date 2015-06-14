@@ -65,6 +65,11 @@ set pastetoggle=<F2>
 " powerline
 " let g:Powerline_symbols = 'fancy'
 
+" Ctrl-Space for completions. Heck Yeah!
+let mapleader="\<space>"
+nnoremap <leader>rv :source $MYVIMRC<CR>
+"inoremap <leader>, <C-x><C-o>
+
 " ctrlP
 let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_working_path_mode = 'ra'
@@ -72,7 +77,7 @@ let g:ctrlp_working_path_mode = 'ra'
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsListSnippets="<c-tab>"
+let g:UltiSnipsListSnippets="<c-a>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
@@ -122,9 +127,6 @@ function! ToggleSpell()
 endfunction
 nmap <silent> <F6> :call ToggleSpell()<CR>
 
-" Ctrl-Space for completions. Heck Yeah!
-let mapleader=","
-inoremap <leader>, <C-x><C-o>
 
 " eclim
 let g:EclimCompletionMethod = 'omnifunc'
@@ -145,8 +147,9 @@ let g:EclimCompletionMethod = 'omnifunc'
 " }}}
 
 " " set dark background and color scheme
+set t_Co=256
 set background=dark
-colorscheme base16-3024
+ colorscheme base16-mocha
 
 " hint to keep lines short
 if exists('+colorcolumn')
