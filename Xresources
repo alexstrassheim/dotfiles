@@ -12,7 +12,7 @@ URxvt.mapAlert: true
 ! URxvt.highlightColor: darkred
 URxvt.urlLauncher: firefox
 
-URxvt.perl-ext-common: default,clipboard,keyboard-select,font-size
+URxvt.perl-ext-common: default,clipboard,keyboard-select,font-size,url-select
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 URxvt.keysym.M-s: perl:keyboard-select:search
 URxvt.clipboard.copycmd:  xclip -i -selection clipboard
