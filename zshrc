@@ -71,4 +71,4 @@ alias vim="stty stop '' -ixoff ; vim"
 stty -ixon
 screenfetch
 # source .zshrc_contents/private
-source .zshrc_contents/aliases
+source ~/.zshrc_contents/aliases
