@@ -1,4 +1,4 @@
-! URxvt.saveLines: 1000
+URxvt.saveLines: 10000
 URxvt.scrollBar: false
 URxvt.highlightSelection: true
 URxvt.loginShell: true
@@ -11,6 +11,10 @@ URxvt.underlineColor: white
 URxvt.mapAlert: true
 ! URxvt.highlightColor: darkred
 URxvt.urlLauncher: firefox
+
+URxvt*externalBorder:     0
+URxvt*internalBorder:     0
+URxvt*borderLess:         false
 
 URxvt.perl-ext-common: default,clipboard,keyboard-select,font-size,url-select
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
