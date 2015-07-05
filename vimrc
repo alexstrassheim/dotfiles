@@ -24,6 +24,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'ervandew/supertab'
+Plugin 'dkprice/vim-easygrep'
 " Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line

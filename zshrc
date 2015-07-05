@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/lex/.oh-my-zsh
+export ZSH=/Users/alex/.oh-my-zsh
 ZSH_THEME="avit"
 
 # Uncomment the following line to disable auto-setting terminal title.
@@ -21,13 +21,13 @@ plugins=(vi-mode git gitignore tmuxinator rails ruby colored-man)
 # User configuration
 #-------------------
 # Linux
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+# export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 
 # OSX
-# export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin":$PATH
-# export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin":$PATH
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 #
-# export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -53,12 +53,12 @@ export EDITOR='vim'
 # Ruby
 #-----
 # Linux
-source /usr/share/chruby/chruby.sh
+# source /usr/share/chruby/chruby.sh
 
 # OSX
-# source /usr/local/opt/chruby/share/chruby/chruby.sh
-# # source /usr/local/share/chruby/chruby.sh
-# source /usr/local/share/chruby/auto.sh
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
 
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
@@ -68,7 +68,7 @@ BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
 # Custom settings
 #----------------
 alias vim="stty stop '' -ixoff ; vim"
-stty -ixon
-screenfetch
-# source .zshrc_contents/private
-source ~/.zshrc_contents/aliases
+# stty -ixon
+# screenfetch
+source .zshrc_contents/private
+# source ~/.zshrc_contents/aliases
