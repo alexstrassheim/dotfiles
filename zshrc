@@ -70,5 +70,5 @@ BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
 alias vim="stty stop '' -ixoff ; vim"
 # stty -ixon
 # screenfetch
-source .zshrc_contents/private
+source ~/.zshrc_contents/private
 # source ~/.zshrc_contents/aliases
