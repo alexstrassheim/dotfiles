@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/alex/.oh-my-zsh
-ZSH_THEME="avit"
+ZSH_THEME="bira"
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
