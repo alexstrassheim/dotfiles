@@ -46,25 +46,28 @@ source ~/.zshrc_contents/private
 
 if [[ `uname` == 'Darwin' ]]; then
   # MacOS
-    export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin":$PATH
-    export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+    export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/sbin:/usr/X11/bin":$PATH
     export MANPATH="/usr/local/man:$MANPATH"
 
    # Ruby
-    source /usr/share/chruby/chruby.sh
-    source /usr/share/chruby/auto.sh
+    source /usr/local/share/chruby/chruby.sh
+    # source /usr/local/opt/chruby/share/chruby/chruby.sh
+    # source /usr/local/share/chruby/auto.sh
 
     # ixon
     alias vim="stty stop '' -ixoff ; vim"
 else
   # Linux
     export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+
     # Ruby
+    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
     source /usr/share/chruby/chruby.sh
+    # source /usr/share/chruby/auto.sh
 
     # script path
     [[ -d "${HOME}/.bin" ]] && export PATH="${HOME}/.bin:${PATH}"
-    
+
     # ixon
     stty -ixon
     screenfetch
