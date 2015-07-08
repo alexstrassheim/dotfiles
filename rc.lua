@@ -285,7 +285,7 @@ networkwidget:set_widget(netwidget)
 networkwidget:set_bgimage(beautiful.widget_bg)
 
 -- Weather
-yawn = lain.widgets.yawn(123456)
+yawn = lain.widgets.yawn(12835732)
 
 -- Separators
 first = wibox.widget.textbox('<span font="Tamsyn 4"> </span>')
