@@ -63,6 +63,9 @@ else
     # Ruby
     source /usr/share/chruby/chruby.sh
 
+    # script path
+    [[ -d "${HOME}/.bin" ]] && export PATH="${HOME}/.bin:${PATH}"
+    
     # ixon
     stty -ixon
     screenfetch
