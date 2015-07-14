@@ -1,10 +1,10 @@
 # Path to your oh-my-zsh installation.
 if [[ `uname` == 'Darwin' ]]; then
   # MacOS
-  export ZSH=/Users/$(whoami)/.oh-my-zsh
+  export ZSH=${HOME}/.oh-my-zsh
 else
   # Linux
-  export ZSH=/home/$(whoami)/.oh-my-zsh
+  export ZSH=${HOME}/.oh-my-zsh
 fi
 ZSH_THEME="bira"
 
@@ -46,7 +46,7 @@ source ~/.zshrc_contents/private
 
 if [[ `uname` == 'Darwin' ]]; then
   # MacOS
-  export PATH="/Users/$(whoami)/.gem/ruby/2.2.1/bin:/Users/$(whoami)/.rubies/ruby-2.2.1/lib/ruby/gems/2.2.0/bin:/Users/$(whoami)/.rubies/ruby-2.2.1/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/coolTools:/opt/itnl:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/usr/texbin:/usr/local/sbin:/usr/X11/bin:/opt/coolTools:/opt/itnl"
+  export PATH="${HOME}/.gem/ruby/2.2.1/bin:${HOME}/.rubies/ruby-2.2.1/lib/ruby/gems/2.2.0/bin:${HOME}/.rubies/ruby-2.2.1/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/coolTools:/opt/itnl:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/usr/texbin:/usr/local/sbin:/usr/X11/bin:/opt/coolTools:/opt/itnl"
    
   # Ruby
     source /usr/local/share/chruby/chruby.sh
