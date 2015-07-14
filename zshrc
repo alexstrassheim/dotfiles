@@ -1,10 +1,10 @@
 # Path to your oh-my-zsh installation.
 if [[ `uname` == 'Darwin' ]]; then
   # MacOS
-    export ZSH=/Users/alex/.oh-my-zsh
+  export ZSH=/Users/$(whoami)/.oh-my-zsh
 else
   # Linux
-    export ZSH=/home/lex/.oh-my-zsh
+  export ZSH=/home/$(whoami)/.oh-my-zsh
 fi
 ZSH_THEME="bira"
 
@@ -15,7 +15,7 @@ DISABLE_AUTO_TITLE="false"
 COMPLETION_WAITING_DOTS="true"
 
 # Pluginlist
-plugins=(vi-mode git gitignore tmuxinator colored-man mosh)
+plugins=(git gitignore tmuxinator colored-man mosh)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -46,10 +46,8 @@ source ~/.zshrc_contents/private
 
 if [[ `uname` == 'Darwin' ]]; then
   # MacOS
-    export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin":$PATH
-    export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-    export MANPATH="/usr/local/man:$MANPATH"
-
+  export PATH="/Users/$(whoami)/.gem/ruby/2.2.1/bin:/Users/$(whoami)/.rubies/ruby-2.2.1/lib/ruby/gems/2.2.0/bin:/Users/$(whoami)/.rubies/ruby-2.2.1/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/coolTools:/opt/itnl:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/usr/texbin:/usr/local/sbin:/usr/X11/bin:/opt/coolTools:/opt/itnl"
+#
    # Ruby
     source /usr/local/opt/chruby/share/chruby/chruby.sh
     source /usr/local/share/chruby/chruby.sh
@@ -57,6 +55,7 @@ if [[ `uname` == 'Darwin' ]]; then
 
     # ixon
     alias vim="stty stop '' -ixoff ; vim"
+
 else
   # Linux
     export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
@@ -67,3 +66,4 @@ else
     stty -ixon
     screenfetch
 fi
+
