@@ -6,7 +6,7 @@ else
   # Linux
   export ZSH=${HOME}/.oh-my-zsh
 fi
-ZSH_THEME="bira"
+ZSH_THEME="af-magic"
 
 # Uncomment the following line to disable auto-setting terminal title.
 DISABLE_AUTO_TITLE="true"

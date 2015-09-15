@@ -1,4 +1,5 @@
 setxkbmap -layout de -variant mac -option ctrl:nocaps &
+/* setxkbmap -layout de -variant mac & */
 xbindkeys &
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh) &
 export SSH_AUTH_SOCK &

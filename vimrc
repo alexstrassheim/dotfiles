@@ -23,8 +23,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-Plugin 'ervandew/supertab'
-Plugin 'dkprice/vim-easygrep'
+Plugin 'rking/ag.vim'
 " Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
@@ -36,7 +35,7 @@ set encoding=utf-8
 syntax on                         " show syntax highlighting
 set autoindent                    " set auto indent
 set ts=4                          " set indent to 2 spaces
-set tw=80                         " set text width to 80
+" set tw=80                         " set text width to 80
 set shiftwidth=2
 set expandtab                     " use spaces, not tab characters
 set relativenumber                " show relative line numbers
@@ -74,29 +73,35 @@ if exists('+colorcolumn')
   set colorcolumn=80
 endif
 
-
 " Ctrl-Space for completions. Heck Yeah!
 let mapleader="\<space>"
 nnoremap <leader>rv :source $MYVIMRC<CR>
-"inoremap <leader>, <C-x><C-o>
 
-" ctrlP
-"" let g:ctrlp_follow_symlinks = 1
-"" let g:ctrlp_working_path_mode = 'ra'
-
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsListSnippets="<c-tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-inoremap <c-x><c-k> <c-x><c-k>
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+" split navigation
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
+nnoremap <C-h> <C-w><C-h>
 
 " quick save
 noremap <C-s> <ESC>:w<CR>
 inoremap <C-s> <ESC>:w<CR>
+
+" resize
+nnoremap <silent> <Leader>j :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>k :exe "resize " . (winheight(0) * 2/3)<CR>
+nnoremap <silent> <Leader>h :exe "10winc < " <CR>
+nnoremap <silent> <Leader>l :exe "10winc > " <CR>
+
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsListSnippets="<c-tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-j>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 "toggel linenumber
 function! ToggleNu()
@@ -136,47 +141,5 @@ function! ToggleSpell()
     echo "spell checking language:" g:myLangList[b:myLang]
 endfunction
 nmap <silent> <F6> :call ToggleSpell()<CR>
-
-
-" eclim
-let g:EclimCompletionMethod = 'omnifunc'
-
-" YouCompleteMe Setup {{{
-" set completeopt-=preview
-"let g:ycm_confirm_extra_conf = 0
-" let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
-"let g:ycm_collect_identifiers_from_tags_files = 1
-"let g:ycm_seed_identifiers_with_syntax = 1
-" let g:ycm_autoclose_preview_window_after_insertion = 1
-" let g:ycm_autoclose_preview_window_after_completion = 1
-" let g:ycm_key_invoke_completion = '<Nul>'
-" let g:ycm_semantic_triggers = {'haskell' : ['.']}
-"nnoremap <leader>h :YcmCompleter GoToDeclaration<CR>
-"nnoremap <leader>e :YcmCompleter GoToDefinitionElseDeclaration<CR>
-"nnoremap <leader>d :YcmCompleter GoToDefinition<CR>
-" }}}
-
-" split navigation
-nnoremap <C-j> <C-w><C-j>
-nnoremap <C-k> <C-w><C-k>
-nnoremap <C-l> <C-w><C-l>
-nnoremap <C-h> <C-w><C-h>
-
-" set up some custom colors
-
-" highlight clear SignColumn
-" highlight VertSplit    ctermbg=236
-" highlight ColorColumn  ctermbg=237
-" highlight LineNr       ctermbg=236 ctermfg=240
-" highlight CursorLineNr ctermbg=236 ctermfg=240
-" highlight CursorLine   ctermbg=236
-" highlight StatusLineNC ctermbg=238 ctermfg=0
-" highlight StatusLine   ctermbg=240 ctermfg=12
-" highlight IncSearch    ctermbg=3   ctermfg=1
-" highlight Search       ctermbg=1   ctermfg=3
-" highlight Visual       ctermbg=3   ctermfg=0
-" highlight Pmenu        ctermbg=240 ctermfg=12
-" highlight PmenuSel     ctermbg=3   ctermfg=1
-" highlight SpellBad     ctermbg=0   ctermfg=1
 
 
