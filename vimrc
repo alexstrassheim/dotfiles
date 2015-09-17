@@ -24,7 +24,9 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'rking/ag.vim'
-" Plugin 'Valloric/YouCompleteMe'
+ Plugin 'Valloric/YouCompleteMe'
+" Plugin 'oblitum/YouCompleteMe'
+" Plugin 'bling/vim-airline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -35,7 +37,6 @@ set encoding=utf-8
 syntax on                         " show syntax highlighting
 set autoindent                    " set auto indent
 set ts=4                          " set indent to 2 spaces
-" set tw=80                         " set text width to 80
 set shiftwidth=2
 set expandtab                     " use spaces, not tab characters
 set relativenumber                " show relative line numbers
@@ -87,21 +88,19 @@ nnoremap <C-h> <C-w><C-h>
 noremap <C-s> <ESC>:w<CR>
 inoremap <C-s> <ESC>:w<CR>
 
+" movement
+nnoremap j gj
+nnoremap k gk
+
+" latex filetype
+let g:tex_flavor = "latex"
+autocmd FileType tex setlocal textwidth=80
+
 " resize
 nnoremap <silent> <Leader>j :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>k :exe "resize " . (winheight(0) * 2/3)<CR>
 nnoremap <silent> <Leader>h :exe "10winc < " <CR>
 nnoremap <silent> <Leader>l :exe "10winc > " <CR>
-
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-" let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsListSnippets="<c-tab>"
-" let g:UltiSnipsJumpForwardTrigger="<c-j>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 "toggel linenumber
 function! ToggleNu()
@@ -143,3 +142,27 @@ endfunction
 nmap <silent> <F6> :call ToggleSpell()<CR>
 
 
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsListSnippets="<c-tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-j>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsListSnippets="<c-h>"
+
+" " youcompleteme
+" let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_key_invoke_completion = '<C-b>'
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
+let g:ycm_complete_in_comments = 1 
+let g:ycm_seed_identifiers_with_syntax = 1 
+let g:ycm_collect_identifiers_from_comments_and_strings = 1 

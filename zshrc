@@ -58,7 +58,7 @@ if [[ `uname` == 'Darwin' ]]; then
 
 else
   # Linux
-    export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+    export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:$PATH"
 
     # Ruby
     PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
