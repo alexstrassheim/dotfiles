@@ -25,6 +25,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'rking/ag.vim'
  Plugin 'Valloric/YouCompleteMe'
+Plugin 'ap/vim-css-color'
 " Plugin 'oblitum/YouCompleteMe'
 " Plugin 'bling/vim-airline'
 
@@ -166,3 +167,5 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_complete_in_comments = 1 
 let g:ycm_seed_identifiers_with_syntax = 1 
 let g:ycm_collect_identifiers_from_comments_and_strings = 1 
+
+
