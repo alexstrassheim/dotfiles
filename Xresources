@@ -31,7 +31,7 @@ URxvt.keysym.C-v:     perl:clipboard:paste
 ! URxvt.keysym.M-C-v:   perl:clipboard:paste_escaped
 !URxvt.copyCommand:   xsel -ib
 !URxvt.pasteCommand:  xsel -ob
-URxvt.clipboard.autocopy: true
+URxvt.clipboard.autocopy: false
 
 
 
