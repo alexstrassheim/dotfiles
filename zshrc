@@ -62,9 +62,6 @@ else
     # script path
     [[ -d "${HOME}/.bin" ]] && export PATH="${HOME}/.bin:${PATH}"
 
-    bindkey "^[[1;5C" forward-word
-    bindkey "^[[1;5D" backward-word  
-
     # ixon
     stty -ixon
     screenfetch

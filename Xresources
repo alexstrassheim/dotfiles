@@ -4,8 +4,8 @@ URxvt.highlightSelection: true
 URxvt.loginShell: true
 URxvt.termName: rxvt-256color
 URxvt.letterSpace: -1
-URxvt.font: xft:DejaVu Sans Mono:pixelsize=12
-URxvt.boldFont: xft:DejaVu Sans Mono:style=bold:pixelsize=12
+URxvt.font: xft:DejaVu Sans Mono:pixelsize=16
+URxvt.boldFont: xft:DejaVu Sans Mono:style=bold:pixelsize=16
 URxvt.cursorColor: white
 URxvt.underlineColor: white
 URxvt.mapAlert: true
@@ -18,10 +18,10 @@ URxvt.perl-ext-common:default,clipboard,matcher,keyboard-select
 URxvt.keysym.M-u:     perl:url-select:select_next
 URxvt.url-launcher:   /usr/bin/firefox
 URxvt.underlineURLs:  True
-URxvt.matcher.button: 1 
+URxvt.matcher.button: 1
 URxvt.keysym.M-Escape:perl:keyboard-select:activate
-URxvt.keysym.C-c:     perl:clipboard:copy
-URxvt.keysym.C-v:     perl:clipboard:paste
+URxvt.keysym.C-A-c:     perl:clipboard:copy
+URxvt.keysym.C-A-v:     perl:clipboard:paste
 ! URxvt.keysym.M-s: perl:keyboard-select:search
 ! URxvt.keysym.M-C-v:   perl:clipboard:paste_escaped
 !URxvt.copyCommand:   xsel -ib
