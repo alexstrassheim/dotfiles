@@ -1,11 +1,5 @@
 # Path to your oh-my-zsh installation.
-if [[ `uname` == 'Darwin' ]]; then
-  # MacOS
-  export ZSH=${HOME}/.oh-my-zsh
-else
-  # Linux
-  export ZSH=${HOME}/.oh-my-zsh
-fi
+export ZSH=${HOME}/.oh-my-zsh
 ZSH_THEME="af-magic"
 
 # Uncomment the following line to disable auto-setting terminal title.

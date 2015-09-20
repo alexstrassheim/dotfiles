@@ -1,8 +1,10 @@
-setxkbmap -layout de -variant mac -option ctrl:nocaps &
-/* setxkbmap -layout de -variant mac & */
+if [[ `uname` == `Darwing` ]]; then
+    setxkbmap -layout de -variant mac -option ctrl:nocaps &
+else
+    setxkbmap -layout de -option ctrl:nocaps &
+fi
+xrdb -I$HOME ~/.Xresources &
 xbindkeys &
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh) &
 export SSH_AUTH_SOCK &
-xrdb -I$HOME ~/.Xresources &
-/* nm-applet & */
 exec dbus-launch awesome
