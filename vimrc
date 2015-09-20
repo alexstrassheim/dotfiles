@@ -26,6 +26,8 @@ Plugin 'honza/vim-snippets'
 Plugin 'rking/ag.vim'
  Plugin 'Valloric/YouCompleteMe'
 Plugin 'ap/vim-css-color'
+Plugin 'tpope/vim-dispatch'
+Plugin 'kelwin/vim-smali'
 " Plugin 'oblitum/YouCompleteMe'
 " Plugin 'bling/vim-airline'
 
