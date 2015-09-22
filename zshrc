@@ -37,6 +37,8 @@ BASE16_SHELL="$HOME/.config/base16-shell/base16-tomorrow.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 source ~/.zshrc_contents/private
+# list all symbolic links in current directory
+alias lls="ls -la | grep ^l"
 
 if [[ `uname` == 'Darwin' ]]; then
   # MacOS
