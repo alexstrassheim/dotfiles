@@ -4,8 +4,8 @@ URxvt.highlightSelection: true
 URxvt.loginShell: true
 URxvt.termName: rxvt-256color
 URxvt.letterSpace: -1
-URxvt.font: xft:DejaVu Sans Mono:pixelsize=12
-URxvt.boldFont: xft:DejaVu Sans Mono:style=bold:pixelsize=12
+URxvt.font: xft:DejaVu Sans Mono:pixelsize=15
+URxvt.boldFont: xft:DejaVu Sans Mono:style=bold:pixelsize=15
 URxvt.cursorColor: white
 URxvt.underlineColor: white
 URxvt.mapAlert: true
