@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=${HOME}/.oh-my-zsh
-ZSH_THEME="af-magic"
+ZSH_THEME="agnoster"
 
 # Uncomment the following line to disable auto-setting terminal title.
 DISABLE_AUTO_TITLE="true"
@@ -10,6 +10,7 @@ COMPLETION_WAITING_DOTS="true"
 
 # Pluginlist
 plugins=(git gitignore tmuxinator colored-man mosh)
+# plugins=(git rails textmate ruby osx bundler brew github gem node npm rvm rails3 svn)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -42,12 +43,14 @@ alias lls="ls -la | grep ^l"
 
 if [[ `uname` == 'Darwin' ]]; then
   # MacOS
-  export PATH="${HOME}/.gem/ruby/2.2.1/bin:${HOME}/.rubies/ruby-2.2.1/lib/ruby/gems/2.2.0/bin:${HOME}/.rubies/ruby-2.2.1/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/coolTools:/opt/itnl:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/usr/texbin:/usr/local/sbin:/usr/X11/bin:/opt/coolTools:/opt/itnl"
+  export PATH="${HOME}/.gem/ruby/2.2.1/bin:${HOME}/.rubies/ruby-2.2.1/lib/ruby/gems/2.2.0/bin:${HOME}/.rubies/ruby-2.2.1/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/coolTools:/opt/itnl:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/usr/texbin:/usr/local/sbin:/usr/X11/bin:/opt/coolTools:/opt/itnl:$PATH"
    
   # Ruby
     source /usr/local/share/chruby/chruby.sh
-    # source /usr/local/opt/chruby/share/chruby/chruby.sh
-    # source /usr/local/share/chruby/auto.sh
+    source /usr/local/share/chruby/auto.sh
+    chruby ruby-2.1.6
+
+    screenfetch
 
     # ixon
     alias vim="stty stop '' -ixoff ; vim"
