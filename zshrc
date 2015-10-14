@@ -48,7 +48,7 @@ if [[ `uname` == 'Darwin' ]]; then
   # Ruby
     source /usr/local/share/chruby/chruby.sh
     source /usr/local/share/chruby/auto.sh
-    chruby ruby-2.1.6
+    chruby ruby-2.1.7
 
     screenfetch
 
