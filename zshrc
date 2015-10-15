@@ -13,7 +13,7 @@ plugins=(git gitignore tmuxinator colored-man mosh)
 # plugins=(git rails textmate ruby osx bundler brew github gem node npm rvm rails3 svn)
 
 source $ZSH/oh-my-zsh.sh
-
+prompt_context () { }
 #--------
 # History
 #--------
@@ -49,6 +49,8 @@ if [[ `uname` == 'Darwin' ]]; then
     source /usr/local/share/chruby/chruby.sh
     source /usr/local/share/chruby/auto.sh
     chruby ruby-2.1.7
+
+    # . $HOME/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
 
     screenfetch
 
