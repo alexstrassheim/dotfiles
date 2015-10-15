@@ -62,7 +62,12 @@ else
     # Ruby
     PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
     source /usr/share/chruby/chruby.sh
-    # source /usr/share/chruby/auto.sh
+    source /usr/share/chruby/auto.sh
+    chruby ruby-2.1.7
+
+    # . /usr/share/zsh/site-contrib/powerline.zsh
+
+
 
     # script path
     [[ -d "${HOME}/.bin" ]] && export PATH="${HOME}/.bin:${PATH}"

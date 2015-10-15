@@ -3,9 +3,11 @@ URxvt.scrollBar: false
 URxvt.highlightSelection: true
 URxvt.loginShell: true
 URxvt.termName: rxvt-256color
-URxvt.letterSpace: -1
-URxvt.font: xft:DejaVu Sans Mono:pixelsize=16
-URxvt.boldFont: xft:DejaVu Sans Mono:style=bold:pixelsize=16
+! URxvt.letterSpace: -1
+! URxvt.font: xft:DejaVu Sans Mono:pixelsize=16
+! URxvt.boldFont: xft:DejaVu Sans Mono:style=bold:pixelsize=16
+! URxvt*font: xft:Terminess Powerline:size=10
+URxvt*font: xft:DejaVu Sans Mono for Powerline:size=12
 URxvt.cursorColor: white
 URxvt.underlineColor: white
 URxvt.mapAlert: true
@@ -41,6 +43,6 @@ Xft.antialias: true
 Xft.rgba: rgb
 Xft.hinting: true
 
-*background: #222222
-*foreground: #EEEEEE
+Urxvt*background: #222222
+Urxvt*foreground: #EEEEEE
 
