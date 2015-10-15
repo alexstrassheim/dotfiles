@@ -7,7 +7,7 @@ URxvt.termName: rxvt-256color
 ! URxvt.font: xft:DejaVu Sans Mono:pixelsize=16
 ! URxvt.boldFont: xft:DejaVu Sans Mono:style=bold:pixelsize=16
 ! URxvt*font: xft:Terminess Powerline:size=10
-URxvt*font: xft:DejaVu Sans Mono for Powerline:size=12
+URxvt*font: xft:DejaVu Sans Mono for Powerline:size=11
 URxvt.cursorColor: white
 URxvt.underlineColor: white
 URxvt.mapAlert: true

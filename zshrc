@@ -67,7 +67,10 @@ else
 
     # . /usr/share/zsh/site-contrib/powerline.zsh
 
-
+    if [ -n "$DESKTOP_SESSION" ];then
+        eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+        export SSH_AUTH_SOCK
+    fi
 
     # script path
     [[ -d "${HOME}/.bin" ]] && export PATH="${HOME}/.bin:${PATH}"
