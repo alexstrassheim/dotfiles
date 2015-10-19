@@ -13,7 +13,7 @@ plugins=(git gitignore tmuxinator colored-man mosh)
 # plugins=(git rails textmate ruby osx bundler brew github gem node npm rvm rails3 svn)
 
 source $ZSH/oh-my-zsh.sh
-prompt_context () { }
+
 #--------
 # History
 #--------
@@ -77,3 +77,4 @@ else
     screenfetch
 fi
 
+prompt_context () { }
