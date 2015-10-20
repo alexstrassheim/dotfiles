@@ -30,6 +30,7 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'kelwin/vim-smali'
 " Plugin 'oblitum/YouCompleteMe'
 " Plugin 'bling/vim-airline'
+Plugin 'Chiel92/vim-autoformat'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
