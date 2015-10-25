@@ -1,4 +1,4 @@
-URxvt.saveLines: 10000
+URxvt.saveLines: 100000
 URxvt.scrollBar: false
 URxvt.highlightSelection: true
 URxvt.loginShell: true
@@ -22,12 +22,12 @@ URxvt.url-launcher:   /usr/bin/firefox
 URxvt.underlineURLs:  True
 URxvt.matcher.button: 1
 URxvt.keysym.M-Escape:perl:keyboard-select:activate
-URxvt.keysym.C-A-c:     perl:clipboard:copy
-URxvt.keysym.C-A-v:     perl:clipboard:paste
-URxvt.keysym.M-s: perl:keyboard-select:search
-URxvt.keysym.M-C-v:   perl:clipboard:paste_escaped
-!URxvt.copyCommand:   xsel -ib
-!URxvt.pasteCommand:  xsel -ob
+! URxvt.keysym.C-A-c:     perl:clipboard:copy
+! URxvt.keysym.C-A-v:     perl:clipboard:paste
+! URxvt.keysym.M-s: perl:keyboard-select:search
+! URxvt.keysym.M-C-v:   perl:clipboard:paste_escaped
+URxvt.copyCommand:   xsel -ib
+URxvt.pasteCommand:  xsel -ob
 ! URxvt.clipboard.autocopy: false
 
 URxvt.keysym.Control-Left:    \033[1;5D
