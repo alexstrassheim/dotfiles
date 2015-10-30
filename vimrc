@@ -149,8 +149,8 @@ nmap <silent> <F6> :call ToggleSpell()<CR>
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetsDir='~/.vim/my-snippets/'
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "my-snippets"]
+let g:UltiSnipsSnippetsDir='~/.vim/mysnippet'
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippet"]
 
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
@@ -169,3 +169,11 @@ let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1 
 
 
+" allows cursor change in tmux mode
+if exists('$TMUX')
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
