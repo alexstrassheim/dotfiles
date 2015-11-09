@@ -24,12 +24,10 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'rking/ag.vim'
-" Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'ap/vim-css-color'
 Plugin 'tpope/vim-dispatch'
 Plugin 'kelwin/vim-smali'
-" Plugin 'oblitum/YouCompleteMe'
-" Plugin 'bling/vim-airline'
 Plugin 'Chiel92/vim-autoformat'
 
 " All of your Plugins must be added before the following line
@@ -65,6 +63,7 @@ set wildmode=list:longest,full
 set cm=blowfish2
 runtime macros/matchit.vim        " use % to jump between start/end of methods
 
+set autoread
 set backspace=2
 set pastetoggle=<F2>
 
@@ -83,6 +82,14 @@ endif
 let mapleader="\<space>"
 nnoremap <leader>rv :source $MYVIMRC<CR>
 
+" turn off search highlight
+nnoremap <leader><leader> :nohlsearch<CR>
+
+" open ag.vim
+nnoremap <leader>a :Ag
+
+" jump to topic
+nnoremap <leader>s <C-]>
 " split navigation
 nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
@@ -100,6 +107,8 @@ nnoremap k gk
 " latex filetype
 let g:tex_flavor = "latex"
 autocmd FileType tex setlocal textwidth=80
+
+au BufNewFile,BufRead *.xm set filetype=objc
 
 " resize
 nnoremap <silent> <Leader>j :exe "resize " . (winheight(0) * 3/2)<CR>
@@ -158,22 +167,14 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsListSnippets="<c-h>"
 
 " " youcompleteme
-" let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_key_invoke_completion = '<C-b>'
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
-let g:ycm_complete_in_comments = 1 
-let g:ycm_seed_identifiers_with_syntax = 1 
-let g:ycm_collect_identifiers_from_comments_and_strings = 1 
+let g:ycm_complete_in_comments = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
 
-" allows cursor change in tmux mode
-if exists('$TMUX')
-    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-else
-    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-endif

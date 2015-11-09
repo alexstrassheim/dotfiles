@@ -1,5 +1,5 @@
 
-URxvt.saveLines: 100000
+! URxvt.saveLines: 100000
 URxvt.scrollBar: false
 URxvt.highlightSelection: true
 URxvt.loginShell: true
