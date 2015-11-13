@@ -9,7 +9,6 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-Plugin 'chriskempson/base16-vim'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'scrooloose/nerdtree'
@@ -25,7 +24,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'rking/ag.vim'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'ap/vim-css-color'
+Plugin 'lilydjwg/colorizer'
 Plugin 'tpope/vim-dispatch'
 Plugin 'kelwin/vim-smali'
 Plugin 'Chiel92/vim-autoformat'
@@ -70,12 +69,21 @@ set pastetoggle=<F2>
 " set dark background and color scheme
 set t_Co=256
 set background=dark
-let base16colorspace=256  " Access colors present in 256 colorspace
-colorscheme base16-tomorrow
+" colorscheme harlequin
+" let base16colorspace=256  " Access colors present in 256 colorspace
+" colorscheme base16-tomorrow
+" set t_Co=256
+" set background=dark
+" colorscheme peachpuff
+" highlight Normal ctermbg=NONE
+" highlight nonText ctermbg=NONE
+colorscheme PaperColor
+
 
 " hint to keep lines short
 if exists('+colorcolumn')
   set colorcolumn=80
+  highlight ColorColumn ctermbg=4
 endif
 
 " Ctrl-Space for completions. Heck Yeah!

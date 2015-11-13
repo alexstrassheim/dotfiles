@@ -3,7 +3,6 @@ if [ `hostname` == "lex" ]; then
 else
     setxkbmap -layout de -option ctrl:nocaps
 fi
-xrdb -I$HOME ~/.Xresources
 nm-applet &
 source ~/.zshrc
 exec dbus-launch awesome
