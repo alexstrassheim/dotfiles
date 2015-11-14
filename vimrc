@@ -62,6 +62,9 @@ set clipboard=unnamed             " use the system clipboard
 set wildmenu                      " enable bash style tab completion
 set wildmode=list:longest,full
 set cm=blowfish2
+set noswapfile
+set undofile                      " Maintain undo history between sessions
+set undodir=~/.vim/undodir
 runtime macros/matchit.vim        " use % to jump between start/end of methods
 
 set autoread
