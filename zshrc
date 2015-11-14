@@ -13,7 +13,6 @@ plugins=(git gitignore tmuxinator colored-man mosh)
 # plugins=(git rails textmate ruby osx bundler brew github gem node npm rvm rails3 svn)
 
 source $ZSH/oh-my-zsh.sh
-
 #--------
 # History
 #--------
@@ -31,11 +30,6 @@ SAVEHIST=2100
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export EDITOR='vim'
-
-
-# Base16 Shell
-# BASE16_SHELL="$HOME/.config/base16-shell/base16-tomorrow.dark.sh"
-# [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 source ~/.zshrc_contents/private
 
@@ -73,15 +67,18 @@ else
     # script path
     [[ -d "${HOME}/.bin" ]] && export PATH="${HOME}/.bin:${PATH}"
 
-    eval `keychain --eval --quiet --nogui --confhost  id_rsa_rootserver`
+    eval `keychain --eval --quiet --nogui --confhost id_rsa`
     # eval $(gnome-keyring-daemon)
     # export SSH_AUTH_SOCK
 
+    if [[ $TERM == xterm-termite ]]; then
+        . /etc/profile.d/vte.sh
+        __vte_osc7
+    fi
 
     # ixon
     stty -ixon
     screenfetch
-    eval $(dircolors ~/.dircolors)
 fi
 
 prompt_context () { }

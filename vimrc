@@ -69,15 +69,7 @@ set pastetoggle=<F2>
 " set dark background and color scheme
 set t_Co=256
 set background=dark
-" colorscheme harlequin
-" let base16colorspace=256  " Access colors present in 256 colorspace
-" colorscheme base16-tomorrow
-" set t_Co=256
-" set background=dark
-" colorscheme peachpuff
-" highlight Normal ctermbg=NONE
-" highlight nonText ctermbg=NONE
-colorscheme PaperColor
+colorscheme skittles_berry
 
 
 " hint to keep lines short
