@@ -39,7 +39,7 @@ alias lls="ls -la | grep ^l"
 if [[ `uname` == 'Darwin' ]]; then
   # MacOS
   export PATH="${HOME}/.gem/ruby/2.2.1/bin:${HOME}/.rubies/ruby-2.2.1/lib/ruby/gems/2.2.0/bin:${HOME}/.rubies/ruby-2.2.1/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/coolTools:/opt/itnl:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/usr/texbin:/usr/local/sbin:/usr/X11/bin:/opt/coolTools:/opt/itnl:$PATH"
-   
+
   # Ruby
     source /usr/local/share/chruby/chruby.sh
     source /usr/local/share/chruby/auto.sh
@@ -48,6 +48,8 @@ if [[ `uname` == 'Darwin' ]]; then
     # . $HOME/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
 
     screenfetch
+
+    [[ -d "${HOME}/.bin" ]] && export PATH="${HOME}/.bin:${PATH}"
 
     # ixon
     alias vim="stty stop '' -ixoff ; vim"

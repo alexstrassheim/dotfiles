@@ -92,6 +92,7 @@ nnoremap <leader>a :Ag
 
 " jump to topic
 nnoremap <leader>s <C-]>
+
 " split navigation
 nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
@@ -136,7 +137,7 @@ function! ToggleNu()
 endfunction
 nmap <silent> <F3> :call ToggleNu()<CR>
 
-"switch spellcheck languages
+" switch spellcheck languages
 let g:myLangList=["nospell","de_de","en_us","de_de,en_us"]
 function! ToggleSpell()
     if !exists( "b:myLang" )
@@ -157,7 +158,6 @@ function! ToggleSpell()
 endfunction
 nmap <silent> <F6> :call ToggleSpell()<CR>
 
-
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetsDir='~/.vim/mysnippet'
@@ -168,7 +168,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsListSnippets="<c-h>"
 
-" " youcompleteme
+" youcompleteme
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_key_invoke_completion = '<C-b>'
