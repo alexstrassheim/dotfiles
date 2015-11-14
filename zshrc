@@ -45,8 +45,6 @@ if [[ `uname` == 'Darwin' ]]; then
     source /usr/local/share/chruby/auto.sh
     chruby ruby-2.1.7
 
-    # . $HOME/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
-
     screenfetch
 
     [[ -d "${HOME}/.bin" ]] && export PATH="${HOME}/.bin:${PATH}"
@@ -94,8 +92,6 @@ function ra {
     rm -f -- "$tempfile"
 }
 # This binds Ctrl-O to ranger-cd:
-# bindkey '^o' ranger-cd
 bindkey '^o' ra'^m'
-# bind '"\C-o":"ranger-cd\C-m"'
 
 prompt_context () { }
