@@ -29,6 +29,8 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'kelwin/vim-smali'
 Plugin 'Chiel92/vim-autoformat'
 
+Plugin 'EricR86/vim-firefox-autorefresh'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -176,5 +178,4 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_complete_in_comments = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
-
 
