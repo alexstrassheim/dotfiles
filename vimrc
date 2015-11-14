@@ -68,6 +68,7 @@ set autoread
 set backspace=2
 set pastetoggle=<F2>
 
+
 " set dark background and color scheme
 set t_Co=256
 set background=dark
@@ -106,6 +107,9 @@ inoremap <C-s> <ESC>:w<CR>
 " movement
 nnoremap j gj
 nnoremap k gk
+
+inoremap jk <Esc>
+
 
 " latex filetype
 let g:tex_flavor = "latex"
