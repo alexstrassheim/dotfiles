@@ -68,12 +68,10 @@ set autoread
 set backspace=2
 set pastetoggle=<F2>
 
-
 " set dark background and color scheme
 set t_Co=256
 set background=dark
 colorscheme skittles_berry
-
 
 " hint to keep lines short
 if exists('+colorcolumn')
@@ -108,8 +106,8 @@ inoremap <C-s> <ESC>:w<CR>
 nnoremap j gj
 nnoremap k gk
 
-inoremap jk <Esc>
-
+" remap ESC
+inoremap jk <ESC>
 
 " latex filetype
 let g:tex_flavor = "latex"
