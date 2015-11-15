@@ -90,10 +90,10 @@ nnoremap <leader>rv :source $MYVIMRC<CR>
 nnoremap <leader><leader> :nohlsearch<CR>
 
 " open ag.vim
-nnoremap <leader>a :Ag
+nnoremap <leader><leader>a :Ag
 
-" jump to topic
-nnoremap <leader>s <C-]>
+" jump to tag
+nnoremap t <C-]>
 
 " split navigation
 nnoremap <C-j> <C-w><C-j>
