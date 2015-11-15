@@ -76,9 +76,16 @@ set t_Co=256
 set background=dark
 colorscheme skittles_berry
 
+" vim help; search tags with special char
+setl iskeyword=!-~,^*,^\|,^\",192-255"
+
+" latex filetype
+let g:tex_flavor = "latex"
+autocmd FileType tex setlocal textwidth=80
+
 " hint to keep lines short
 if exists('+colorcolumn')
-  set colorcolumn=80
+  set colorcolumn=81
   highlight ColorColumn ctermbg=235
 endif
 
@@ -105,16 +112,13 @@ nnoremap <C-h> <C-w><C-h>
 noremap <C-s> <ESC>:w<CR>
 inoremap <C-s> <ESC>:w<CR>
 
+" remap ESC
+inoremap jk <ESC>
+cnoremap jk <ESC>
+
 " movement
 nnoremap j gj
 nnoremap k gk
-
-" remap ESC
-inoremap jk <ESC>
-
-" latex filetype
-let g:tex_flavor = "latex"
-autocmd FileType tex setlocal textwidth=80
 
 au BufNewFile,BufRead *.xm set filetype=objc
 
