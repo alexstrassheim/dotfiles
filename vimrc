@@ -76,7 +76,7 @@ colorscheme skittles_berry
 " hint to keep lines short
 if exists('+colorcolumn')
   set colorcolumn=80
-  highlight ColorColumn ctermbg=4
+  highlight ColorColumn ctermbg=235
 endif
 
 " Ctrl-Space for completions. Heck Yeah!
