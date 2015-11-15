@@ -45,8 +45,6 @@ if [[ `uname` == 'Darwin' ]]; then
     source /usr/local/share/chruby/auto.sh
     chruby ruby-2.1.7
 
-    screenfetch
-
     [[ -d "${HOME}/.bin" ]] && export PATH="${HOME}/.bin:${PATH}"
 
     # ixon
