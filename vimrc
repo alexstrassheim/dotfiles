@@ -146,7 +146,7 @@ function! ToggleNu()
         set norelativenumber
     endif
 endfunction
-nmap <silent> <F3> :call ToggleNu()<CR>
+nnoremap <silent> <F3> :call ToggleNu()<CR>
 
 " switch spellcheck languages
 let g:myLangList=["nospell","de_de","en_us","de_de,en_us"]
@@ -167,7 +167,7 @@ function! ToggleSpell()
         endif
     echo "spell checking language:" g:myLangList[b:myLang]
 endfunction
-nmap <silent> <F6> :call ToggleSpell()<CR>
+nnoremap <silent> <F6> :call ToggleSpell()<CR>
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
