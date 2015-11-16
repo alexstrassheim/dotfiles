@@ -30,6 +30,8 @@ Plugin 'kelwin/vim-smali'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'shawncplus/skittles_berry'
 Plugin 'EricR86/vim-firefox-autorefresh'
+Plugin 'ingo-library'
+Plugin 'AlignFromCursor'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
