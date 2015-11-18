@@ -65,7 +65,7 @@ else
     # script path
     [[ -d "${HOME}/.bin" ]] && export PATH="${HOME}/.bin:${PATH}"
 
-    eval `keychain --eval --quiet --nogui --confhost id_rsa_rootserver`
+    eval `keychain --eval --quiet --nogui --confhost`
     # eval $(gnome-keyring-daemon)
     # export SSH_AUTH_SOCK
 

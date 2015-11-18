@@ -32,6 +32,8 @@ Plugin 'shawncplus/skittles_berry'
 Plugin 'EricR86/vim-firefox-autorefresh'
 Plugin 'ingo-library'
 Plugin 'AlignFromCursor'
+Plugin 'tpope/vim-surround'
+Plugin 'majutsushi/tagbar'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -72,6 +74,8 @@ runtime macros/matchit.vim        " use % to jump between start/end of methods
 set autoread
 set backspace=2
 set pastetoggle=<F2>
+
+nmap <F4> :TagbarToggle<CR>
 
 " set dark background and color scheme
 set t_Co=256
