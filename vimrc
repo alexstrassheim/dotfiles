@@ -30,6 +30,7 @@ Plugin 'kelwin/vim-smali'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'shawncplus/skittles_berry'
 Plugin 'EricR86/vim-firefox-autorefresh'
+Plugin '4Evergreen4/vim-hardy'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
