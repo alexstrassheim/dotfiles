@@ -31,6 +31,10 @@ Plugin 'Chiel92/vim-autoformat'
 Plugin 'shawncplus/skittles_berry'
 Plugin 'EricR86/vim-firefox-autorefresh'
 Plugin '4Evergreen4/vim-hardy'
+Plugin 'ingo-library'
+Plugin 'AlignFromCursor'
+Plugin 'tpope/vim-surround'
+Plugin 'majutsushi/tagbar'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -72,14 +76,23 @@ set autoread
 set backspace=2
 set pastetoggle=<F2>
 
+nmap <F4> :TagbarToggle<CR>
+
 " set dark background and color scheme
 set t_Co=256
 set background=dark
 colorscheme skittles_berry
 
+" vim help; search tags with special char
+setl iskeyword=!-~,^*,^\|,^\",192-255"
+
+" latex filetype
+let g:tex_flavor = "latex"
+autocmd FileType tex setlocal textwidth=80
+
 " hint to keep lines short
 if exists('+colorcolumn')
-  set colorcolumn=80
+  set colorcolumn=81
   highlight ColorColumn ctermbg=235
 endif
 
@@ -106,16 +119,13 @@ nnoremap <C-h> <C-w><C-h>
 noremap <C-s> <ESC>:w<CR>
 inoremap <C-s> <ESC>:w<CR>
 
+" remap ESC
+inoremap jk <ESC>
+cnoremap jk <ESC>
+
 " movement
 nnoremap j gj
 nnoremap k gk
-
-" remap ESC
-inoremap jk <ESC>
-
-" latex filetype
-let g:tex_flavor = "latex"
-autocmd FileType tex setlocal textwidth=80
 
 au BufNewFile,BufRead *.xm set filetype=objc
 
@@ -141,7 +151,7 @@ function! ToggleNu()
         set norelativenumber
     endif
 endfunction
-nmap <silent> <F3> :call ToggleNu()<CR>
+nnoremap <silent> <F3> :call ToggleNu()<CR>
 
 " switch spellcheck languages
 let g:myLangList=["nospell","de_de","en_us","de_de,en_us"]
@@ -162,7 +172,7 @@ function! ToggleSpell()
         endif
     echo "spell checking language:" g:myLangList[b:myLang]
 endfunction
-nmap <silent> <F6> :call ToggleSpell()<CR>
+nnoremap <silent> <F6> :call ToggleSpell()<CR>
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
