@@ -65,14 +65,17 @@ else
     # script path
     [[ -d "${HOME}/.bin" ]] && export PATH="${HOME}/.bin:${PATH}"
 
-    eval `keychain --eval --quiet --nogui --confhost`
+    eval `keychain --eval --quiet --nogui --confhost id_rsa`
     # eval $(gnome-keyring-daemon)
     # export SSH_AUTH_SOCK
 
-    if [[ $TERM == xterm-termite ]]; then
-        . /etc/profile.d/vte.sh
-        __vte_osc7
-    fi
+    # if [[ $TERM == xterm-termite ]]; then
+    #     . /etc/profile.d/vte.sh
+    #     __vte_osc7
+    # fi
+    export TERM=screen-256color
+    # export TERM=xterm-256color
+    # export TERM=xterm-termite
 
     # ixon
     stty -ixon
