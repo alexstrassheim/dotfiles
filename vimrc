@@ -23,18 +23,25 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'rking/ag.vim'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'lilydjwg/colorizer'
 Plugin 'tpope/vim-dispatch'
 Plugin 'kelwin/vim-smali'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'shawncplus/skittles_berry'
 Plugin 'EricR86/vim-firefox-autorefresh'
-Plugin '4Evergreen4/vim-hardy'
+" Plugin '4Evergreen4/vim-hardy'
 Plugin 'ingo-library'
 Plugin 'AlignFromCursor'
 Plugin 'tpope/vim-surround'
 Plugin 'majutsushi/tagbar'
+Plugin 'jellybeans.vim'
+Plugin 'vim-scripts/Arduino-syntax-file'
+" Themes
+Plugin 'mhartington/oceanic-next'
+Plugin 'marcopaganini/termschool-vim-theme'
+Plugin 'altercation/vim-colors-solarized'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -78,10 +85,11 @@ set pastetoggle=<F2>
 
 nmap <F4> :TagbarToggle<CR>
 
-" set dark background and color scheme
-set t_Co=256
+" Theme
+" syntax disable
 set background=dark
-colorscheme skittles_berry
+" let g:solarized_termcolors=256
+" colorscheme solarized
 
 " vim help; search tags with special char
 setl iskeyword=!-~,^*,^\|,^\",192-255"
@@ -174,6 +182,7 @@ function! ToggleSpell()
 endfunction
 nnoremap <silent> <F6> :call ToggleSpell()<CR>
 
+
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetsDir='~/.vim/mysnippet'
@@ -185,13 +194,22 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsListSnippets="<c-h>"
 
 " youcompleteme
-let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_key_invoke_completion = '<C-b>'
-let g:ycm_autoclose_preview_window_after_completion = 1
+" let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+" let g:ycm_confirm_extra_conf = 0
+" let g:ycm_key_invoke_completion = '<C-b>'
+" let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
-let g:ycm_complete_in_comments = 1
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
+" let g:ycm_complete_in_comments = 1
+" let g:ycm_seed_identifiers_with_syntax = 1
+" let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
