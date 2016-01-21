@@ -67,7 +67,7 @@ else
     [[ -d "${HOME}/.bin" ]] && export PATH="${HOME}/.bin:${PATH}"
 
     # keychain
-    eval `keychain --eval --quiet --nogui --confhost id_rsa`
+    eval `keychain --eval --quiet --nogui --agents ssh --confhost id_rsa`
 
     # ixon
     stty -ixon
