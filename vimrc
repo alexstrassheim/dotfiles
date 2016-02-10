@@ -25,7 +25,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-fugitive'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-" Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 " Plugin '4Evergreen4/vim-hardy'
 Plugin 'lilydjwg/colorizer'
 Plugin 'kelwin/vim-smali'
@@ -71,7 +71,7 @@ set nofoldenable                  " disable code folding
 set clipboard=unnamed             " use the system clipboard
 set wildmenu                      " enable bash style tab completion
 set wildmode=list:longest,full
-set cm=blowfish2
+" set cm=blowfish2
 set noswapfile
 set undofile                      " Maintain undo history between sessions
 set undodir=~/.vim/undodir

@@ -42,11 +42,13 @@ if [[ `uname` == 'Darwin' ]]; then
   export PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/texbin:/usr/local/bin:/usr/local/sbin:/usr/local/MacGPG2/bin:/opt/X11/bin:/opt/coolTools:/opt/itnl:${HOME}/.gem/ruby/2.2.1/bin:${HOME}/.rubies/ruby-2.2.1/lib/ruby/gems/2.2.0/bin:${HOME}/.rubies/ruby-2.2.1/bin:$PATH"
 
   # Ruby
-    source /usr/local/share/chruby/chruby.sh
-    source /usr/local/share/chruby/auto.sh
-    chruby ruby-2.1.7
+    # source /usr/local/share/chruby/chruby.sh
+    # source /usr/local/share/chruby/auto.sh
+    # chruby ruby-2.1.7
 
     [[ -d "${HOME}/.bin" ]] && export PATH="${HOME}/.bin:${PATH}"
+
+    export PATH="/usr/local/bin/:$PATH"
 
     # ixon
     alias vim="stty stop '' -ixoff ; vim"
