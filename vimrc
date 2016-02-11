@@ -224,5 +224,4 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 " let g:syntastic_check_on_open = 1
 " let g:syntastic_check_on_wq = 0
 
-" Autoformat
-let g:autoformat_autoindent = 0
+:au BufWritePost * make
