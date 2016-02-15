@@ -31,7 +31,7 @@ export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export EDITOR='vim'
 
-# source ~/.zshrc_contents/private
+source ~/.zshrc_contents/private
 
 # list all symbolic links in current directory
 alias lls="ls -la | grep ^l"
@@ -58,17 +58,16 @@ else
     export TERM=xterm-256color
 
     # Ruby
-    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
-    source /usr/share/chruby/chruby.sh
-    source /usr/share/chruby/auto.sh
-    chruby ruby-2.1.3
+    # PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+
+    # source /usr/share/chruby/chruby.sh
+    # source /usr/share/chruby/auto.sh
+    # chruby ruby-2.1.3
 
     # script path
     [[ -d "${HOME}/.bin" ]] && export PATH="${HOME}/.bin:${PATH}"
 
-    # keychain
-    eval `keychain --eval --quiet --nogui --agents ssh --confhost id_rsa`
-
+    
     # ixon
     stty -ixon
     screenfetch
