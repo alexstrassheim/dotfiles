@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=${HOME}/.oh-my-zsh
-ZSH_THEME="gentoo"
+ZSH_THEME="candy"
 
 # Uncomment the following line to disable auto-setting terminal title.
 DISABLE_AUTO_TITLE="true"
@@ -63,10 +63,10 @@ else
     # PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
     source /usr/share/chruby/chruby.sh
     # source /usr/share/chruby/auto.sh
-    # chruby ruby-2.1.3
+    chruby ruby-2.3.0
 
     # script path
-    [[ -d "${HOME}/.bin" ]] && export PATH="${HOME}/.bin:${PATH}"
+    [[ -d "${HOME}/.local/bin" ]] && export PATH="${HOME}/.local/bin:${PATH}"
 
     # keychain
     eval `keychain --eval --quiet --nogui --agents ssh --confhost id_rsa`
