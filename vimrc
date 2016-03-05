@@ -17,7 +17,6 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-surround'
 Plugin 'a0lex/Theosvi'
 Plugin 'Raimondi/delimitMate'
 Plugin 'terryma/vim-multiple-cursors'
@@ -29,13 +28,17 @@ Plugin 'Valloric/YouCompleteMe'
 " Plugin '4Evergreen4/vim-hardy'
 Plugin 'lilydjwg/colorizer'
 Plugin 'kelwin/vim-smali'
-Plugin 'vim-scripts/Arduino-syntax-file'
-Plugin 'majutsushi/tagbar'
 Plugin 'Chiel92/vim-autoformat'
+Plugin 'shawncplus/skittles_berry'
+Plugin 'EricR86/vim-firefox-autorefresh'
+" Plugin '4Evergreen4/vim-hardy'
 Plugin 'ingo-library'
 Plugin 'AlignFromCursor'
+Plugin 'tpope/vim-surround'
+Plugin 'majutsushi/tagbar'
 Plugin 'jellybeans.vim'
 Plugin 'dahu/VimRegexTutor'
+Plugin 'vim-scripts/Arduino-syntax-file'
 " Themes
 Plugin 'mhartington/oceanic-next'
 Plugin 'marcopaganini/termschool-vim-theme'
@@ -72,7 +75,7 @@ set nofoldenable                  " disable code folding
 set clipboard=unnamed             " use the system clipboard
 set wildmenu                      " enable bash style tab completion
 set wildmode=list:longest,full
-" set cm=blowfish2
+set cm=blowfish2
 set noswapfile
 set undofile                      " Maintain undo history between sessions
 set undodir=~/.vim/undodir
@@ -83,8 +86,6 @@ set backspace=2
 set pastetoggle=<F2>
 
 nmap <F4> :TagbarToggle<CR>
-
-au BufNewFile,BufRead *.xm set filetype=objc
 
 " Theme
 " syntax disable
@@ -98,18 +99,6 @@ setl iskeyword=!-~,^*,^\|,^\",192-255"
 " latex filetype
 let g:tex_flavor = "latex"
 autocmd FileType tex setlocal textwidth=80
-
-set cindent
-autocmd FileType python setlocal foldmethod=indent smartindent shiftwidth=4 ts=4 et cinwords=if,elif,else,for,while,try,except,finally,def,class
-filetype plugin indent on
-
-augroup vimrc_autocmds
-    autocmd!
-    " highlight characters past column 90
-    autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Black
-    autocmd FileType python match Excess /\%90v.*/
-    autocmd FileType python set nowrap
-    augroup END
 
 " hint to keep lines short
 if exists('+colorcolumn')
@@ -147,6 +136,8 @@ cnoremap jk <ESC>
 " movement
 nnoremap j gj
 nnoremap k gk
+
+au BufNewFile,BufRead *.xm set filetype=objc
 
 " resize
 nnoremap <silent> <Leader>j :exe "resize " . (winheight(0) * 3/2)<CR>
@@ -216,12 +207,12 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 " let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
 " syntastic
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
 
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
