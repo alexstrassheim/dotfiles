@@ -39,7 +39,7 @@ alias lls="ls -la | grep ^l"
 # OS specific
 if [[ `uname` == 'Darwin' ]]; then
   # MacOS
-  export PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/texbin:/usr/local/bin:/usr/local/sbin:/usr/local/MacGPG2/bin:/opt/X11/bin:/opt/coolTools:/opt/itnl:${HOME}/.gem/ruby/2.2.1/bin:${HOME}/.rubies/ruby-2.2.1/lib/ruby/gems/2.2.0/bin:${HOME}/.rubies/ruby-2.2.1/bin:$PATH"
+  export PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/texbin:/usr/local/bin:/usr/local/sbin:/usr/local/MacGPG2/bin:/opt/X11/bin:/opt/coolTools:/opt/itnl:${HOME}/.gem/ruby/2.2.1/bin:${HOME}/.rubies/ruby-2.2.1/lib/ruby/gems/2.2.0/bin:${HOME}/.rubies/ruby-2.2.1/bin:/usr/local/bin/:$PATH"
 
   # Ruby
     # source /usr/local/share/chruby/chruby.sh
@@ -87,4 +87,4 @@ function ra {
 }
 # This binds Ctrl-O to ranger-cd:
 bindkey '^o' ra'^m'
-
+export HOMEBREW_GITHUB_API_TOKEN=cca8da92e63fe638d16ba03e4f479231b18b4e88
