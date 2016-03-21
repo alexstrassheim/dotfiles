@@ -1,7 +1,7 @@
 if [ `hostname` == "lex" ]; then
-    setxkbmap -layout de -variant mac -option ctrl:nocaps
+    setxkbmap -layout us_intl -variant mac -option ctrl:nocaps
 else
-    setxkbmap -layout de -option ctrl:nocaps
+    setxkbmap -layout us -variant altgr-intl -option ctrl:nocaps
 fi
 nm-applet &
 source ~/.zshrc
