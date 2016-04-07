@@ -50,6 +50,7 @@ alias lls="ls -la | grep ^l"
 # OS specific
 # -----------
 if [[ `uname` == 'Darwin' ]]; then
+
     # MacOS
     export PATH="/bin:\
                  /sbin:\
@@ -119,4 +120,3 @@ function ra {
 }
 # This binds Ctrl-O to ranger-cd:
 bindkey '^o' ra'^m'
-
