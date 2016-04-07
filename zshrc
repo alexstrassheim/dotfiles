@@ -84,6 +84,11 @@ else
 
     export TERM=xterm-256color
 
+    # Theos
+    export PATH="/opt/iOS/cctools/:$PATH"
+    export THEOS=/opt/theos
+    export THEOS_DEVICE_IP=localhost THEOS_DEVICE_PORT=2222
+
     # Ruby
     source /usr/share/chruby/chruby.sh
     # source /usr/share/chruby/auto.sh

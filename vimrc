@@ -20,18 +20,16 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'a0lex/Theosvi'
 Plugin 'Raimondi/delimitMate'
 Plugin 'terryma/vim-multiple-cursors'
-" Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'Valloric/YouCompleteMe'
-" Plugin '4Evergreen4/vim-hardy'
 Plugin 'lilydjwg/colorizer'
 Plugin 'kelwin/vim-smali'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'shawncplus/skittles_berry'
 Plugin 'EricR86/vim-firefox-autorefresh'
-" Plugin '4Evergreen4/vim-hardy'
 Plugin 'ingo-library'
 Plugin 'AlignFromCursor'
 Plugin 'tpope/vim-surround'
@@ -117,7 +115,7 @@ nnoremap <leader><leader> :nohlsearch<CR>
 nnoremap <leader><leader>a :Ag
 
 " jump to tag
-nnoremap t <C-]>
+" nnoremap t <C-]>
 
 " split navigation
 nnoremap <C-j> <C-w><C-j>
@@ -189,7 +187,6 @@ nnoremap <silent> <F6> :call ToggleSpell()<CR>
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetsDir='~/.vim/mysnippet'
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippet"]
-
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
@@ -201,17 +198,14 @@ let g:ycm_confirm_extra_conf = 0
 let g:ycm_key_invoke_completion = '<C-b>'
 " let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
-
 " let g:ycm_complete_in_comments = 1
 " let g:ycm_seed_identifiers_with_syntax = 1
 " let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
 " syntastic
-
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
