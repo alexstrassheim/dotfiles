@@ -51,39 +51,31 @@ alias lls="ls -la | grep ^l"
 # -----------
 if [[ `uname` == 'Darwin' ]]; then
 
-    # MacOS
-    export PATH="/bin:\
-                 /sbin:\
-                 /usr/bin:\
-                 /usr/sbin:\
-                 /usr/texbin:\
-                 /usr/local/bin:\
-                 /usr/local/sbin:\
-                 /usr/local/MacGPG2/bin:\
-                 /opt/X11/bin:\
-                 /opt/coolTools:\
-                 /opt/itnl:\
-                 ${HOME}/.gem/ruby/2.2.1/bin:\
-                 ${HOME}/.rubies/ruby-2.2.1/lib/ruby/gems/2.2.0/bin:\
-                 ${HOME}/.rubies/ruby-2.2.1/bin:$PATH"
+    # # MacOS
+    # export PATH="/bin:\
+    #              /sbin:\
+    #              /usr/bin:\
+    #              /usr/sbin:\
+    #              /usr/texbin:\
+    #              /usr/local/bin:\
+    #              /usr/local/sbin:\
+    #              /usr/local/MacGPG2/bin:\
+    #              /opt/X11/bin:\
+    #              /opt/coolTools:\
+    #              /opt/itnl:\
+    #              ${HOME}/.gem/ruby/2.2.1/bin:\
+    #              ${HOME}/.rubies/ruby-2.2.1/lib/ruby/gems/2.2.0/bin:\
+    #              ${HOME}/.rubies/ruby-2.2.1/bin:$PATH"
 
-    # Ruby
+     # Ruby
     source /usr/local/share/chruby/chruby.sh
 
-    # ixon
+     # ixon
     alias vim="stty stop '' -ixoff ; vim"
 
 else
-  # Linux
-    export PATH="/usr/local/sbin:\
-                 /usr/local/bin:\
-                 /usr/bin:\
-                 /usr/lib/jvm/default/bin:\
-                 /usr/bin/site_perl:\
-                 /usr/bin/vendor_perl:\
-                 /usr/bin/core_perl:$PATH"
-
-    export TERM=xterm-256color
+   # Linux
+     export TERM=xterm-256color
 
     # Theos
     export PATH="/opt/iOS/cctools/:$PATH"
@@ -99,11 +91,12 @@ else
     [[ -d "${HOME}/.local/bin" ]] && export PATH="${HOME}/.local/bin:${PATH}"
 
     # keychain
-    eval `keychain --eval --quiet --nogui --agents ssh --confhost id_rsa`
+    # eval 'keychain --eval --quiet --nogui --agents ssh --confhost id_rsa'
+    eval `keychain --eval --quiet --nogui --agents ssh`
 
-    # ixon
-    stty -ixon
-    screenfetch
+     # ixon
+     stty -ixon
+     screenfetch
 fi
 
 # ------

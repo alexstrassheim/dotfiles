@@ -1,4 +1,4 @@
-"hg7280
+"1.2pre
 
 loadplugins '\.(js|penta)$'
 group user
@@ -10,6 +10,7 @@ map -count -modes=n,v k -builtin <count>8k
 map -count -modes=n,v l -builtin <count>8l
 map -count -modes=n,v zi -builtin <count>ZI
 map -count -modes=n,v zo -builtin <count>ZO
+map -modes=n,v gr -javascript let r = document.getElementById('reader-mode-button'); if (!r.hidden) r.click()
 set cdpath=''
 set hintkeys=asdfjkl
 set hlfind
