@@ -77,6 +77,8 @@ else
    # Linux
      export TERM=xterm-256color
 
+     export PATH="${HOME}/.local/bin:$PATH"
+
     # Theos
     export PATH="/opt/iOS/cctools/:$PATH"
     export THEOS=/opt/theos
@@ -92,7 +94,7 @@ else
 
     # keychain
     # eval 'keychain --eval --quiet --nogui --agents ssh --confhost id_rsa'
-    eval `keychain --eval --quiet --nogui --agents ssh`
+    eval $(keychain --eval --quiet id_rsa --confhost)
 
      # ixon
      stty -ixon

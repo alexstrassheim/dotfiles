@@ -24,7 +24,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-" Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'lilydjwg/colorizer'
 Plugin 'kelwin/vim-smali'
 Plugin 'Chiel92/vim-autoformat'
@@ -194,19 +194,24 @@ let g:UltiSnipsListSnippets="<c-h>"
 
 " youcompleteme
 " let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
-let g:ycm_confirm_extra_conf = 0
+" let g:ycm_confirm_extra_conf = 0
 let g:ycm_key_invoke_completion = '<C-b>'
+let g:ycm_min_num_of_chars_for_completion = 0
+let g:ycm_auto_trigger = 1
 " let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
+" let g:ycm_autoclose_preview_window_after_insertion = 1
 " let g:ycm_complete_in_comments = 1
 " let g:ycm_seed_identifiers_with_syntax = 1
 " let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
+" omnifunc
+set omnifunc=syntaxcomplete#Complete
+
 " syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
