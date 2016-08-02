@@ -6,4 +6,5 @@ fi
 nm-applet &
 xinput set-prop 14 "Device Enabled" 0
 source ~/.zshrc
-exec dbus-launch awesome
+nm-applet &
+exec awesome

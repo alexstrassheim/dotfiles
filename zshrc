@@ -112,4 +112,3 @@ function ra {
 }
 # This binds Ctrl-O to ranger-cd:
 bindkey '^o' ra'^m'
-
