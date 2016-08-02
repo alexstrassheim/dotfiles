@@ -9,39 +9,31 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
+Plugin 'chrisbra/SudoEdit.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'rking/ag.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'majutsushi/tagbar'
+Plugin 'godlygeek/tabular'
+Plugin 'tpope/vim-dispatch'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'scrooloose/nerdtree'
-Plugin 'chrisbra/SudoEdit.vim'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'rking/ag.vim'
-Plugin 'tpope/vim-dispatch'
-Plugin 'a0lex/Theosvi'
 Plugin 'Raimondi/delimitMate'
 Plugin 'terryma/vim-multiple-cursors'
-" Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-Plugin 'Valloric/YouCompleteMe'
-" Plugin '4Evergreen4/vim-hardy'
 Plugin 'lilydjwg/colorizer'
 Plugin 'kelwin/vim-smali'
 Plugin 'Chiel92/vim-autoformat'
-Plugin 'shawncplus/skittles_berry'
-Plugin 'EricR86/vim-firefox-autorefresh'
-" Plugin '4Evergreen4/vim-hardy'
+Plugin 'a0lex/Theosvi'
 Plugin 'ingo-library'
 Plugin 'AlignFromCursor'
-Plugin 'tpope/vim-surround'
-Plugin 'majutsushi/tagbar'
-Plugin 'jellybeans.vim'
-Plugin 'vim-scripts/Arduino-syntax-file'
-" Themes
-Plugin 'mhartington/oceanic-next'
-Plugin 'marcopaganini/termschool-vim-theme'
-Plugin 'altercation/vim-colors-solarized'
+
 
 
 " All of your Plugins must be added before the following line
@@ -97,12 +89,15 @@ setl iskeyword=!-~,^*,^\|,^\",192-255"
 
 " latex filetype
 let g:tex_flavor = "latex"
-autocmd FileType tex setlocal textwidth=80
+" autocmd FileType tex setlocal textwidth=70
+set textwidth=69
+autocmd FileType mail setlocal textwidth=69
 
 " hint to keep lines short
 if exists('+colorcolumn')
-  set colorcolumn=81
-  highlight ColorColumn ctermbg=235
+  set colorcolumn=70
+  " highlight ColorColumn ctermbg=235
+  highlight ColorColumn ctermbg=237
 endif
 
 " Ctrl-Space for completions. Heck Yeah!
@@ -116,7 +111,7 @@ nnoremap <leader><leader> :nohlsearch<CR>
 nnoremap <leader><leader>a :Ag
 
 " jump to tag
-nnoremap t <C-]>
+" nnoremap t <C-]>
 
 " split navigation
 nnoremap <C-j> <C-w><C-j>
@@ -136,6 +131,10 @@ cnoremap jk <ESC>
 nnoremap j gj
 nnoremap k gk
 
+" real TAB
+inoremap <S-Tab> <C-V><Tab>
+
+" FileType for  objc
 au BufNewFile,BufRead *.xm set filetype=objc
 
 " resize
@@ -183,33 +182,36 @@ function! ToggleSpell()
 endfunction
 nnoremap <silent> <F6> :call ToggleSpell()<CR>
 
+nnoremap <silent> <F5> :!open report.pdf<CR><CR>
 
-" If you want :UltiSnipsEdit to split your window.
+" UltiSnips
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetsDir='~/.vim/mysnippet'
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippet"]
-
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsListSnippets="<c-h>"
 
 " youcompleteme
-" let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
-" let g:ycm_confirm_extra_conf = 0
-" let g:ycm_key_invoke_completion = '<C-b>'
-" let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-
-" let g:ycm_complete_in_comments = 1
-" let g:ycm_seed_identifiers_with_syntax = 1
-" let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_key_invoke_completion = '<C-b>'
+let g:ycm_complete_in_comments = 1
+let g:ycm_filetype_blacklist = {
+      \ 'tagbar' : 1,
+      \ 'qf' : 1,
+      \ 'notes' : 1,
+      \ 'markdown' : 1,
+      \ 'unite' : 1,
+      \ 'text' : 1,
+      \ 'vimwiki' : 1,
+      \ 'pandoc' : 1,
+      \ 'infolog' : 1
+      \}
 
 " syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1

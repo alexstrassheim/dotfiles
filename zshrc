@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=${HOME}/.oh-my-zsh
-ZSH_THEME="gentoo"
+ZSH_THEME="candy"
 
 # Uncomment the following line to disable auto-setting terminal title.
 DISABLE_AUTO_TITLE="true"
@@ -12,6 +12,8 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git colored-man mosh)
 
 source $ZSH/oh-my-zsh.sh
+setopt cdablevars
+
 
 #--------
 # History
@@ -31,6 +33,8 @@ export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export EDITOR='vim'
 
+export TERM='screen-256color'
+
 # -------------
 # private stuff
 # -------------
@@ -40,11 +44,12 @@ source ~/.zshrc_contents/private
 # list all symbolic links in current directory
 # --------------------------------------------
 alias lls="ls -la | grep ^l"
+alias watch="watch -n 1 grep -e Dirty: -e  Writeback: /proc/meminfo"
 
 # ------------------
 # custom script path
 # ------------------
-[[ -d "${HOME}/.bin" ]] && export PATH="${HOME}/.bin:${PATH}"
+[[ -d "${HOME}/.local/bin" ]] && export PATH="${HOME}/.local/bin:${PATH}"
 
 # -----------
 # OS specific
@@ -82,10 +87,11 @@ else
                  /usr/bin/vendor_perl:\
                  /usr/bin/core_perl:$PATH"
 
-    export TERM=xterm-256color
 
     # Ruby
     source /usr/share/chruby/chruby.sh
+
+    source /usr/share/doc/pkgfile/command-not-found.zsh
 
     # ixon
     stty -ixon
