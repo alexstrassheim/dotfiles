@@ -9,7 +9,7 @@ DISABLE_AUTO_TITLE="true"
 COMPLETION_WAITING_DOTS="true"
 
 # Pluginlist
-plugins=(git colored-man mosh)
+plugins=(openssl git systemadmin colored-man mosh)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -17,12 +17,24 @@ source $ZSH/oh-my-zsh.sh
 # History
 #--------
 HISTFILE=~/.zhistory
-setopt APPEND_HISTORY
+# setopt APPEND_HISTORY
 HISTSIZE=10000
 SAVEHIST=10000
 # setopt HIST_EXPIRE_DUPS_FIRST
 # setopt EXTENDED_HISTORY
 # setopt SHARE_HISTORY
+
+#------------------
+# Cover your tracks
+#------------------
+# echo "" /var/log/auth.log
+# echo "" ~/.bash_history
+# rm ~/.bash_history -rf
+# history -c
+# export HISTFILESIZE=0
+# export HISTSIZE=0
+# unset HISTFILE
+# ln /dev/null ~/.bash_history -sf
 
 #---------
 # Language
@@ -30,6 +42,8 @@ SAVEHIST=10000
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export EDITOR='vim'
+
+export TERM=screen-256color
 
 # -------------
 # private stuff
@@ -75,13 +89,13 @@ if [[ `uname` == 'Darwin' ]]; then
 
 else
    # Linux
-     export TERM=xterm-256color
 
      export PATH="${HOME}/.local/bin:$PATH"
 
     # Theos
-    export PATH="/opt/iOS/cctools/:$PATH"
-    export THEOS=/opt/theos
+    export PATH="${HOME}/Pentesttools/theos/toolchain/linux/iphone/bin/:$PATH"
+    # export THEOS=/opt/theos
+    export THEOS=${HOME}/Pentesttools/theos
     export THEOS_DEVICE_IP=localhost THEOS_DEVICE_PORT=2222
 
     # Ruby
@@ -99,6 +113,8 @@ else
      # ixon
      stty -ixon
      screenfetch
+
+    source /usr/share/doc/pkgfile/command-not-found.zsh
 fi
 
 # ------

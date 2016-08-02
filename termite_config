@@ -1,10 +1,11 @@
 [options]
 scroll_on_output = false
 scroll_on_keystroke = true
-audible_bell = false
 mouse_autohide = true
 allow_bold = true
 dynamic_title = true
+audible_bell = false
+visible_bell = true
 urgent_on_bell = true
 clickable_url = true
 font = Monospace 12
@@ -35,9 +36,6 @@ fullscreen = false
 foreground = #ffffff
 foreground_bold = #ffffff
 background = #3f3f3f
-
-# 20% background transparency (requires a compositor)
-#background = rgba(63, 63, 63, 0.8)
 
 # if unset, will reverse foreground and background
 highlight = #2f2f2f

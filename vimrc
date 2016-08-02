@@ -9,38 +9,31 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
+Plugin 'chrisbra/SudoEdit.vim'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'scrooloose/nerdtree'
-Plugin 'chrisbra/SudoEdit.vim'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'rking/ag.vim'
-Plugin 'tpope/vim-dispatch'
-Plugin 'a0lex/Theosvi'
-Plugin 'Raimondi/delimitMate'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'scrooloose/syntastic'
-Plugin 'tpope/vim-fugitive'
+Plugin 'majutsushi/tagbar'
+Plugin 'tpope/vim-dispatch'                 " asynchronous build and test dispatcher
+Plugin 'Raimondi/delimitMate'               " automatic closing of quotes, parenthesis, brackets
+Plugin 'terryma/vim-multiple-cursors' "  True Sublime Text style multiple selections for Vim 
+Plugin 'scrooloose/syntastic'               " asynchronous build and test dispatcher
+Plugin 'tpope/vim-fugitive'                 " asynchronous build and test dispatcher
 Plugin 'SirVer/ultisnips'
+Plugin 'godlygeek/tabular'
 Plugin 'honza/vim-snippets'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'lilydjwg/colorizer'
-Plugin 'kelwin/vim-smali'
 Plugin 'Chiel92/vim-autoformat'
-Plugin 'shawncplus/skittles_berry'
-Plugin 'EricR86/vim-firefox-autorefresh'
 Plugin 'ingo-library'
+Plugin 'Align'
 Plugin 'AlignFromCursor'
 Plugin 'tpope/vim-surround'
-Plugin 'majutsushi/tagbar'
-Plugin 'jellybeans.vim'
-Plugin 'dahu/VimRegexTutor'
-Plugin 'vim-scripts/Arduino-syntax-file'
-" Themes
-Plugin 'mhartington/oceanic-next'
-Plugin 'marcopaganini/termschool-vim-theme'
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'a0lex/Theosvi'
+Plugin 'kelwin/vim-smali'
 
 
 " All of your Plugins must be added before the following line
@@ -50,7 +43,8 @@ filetype plugin indent on    " required
 
 set encoding=utf-8
 syntax on                         " show syntax highlighting
-set autoindent                    " set auto indent
+set background=dark
+set autoindent                  " set auto indent
 set ts=4                          " set indent to 2 spaces
 set shiftwidth=2
 set expandtab                     " use spaces, not tab characters
@@ -62,48 +56,37 @@ set hlsearch                      " highlight all search matches
 set cursorline                    " highlight current line
 set smartcase                     " pay attention to case when caps are used
 set incsearch                     " show search results as I type
-set mouse=a                       " enable mouse support
-set ttimeoutlen=100               " decrease timeout for faster insert with 'O'
-" set vb                            " enable visual bell (disable audio bell)
 set ruler                         " show row and column in footer
 set scrolloff=2                   " minimum lines above/below cursor
 set laststatus=2                  " always show status bar
-set list listchars=tab:»·,trail:· " show extra space characters
 set nofoldenable                  " disable code folding
-set clipboard=unnamed             " use the system clipboard
-set wildmenu                      " enable bash style tab completion
-set wildmode=list:longest,full
-set cm=blowfish2
 set noswapfile
 set undofile                      " Maintain undo history between sessions
 set undodir=~/.vim/undodir
-runtime macros/matchit.vim        " use % to jump between start/end of methods
-
 set autoread
 set backspace=2
 set pastetoggle=<F2>
-
-nmap <F4> :TagbarToggle<CR>
-
-" Theme
-" syntax disable
-set background=dark
-" let g:solarized_termcolors=256
-" colorscheme solarized
+" set list listchars=tab:»·,trail:· " show extra space characters
+" set mouse=a                       " enable mouse support
+" set ttimeoutlen=100               " decrease timeout for faster insert with 'O'
+" set vb                            " enable visual bell (disable audio bell)
+" set clipboard=unnamed             " use the system clipboard
+" set wildmenu                      " enable bash style tab completion
+" set wildmode=list:longest,full
+" set cm=blowfish2
 
 " vim help; search tags with special char
 setl iskeyword=!-~,^*,^\|,^\",192-255"
 
-" latex filetype
-let g:tex_flavor = "latex"
-autocmd FileType tex setlocal textwidth=80
+runtime macros/matchit.vim        " use % to jump between start/end of methods
 
-" hint to keep lines short
-if exists('+colorcolumn')
-  set colorcolumn=81
-  highlight ColorColumn ctermbg=235
-endif
-
+" maps
+nmap <F4> :TagbarToggle<CR>
+" resize
+nnoremap <silent> <Leader>j :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>k :exe "resize " . (winheight(0) * 2/3)<CR>
+nnoremap <silent> <Leader>h :exe "10winc < " <CR>
+nnoremap <silent> <Leader>l :exe "10winc > " <CR>
 " Ctrl-Space for completions. Heck Yeah!
 let mapleader="\<space>"
 nnoremap <leader>rv :source $MYVIMRC<CR>
@@ -135,13 +118,23 @@ cnoremap jk <ESC>
 nnoremap j gj
 nnoremap k gk
 
+" latex filetype
+let g:tex_flavor = "latex"
+autocmd FileType tex setlocal textwidth=80
+
+" hint to keep lines short
+if exists('+colorcolumn')
+  set colorcolumn=61
+  highlight ColorColumn ctermbg=235
+endif
+autocmd FileType mail setlocal colorcolumn=61
+autocmd FileType mail setlocal textwidth=60
+autocmd FileType snippets setlocal colorcolumn=61
+autocmd FileType snippets setlocal textwidth=60
+
+
 au BufNewFile,BufRead *.xm set filetype=objc
 
-" resize
-nnoremap <silent> <Leader>j :exe "resize " . (winheight(0) * 3/2)<CR>
-nnoremap <silent> <Leader>k :exe "resize " . (winheight(0) * 2/3)<CR>
-nnoremap <silent> <Leader>h :exe "10winc < " <CR>
-nnoremap <silent> <Leader>l :exe "10winc > " <CR>
 
 "toggel linenumber
 function! ToggleNu()
@@ -183,7 +176,17 @@ endfunction
 nnoremap <silent> <F6> :call ToggleSpell()<CR>
 
 
-" If you want :UltiSnipsEdit to split your window.
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" UltiSnips
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetsDir='~/.vim/mysnippet'
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippet"]
@@ -193,25 +196,15 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsListSnippets="<c-h>"
 
 " youcompleteme
-" let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
-" let g:ycm_confirm_extra_conf = 0
-let g:ycm_key_invoke_completion = '<C-b>'
-let g:ycm_min_num_of_chars_for_completion = 0
-let g:ycm_auto_trigger = 1
-" let g:ycm_autoclose_preview_window_after_completion = 1
-" let g:ycm_autoclose_preview_window_after_insertion = 1
-" let g:ycm_complete_in_comments = 1
-" let g:ycm_seed_identifiers_with_syntax = 1
-" let g:ycm_collect_identifiers_from_comments_and_strings = 1
-
-" omnifunc
-set omnifunc=syntaxcomplete#Complete
-
-" syntastic
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
+let g:ycm_complete_in_comments = 1
+let g:ycm_filetype_blacklist = {
+      \ 'tagbar' : 1,
+      \ 'qf' : 1,
+      \ 'notes' : 1,
+      \ 'markdown' : 1,
+      \ 'unite' : 1,
+      \ 'text' : 1,
+      \ 'vimwiki' : 1,
+      \ 'pandoc' : 1,
+      \ 'infolog' : 1
+      \}
