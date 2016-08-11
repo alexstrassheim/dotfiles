@@ -9,7 +9,7 @@ DISABLE_AUTO_TITLE="true"
 COMPLETION_WAITING_DOTS="true"
 
 # Pluginlist
-plugins=(openssl git systemadmin colored-man mosh)
+plugins=(nmap git colored-man mosh)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -43,7 +43,7 @@ export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export EDITOR='vim'
 
-export TERM=screen-256color
+export TERM=xterm-256color
 
 # -------------
 # private stuff
