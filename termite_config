@@ -1,10 +1,11 @@
 [options]
 scroll_on_output = false
 scroll_on_keystroke = true
-audible_bell = false
 mouse_autohide = true
 allow_bold = true
 dynamic_title = true
+audible_bell = false
+visible_bell = true
 urgent_on_bell = true
 clickable_url = true
 font = Monospace 15
@@ -31,60 +32,95 @@ browser = firefox
 fullscreen = false
 
 [colors]
-#cursor = #dcdccc
-foreground = #ffffff
-foreground_bold = #ffffff
-background = #3f3f3f
+# #cursor = #dcdccc
+# foreground = #ffffff
+# foreground_bold = #ffffff
+# background = #3f3f3f
+#
+# # if unset, will reverse foreground and background
+# highlight = #2f2f2f
+#
+# # colors from color0 to color254 can be set
+# # black gray
+# color0 = #3f3f3f
+# color8 = #dfdfdf
+#
+# # red
+# color1 = #dc322f
+# color9 = #dc5353
+#
+# # green
+# color2 = #0e9900
+# color10 = #66CD00
+#
+# # brown
+# color3 = #8e6b10
+# color11 = #c59500
+#
+# # blue
+# color4 = #0a73ce
+# color12 = #94bff3
+#
+# # purple
+# color5 = #dc8cc3
+# color13 = #ec93d3
+#
+# # cyan
+# color6 = #8cd0d3
+# color14 = #93e0e3
+#
+# # gray white
+# color7 = #ffffff
+# color15 = #ffffff
+#
+# [hints]
+# #font = Monospace 12
+# #foreground = #dcdccc
+# #background = #3f3f3f
+# #active_foreground = #e68080
+# #active_background = #3f3f3f
+# #padding = 2
+# #border = #3f3f3f
+# #border_width = 0.5
+# #roundness = 2.0
 
-# 20% background transparency (requires a compositor)
-#background = rgba(63, 63, 63, 0.8)
+# special
+foreground      = #c0b18b
+foreground_bold = #c0b18b
+cursor          = #c0b18b
+#background      = #1f1f1f
+background = rgba(31 ,31, 31, 0.85)
 
-# if unset, will reverse foreground and background
-highlight = #2f2f2f
-
-# colors from color0 to color254 can be set
-# black gray
-color0 = #3f3f3f
-color8 = #dfdfdf
+# black
+color0  = #4a3637
+color8  = #4a3637
 
 # red
-color1 = #dc322f
-color9 = #dc5353
+color1  = #d17b49
+color9  = #d17b49
 
 # green
-color2 = #0e9900
-color10 = #66CD00
+color2  = #7b8748
+color10 = #7b8748
 
-# brown
-color3 = #8e6b10
-color11 = #c59500
+# yellow
+color3  = #af865a
+color11 = #af865a
 
 # blue
-color4 = #0a73ce
-color12 = #94bff3
+color4  = #535c5c
+color12 = #535c5c
 
-# purple
-color5 = #dc8cc3
-color13 = #ec93d3
+# magenta
+color5  = #775759
+color13 = #775759
 
 # cyan
-color6 = #8cd0d3
-color14 = #93e0e3
+color6  = #6d715e
+color14 = #6d715e
 
-# gray white
-color7 = #ffffff
-color15 = #ffffff
-
-[hints]
-#font = Monospace 12
-#foreground = #dcdccc
-#background = #3f3f3f
-#active_foreground = #e68080
-#active_background = #3f3f3f
-#padding = 2
-#border = #3f3f3f
-#border_width = 0.5
-#roundness = 2.0
-
+# white
+color7  = #c0b18b
+color15 = #c0b18b
 
 # vim: ft=dosini cms=#%s

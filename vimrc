@@ -10,7 +10,6 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'chrisbra/SudoEdit.vim'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tomtom/tcomment_vim'
@@ -28,10 +27,10 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'lilydjwg/colorizer'
-Plugin 'kelwin/vim-smali'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'a0lex/Theosvi'
 Plugin 'ingo-library'
+Plugin 'Align'
 Plugin 'AlignFromCursor'
 
 
@@ -55,34 +54,24 @@ set hlsearch                      " highlight all search matches
 set cursorline                    " highlight current line
 set smartcase                     " pay attention to case when caps are used
 set incsearch                     " show search results as I type
-set mouse=a                       " enable mouse support
-set ttimeoutlen=100               " decrease timeout for faster insert with 'O'
-" set vb                            " enable visual bell (disable audio bell)
 set ruler                         " show row and column in footer
 set scrolloff=2                   " minimum lines above/below cursor
 set laststatus=2                  " always show status bar
-set list listchars=tab:»·,trail:· " show extra space characters
 set nofoldenable                  " disable code folding
-set clipboard=unnamed             " use the system clipboard
-set wildmenu                      " enable bash style tab completion
-set wildmode=list:longest,full
-set cm=blowfish2
 set noswapfile
 set undofile                      " Maintain undo history between sessions
 set undodir=~/.vim/undodir
-runtime macros/matchit.vim        " use % to jump between start/end of methods
-
 set autoread
 set backspace=2
 set pastetoggle=<F2>
-
-nmap <F4> :TagbarToggle<CR>
-
-" Theme
-" syntax disable
-set background=dark
-" let g:solarized_termcolors=256
-" colorscheme solarized
+" set list listchars=tab:»·,trail:· " show extra space characters
+" set mouse=a                       " enable mouse support
+" set ttimeoutlen=100               " decrease timeout for faster insert with 'O'
+" set vb                            " enable visual bell (disable audio bell)
+" set clipboard=unnamed             " use the system clipboard
+" set wildmenu                      " enable bash style tab completion
+" set wildmode=list:longest,full
+" set cm=blowfish2
 
 " vim help; search tags with special char
 setl iskeyword=!-~,^*,^\|,^\",192-255"
@@ -100,6 +89,13 @@ if exists('+colorcolumn')
   highlight ColorColumn ctermbg=237
 endif
 
+" maps
+nmap <F4> :TagbarToggle<CR>
+" resize
+nnoremap <silent> <Leader>j :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>k :exe "resize " . (winheight(0) * 2/3)<CR>
+nnoremap <silent> <Leader>h :exe "10winc < " <CR>
+nnoremap <silent> <Leader>l :exe "10winc > " <CR>
 " Ctrl-Space for completions. Heck Yeah!
 let mapleader="\<space>"
 nnoremap <leader>rv :source $MYVIMRC<CR>
@@ -137,11 +133,6 @@ inoremap <S-Tab> <C-V><Tab>
 " FileType for  objc
 au BufNewFile,BufRead *.xm set filetype=objc
 
-" resize
-nnoremap <silent> <Leader>j :exe "resize " . (winheight(0) * 3/2)<CR>
-nnoremap <silent> <Leader>k :exe "resize " . (winheight(0) * 2/3)<CR>
-nnoremap <silent> <Leader>h :exe "10winc < " <CR>
-nnoremap <silent> <Leader>l :exe "10winc > " <CR>
 
 "toggel linenumber
 function! ToggleNu()
@@ -216,3 +207,4 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
