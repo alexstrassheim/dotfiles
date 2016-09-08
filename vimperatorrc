@@ -1,0 +1,11 @@
+"3.14.0 (created: 2016/06/07 23:58:16)
+
+highlight Hint font-family: monospace; font-size: 10px; font-weight: bold; text-transform: uppercase; color: white; background-color: red; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 0px 1px 0px 1px; font-size: 160%;
+map zi zI
+map zo zO
+noremap j 6j
+noremap k 6k
+set hintchars=asdfjkl
+set gui=nonavigation
+
+" vim: set ft=vimperator:
