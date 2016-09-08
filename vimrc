@@ -9,38 +9,46 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
+
 Plugin 'chrisbra/SudoEdit.vim'
+
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'Lokaltog/vim-powerline'
-Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'scrooloose/nerdtree'
-Plugin 'tomtom/tcomment_vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'rking/ag.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'tpope/vim-dispatch'                 " asynchronous build and test dispatcher
-Plugin 'Raimondi/delimitMate'               " automatic closing of quotes, parenthesis, brackets
-Plugin 'terryma/vim-multiple-cursors' "  True Sublime Text style multiple selections for Vim 
-Plugin 'scrooloose/syntastic'               " asynchronous build and test dispatcher
-Plugin 'tpope/vim-fugitive'                 " asynchronous build and test dispatcher
+Plugin 'tomtom/tcomment_vim'
+
 Plugin 'SirVer/ultisnips'
-Plugin 'godlygeek/tabular'
 Plugin 'honza/vim-snippets'
+
+Plugin 'tpope/vim-dispatch'                    " asynchronous build and test dispatcher
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'Raimondi/delimitMate'                  " automatic closing of quotes, parenthesis, brackets
+Plugin 'terryma/vim-multiple-cursors'          " True Sublime Text style multiple selections for Vim
+Plugin 'scrooloose/syntastic'                  " asynchronous build and test dispatcher
+Plugin 'tpope/vim-fugitive'                    " asynchronous build and test dispatcher
+Plugin 'godlygeek/tabular'
 Plugin 'lilydjwg/colorizer'
 Plugin 'Chiel92/vim-autoformat'
-Plugin 'ingo-library'
-Plugin 'Align'
-Plugin 'AlignFromCursor'
+
 Plugin 'tpope/vim-surround'
-Plugin 'a0lex/Theosvi'
 Plugin 'kelwin/vim-smali'
+Plugin 'a0lex/Theosvi'
+
+Plugin 'vim-scripts/AlignFromCursor'
+
+" Plugin 'ingo-library'
+" Plugin 'Align'
+" Plugin 'AlignFromCursor'
 
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-" Put non-Plugin stuff after this line
 
+" Put non-Plugin stuff after this line
 set encoding=utf-8
 syntax on                         " show syntax highlighting
 set background=dark
