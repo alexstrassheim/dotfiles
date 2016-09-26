@@ -97,7 +97,11 @@ fi
 # ------
 function ra {
     tempfile="$(mktemp -t tmp.XXXXXX)"
+if [[ `uname` == 'Darwin' ]]; then
+    /usr/local/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+else
     /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+fi
     test -f "$tempfile" &&
     if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
         cd -- "$(cat "$tempfile")"
