@@ -50,7 +50,7 @@ filetype plugin indent on    " required
 
 " Put non-Plugin stuff after this line
 set encoding=utf-8
-syntax on                         " show syntax highlighting
+" syntax on                         " show syntax highlighting
 set background=dark
 set autoindent                  " set auto indent
 set ts=4                          " set indent to 2 spaces

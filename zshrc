@@ -48,63 +48,38 @@ export TERM=xterm-256color
 # -------------
 # private stuff
 # -------------
-source ~/.zshrc_contents/private
+#source ~/.zshrc_contents/private
 
 # --------------------------------------------
 # list all symbolic links in current directory
 # --------------------------------------------
 alias lls="ls -la | grep ^l"
 
-# ------------------
-# custom script path
-# ------------------
-# [[ -d "${HOME}/.bin" ]] && export PATH="${HOME}/.bin:${PATH}"
-
 # -----------
 # OS specific
 # -----------
 if [[ `uname` == 'Darwin' ]]; then
 
-    # # MacOS
-    # export PATH="/bin:\
-    #              /sbin:\
-    #              /usr/bin:\
-    #              /usr/sbin:\
-    #              /usr/texbin:\
-    #              /usr/local/bin:\
-    #              /usr/local/sbin:\
-    #              /usr/local/MacGPG2/bin:\
-    #              /opt/X11/bin:\
-    #              /opt/coolTools:\
-    #              /opt/itnl:\
-    #              ${HOME}/.gem/ruby/2.2.1/bin:\
-    #              ${HOME}/.rubies/ruby-2.2.1/lib/ruby/gems/2.2.0/bin:\
-    #              ${HOME}/.rubies/ruby-2.2.1/bin:$PATH"
-
-     # Ruby
+    # Ruby
     source /usr/local/share/chruby/chruby.sh
 
-     # ixon
+    # ixon
     alias vim="stty stop '' -ixoff ; vim"
 
 else
    # Linux
 
-     export PATH="${HOME}/.local/bin:$PATH"
 
     # Theos
     export PATH="${HOME}/Pentesttools/theos/toolchain/linux/iphone/bin/:$PATH"
-    # export THEOS=/opt/theos
     export THEOS=${HOME}/Pentesttools/theos
     export THEOS_DEVICE_IP=localhost THEOS_DEVICE_PORT=2222
 
     # Ruby
     source /usr/share/chruby/chruby.sh
-    # source /usr/share/chruby/auto.sh
-    # chruby ruby-2.3.0
 
     # script path
-    [[ -d "${HOME}/.local/bin" ]] && export PATH="${HOME}/.local/bin:${PATH}"
+    # [[ -d "${HOME}/.local/bin" ]] && export PATH="${HOME}/.local/bin:${PATH}"
 
     # keychain
     # eval 'keychain --eval --quiet --nogui --agents ssh --confhost id_rsa'
@@ -114,7 +89,7 @@ else
      stty -ixon
      screenfetch
 
-    source /usr/share/doc/pkgfile/command-not-found.zsh
+     source /usr/share/doc/pkgfile/command-not-found.zsh
 fi
 
 # ------
