@@ -204,8 +204,9 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsListSnippets="<c-h>"
 
 " youcompleteme
+let g:ycm_key_invoke_completion = '<C-Space>'
 let g:ycm_confirm_extra_conf = 0
-let g:ycm_key_invoke_completion = '<C-b>'
+let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_complete_in_comments = 1
 let g:ycm_filetype_blacklist = {
       \ 'tagbar' : 1,
