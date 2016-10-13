@@ -49,7 +49,7 @@ export TERM=xterm-256color
 # -------------
 # private stuff
 # -------------
-#source ~/.zshrc_contents/private
+source ~/.zshrc_contents/private
 
 # --------------------------------------------
 # list all symbolic links in current directory

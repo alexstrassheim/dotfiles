@@ -32,67 +32,15 @@ browser = firefox
 fullscreen = false
 
 [colors]
-# #cursor = #dcdccc
-# foreground = #ffffff
-# foreground_bold = #ffffff
-# background = #3f3f3f
-#
-# # if unset, will reverse foreground and background
-# highlight = #2f2f2f
-#
-# # colors from color0 to color254 can be set
-# # black gray
-# color0 = #3f3f3f
-# color8 = #dfdfdf
-#
-# # red
-# color1 = #dc322f
-# color9 = #dc5353
-#
-# # green
-# color2 = #0e9900
-# color10 = #66CD00
-#
-# # brown
-# color3 = #8e6b10
-# color11 = #c59500
-#
-# # blue
-# color4 = #0a73ce
-# color12 = #94bff3
-#
-# # purple
-# color5 = #dc8cc3
-# color13 = #ec93d3
-#
-# # cyan
-# color6 = #8cd0d3
-# color14 = #93e0e3
-#
-# # gray white
-# color7 = #ffffff
-# color15 = #ffffff
-#
-# [hints]
-# #font = Monospace 12
-# #foreground = #dcdccc
-# #background = #3f3f3f
-# #active_foreground = #e68080
-# #active_background = #3f3f3f
-# #padding = 2
-# #border = #3f3f3f
-# #border_width = 0.5
-# #roundness = 2.0
-
 # special
 foreground      = #c0b18b
 foreground_bold = #c0b18b
-cursor          = #c0b18b
-#background      = #1f1f1f
-background = rgba(31 ,31, 31, 0.85)
+cursor          = #6d715e
+background      = #1f1f1f
+# background = rgba(31 ,31, 31, 0.85)
 
 # black
-color0  = #4a3637
+color0  = #1f1f1f
 color8  = #4a3637
 
 # red
