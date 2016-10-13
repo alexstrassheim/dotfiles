@@ -8,6 +8,8 @@ map zi zI
 map zo zO
 noremap j 6j
 noremap k 6k
+set complete=sbh
 set hintchars=asdfjkl
+source! /home/alex/.vimperatorrc.local
 
 " vim: set ft=vimperator:
