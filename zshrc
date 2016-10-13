@@ -78,6 +78,7 @@ else
 
     # Ruby
     source /usr/share/chruby/chruby.sh
+    source /usr/share/chruby/auto.sh
 
     # script path
     # [[ -d "${HOME}/.local/bin" ]] && export PATH="${HOME}/.local/bin:${PATH}"
