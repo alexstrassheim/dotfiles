@@ -1,6 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=${HOME}/.oh-my-zsh
-ZSH_THEME="candy"
+# ZSH_THEME="candy"
+ZSH_THEME="arrow"
 
 # Uncomment the following line to disable auto-setting terminal title.
 DISABLE_AUTO_TITLE="true"
@@ -45,7 +46,8 @@ export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export EDITOR='vim'
 
-export TERM='screen-256color'
+# export TERM='screen-256color'
+export TERM='tmux-256color'
 
 # -------------
 # private stuff

@@ -87,7 +87,7 @@ fullscreen = false
 # special
 foreground      = #c0b18b
 foreground_bold = #c0b18b
-cursor          = #c0b18b
+cursor          = #6d715e
 #background      = #1f1f1f
 background = rgba(31 ,31, 31, 0.85)
 
@@ -112,7 +112,7 @@ color4  = #535c5c
 color12 = #535c5c
 
 # magenta
-color5  = #775759
+color5  = #886659
 color13 = #775759
 
 # cyan
@@ -120,7 +120,7 @@ color6  = #6d715e
 color14 = #6d715e
 
 # white
-color7  = #c0b18b
+color7  = #ffffff
 color15 = #c0b18b
 
 # vim: ft=dosini cms=#%s
