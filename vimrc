@@ -37,11 +37,11 @@ Plugin 'tpope/vim-surround'
 Plugin 'kelwin/vim-smali'
 Plugin 'a0lex/Theosvi'
 
-Plugin 'vim-scripts/AlignFromCursor'
+" Plugin 'vim-scripts/AlignFromCursor'
 
-" Plugin 'ingo-library'
-" Plugin 'Align'
-" Plugin 'AlignFromCursor'
+Plugin 'ingo-library'
+Plugin 'Align'
+Plugin 'AlignFromCursor'
 
 
 " All of your Plugins must be added before the following line
@@ -128,7 +128,7 @@ nnoremap k gk
 
 " latex filetype
 let g:tex_flavor = "latex"
-autocmd FileType tex setlocal textwidth=80
+" autocmd FileType tex setlocal textwidth=80
 
 " hint to keep lines short
 if exists('+colorcolumn')
