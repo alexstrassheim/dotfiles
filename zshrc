@@ -46,13 +46,18 @@ export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export EDITOR='vim'
 
-# export TERM='screen-256color'
-export TERM='tmux-256color'
+export TERM='screen-256color'
+# export TERM='tmux-256color'
 
 # -------------
 # private stuff
 # -------------
 source ~/.zshrc_contents/private
+
+# ------------------
+# custom script path
+# ------------------
+[[ -d "${HOME}/.local/bin" ]] && export PATH="${HOME}/.local/bin:${PATH}"
 
 # --------------------------------------------
 # list all symbolic links in current directory
@@ -60,30 +65,27 @@ source ~/.zshrc_contents/private
 alias lls="ls -la | grep ^l"
 alias watch="watch -n 1 grep -e Dirty: -e  Writeback: /proc/meminfo"
 
-# ------------------
-# custom script path
-# ------------------
-[[ -d "${HOME}/.local/bin" ]] && export PATH="${HOME}/.local/bin:${PATH}"
 
 # -----------
 # OS specific
 # -----------
 if [[ `uname` == 'Darwin' ]]; then
     # MacOS
-    export PATH="/bin:\
-                 /sbin:\
-                 /usr/bin:\
-                 /usr/sbin:\
-                 /usr/texbin:\
-                 /usr/local/bin:\
-                 /usr/local/sbin:\
-                 /usr/local/MacGPG2/bin:\
-                 /opt/X11/bin:\
-                 /opt/coolTools:\
-                 /opt/itnl:\
-                 ${HOME}/.gem/ruby/2.2.1/bin:\
-                 ${HOME}/.rubies/ruby-2.2.1/lib/ruby/gems/2.2.0/bin:\
-                 ${HOME}/.rubies/ruby-2.2.1/bin:$PATH"
+
+    # export PATH="/bin:\
+    #              /sbin:\
+    #              /usr/bin:\
+    #              /usr/sbin:\
+    #              /usr/texbin:\
+    #              /usr/local/bin:\
+    #              /usr/local/sbin:\
+    #              /usr/local/MacGPG2/bin:\
+    #              /opt/X11/bin:\
+    #              /opt/coolTools:\
+    #              /opt/itnl:\
+    #              ${HOME}/.gem/ruby/2.2.1/bin:\
+    #              ${HOME}/.rubies/ruby-2.2.1/lib/ruby/gems/2.2.0/bin:\
+    #              ${HOME}/.rubies/ruby-2.2.1/bin:$PATH"
 
     # Ruby
     source /usr/local/share/chruby/chruby.sh
@@ -91,26 +93,27 @@ if [[ `uname` == 'Darwin' ]]; then
     # ixon
     alias vim="stty stop '' -ixoff ; vim"
 
-else
-  # Linux
-    export PATH="/usr/local/sbin:\
-                 /usr/local/bin:\
-                 /usr/bin:\
-                 /usr/lib/jvm/default/bin:\
-                 /usr/bin/site_perl:\
-                 /usr/bin/vendor_perl:\
-                 /usr/bin/core_perl:$PATH"
+ else
+#   # Linux
+#     export PATH="/usr/local/sbin:\
+#                  /usr/local/bin:\
+#                  /usr/bin:\
+#                  /usr/lib/jvm/default/bin:\
+#                  /usr/bin/site_perl:\
+#                  /usr/bin/vendor_perl:\
+#                  /usr/bin/core_perl:$PATH"
 
 
     # Ruby
-    source /usr/share/chruby/chruby.sh
+   source /usr/share/chruby/chruby.sh
 
-    source /usr/share/doc/pkgfile/command-not-found.zsh
+   source /usr/share/doc/pkgfile/command-not-found.zsh
 
     # ixon
-    stty -ixon
-    screenfetch
+   stty -ixon
+   screenfetch
 fi
+
 
 # ------
 # ranger
