@@ -32,41 +32,38 @@ browser = firefox
 fullscreen = false
 
 [colors]
-# Base16 Codeschool
-# Scheme: brettof86
+# Base16 Railscasts
+# Scheme: Ryan Bates (http://railscasts.com)
 
-foreground      = #9ea7a6
-foreground_bold = #9ea7a6
-cursor          = #9ea7a6
-background      = #232c31
+foreground      = #e6e1dc
+foreground_bold = #e6e1dc
+cursor          = #e6e1dc
+background      = #2b2b2b
 
 # 16 color space
-color0  = #232c31
-color1  = #2a5491
-color2  = #237986
-color3  = #a03b1e
-color4  = #484d79
-color5  = #c59820
-color6  = #b02f30
-color7  = #9ea7a6
-color8  = #3f4944
-color9  = #2a5491
-color10 = #237986
-color11 = #a03b1e
-color12 = #484d79
-color13 = #c59820
-color14 = #b02f30
-color15 = #b5d8f6
+color0  = #2b2b2b
+color1  = #da4939
+color2  = #a5c261
+color3  = #ffc66d
+color4  = #6d9cbe
+color5  = #b6b3eb
+color6  = #519f50
+color7  = #e6e1dc
+color8  = #5a647e
+color9  = #da4939
+color10 = #a5c261
+color11 = #ffc66d
+color12 = #6d9cbe
+color13 = #b6b3eb
+color14 = #519f50
+color15 = #f9f7f3
 
 # 256 color space
-color16 = #43820d
-color17 = #c98344
-color18 = #1c3657
-color19 = #2a343a
-color20 = #84898c
-color21 = #a7cfa3
-
-
-
+color16 = #cc7833
+color17 = #bc9458
+color18 = #272935
+color19 = #3a4055
+color20 = #d4cfc9
+color21 = #f4f1ed
 
 # vim: ft=sh cms=#%s

@@ -13,7 +13,6 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(openssl git systemadmin colored-man mosh)
 
 source $ZSH/oh-my-zsh.sh
-setopt cdablevars
 
 
 #--------
@@ -71,21 +70,7 @@ alias watch="watch -n 1 grep -e Dirty: -e  Writeback: /proc/meminfo"
 # -----------
 if [[ `uname` == 'Darwin' ]]; then
     # MacOS
-
-    # export PATH="/bin:\
-    #              /sbin:\
-    #              /usr/bin:\
-    #              /usr/sbin:\
-    #              /usr/texbin:\
-    #              /usr/local/bin:\
-    #              /usr/local/sbin:\
-    #              /usr/local/MacGPG2/bin:\
-    #              /opt/X11/bin:\
-    #              /opt/coolTools:\
-    #              /opt/itnl:\
-    #              ${HOME}/.gem/ruby/2.2.1/bin:\
-    #              ${HOME}/.rubies/ruby-2.2.1/lib/ruby/gems/2.2.0/bin:\
-    #              ${HOME}/.rubies/ruby-2.2.1/bin:$PATH"
+    #
 
     # Ruby
     source /usr/local/share/chruby/chruby.sh
@@ -94,26 +79,18 @@ if [[ `uname` == 'Darwin' ]]; then
     alias vim="stty stop '' -ixoff ; vim"
 
  else
-#   # Linux
-#     export PATH="/usr/local/sbin:\
-#                  /usr/local/bin:\
-#                  /usr/bin:\
-#                  /usr/lib/jvm/default/bin:\
-#                  /usr/bin/site_perl:\
-#                  /usr/bin/vendor_perl:\
-#                  /usr/bin/core_perl:$PATH"
-
+    # Linux
+    #
 
     # Ruby
-   source /usr/share/chruby/chruby.sh
+    source /usr/share/chruby/chruby.sh
 
-   source /usr/share/doc/pkgfile/command-not-found.zsh
+    source /usr/share/doc/pkgfile/command-not-found.zsh
 
     # ixon
-   stty -ixon
-   screenfetch
+    stty -ixon
+    screenfetch
 fi
-
 
 # ------
 # ranger
