@@ -65,6 +65,9 @@ if [[ `uname` == 'Darwin' ]]; then
     # Ruby
     source /usr/local/share/chruby/chruby.sh
 
+    # ZSH completions
+    fpath=(/usr/local/share/zsh-completions $fpath)
+
     # ixon
     alias vim="stty stop '' -ixoff ; vim"
 
