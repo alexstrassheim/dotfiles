@@ -44,7 +44,8 @@ export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export EDITOR='vim'
 
-export TERM=xterm-256color
+# export TERM=xterm-256color
+export TERM=tmux-256color
 
 # -------------
 # private stuff

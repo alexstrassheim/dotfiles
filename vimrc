@@ -30,7 +30,7 @@ Plugin 'terryma/vim-multiple-cursors'          " True Sublime Text style multipl
 Plugin 'scrooloose/syntastic'                  " asynchronous build and test dispatcher
 Plugin 'tpope/vim-fugitive'                    " asynchronous build and test dispatcher
 Plugin 'godlygeek/tabular'
-Plugin 'lilydjwg/colorizer'
+Plugin 'chrisbra/Colorizer'
 Plugin 'Chiel92/vim-autoformat'
 
 Plugin 'tpope/vim-surround'
