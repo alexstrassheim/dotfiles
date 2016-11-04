@@ -84,6 +84,7 @@ set textwidth=69
 autocmd FileType mail setlocal textwidth=69
 
 " hint to keep lines short
+highlight Visual cterm=NONE ctermbg=green ctermfg=NONE guibg=Grey40
 if exists('+colorcolumn')
   set colorcolumn=70
   " highlight ColorColumn ctermbg=235
@@ -154,6 +155,8 @@ endfunction
 nnoremap <silent> <F3> :call ToggleNu()<CR>
 
 " switch spellcheck languages
+hi clear SpellBad
+highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
 let g:myLangList=["nospell","de_de","en_us","de_de,en_us"]
 function! ToggleSpell()
     if !exists( "b:myLang" )

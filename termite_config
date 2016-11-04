@@ -37,7 +37,7 @@ fullscreen = false
 
 foreground      = #e6e1dc
 foreground_bold = #e6e1dc
-cursor          = #e6e1dc
+cursor          = #bcbbba
 background      = #2b2b2b
 
 # 16 color space
