@@ -33,6 +33,7 @@ Plugin 'a0lex/Theosvi'
 Plugin 'ingo-library'
 Plugin 'Align'
 Plugin 'AlignFromCursor'
+Plugin 'airblade/vim-gitgutter'
 
 
 
