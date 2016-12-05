@@ -61,6 +61,8 @@ alias lls="ls -la | grep ^l"
 # -----------
 if [[ `uname` == 'Darwin' ]]; then
 
+    # PATH
+    export PATH="/usr/local/sbin/:$PATH"
     # Ruby
     source /usr/local/share/chruby/chruby.sh
 
