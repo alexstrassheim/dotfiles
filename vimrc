@@ -32,6 +32,7 @@ Plugin 'tpope/vim-fugitive'                    " asynchronous build and test dis
 Plugin 'godlygeek/tabular'
 Plugin 'chrisbra/Colorizer'
 Plugin 'Chiel92/vim-autoformat'
+Plugin 'JamshedVesuna/vim-markdown-preview'
 
 Plugin 'tpope/vim-surround'
 Plugin 'kelwin/vim-smali'
@@ -91,10 +92,10 @@ runtime macros/matchit.vim        " use % to jump between start/end of methods
 " maps
 nmap <F4> :TagbarToggle<CR>
 " resize
-nnoremap <silent> <Leader>j :exe "resize " . (winheight(0) * 3/2)<CR>
-nnoremap <silent> <Leader>k :exe "resize " . (winheight(0) * 2/3)<CR>
-nnoremap <silent> <Leader>h :exe "10winc < " <CR>
-nnoremap <silent> <Leader>l :exe "10winc > " <CR>
+nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 2/3)<CR>
+nnoremap <silent> <Leader>< :exe "10winc < " <CR>
+nnoremap <silent> <Leader>> :exe "10winc > " <CR>
 " Ctrl-Space for completions. Heck Yeah!
 let mapleader="\<space>"
 nnoremap <leader>rv :source $MYVIMRC<CR>
@@ -204,7 +205,8 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsListSnippets="<c-h>"
 
 " youcompleteme
-let g:ycm_python_binary_path = '/usr/bin/python3'
+" let g:EclimCompletionMethod = 'omnifunc'
+" let g:ycm_python_binary_path = '/usr/bin/python3'
 let g:ycm_key_invoke_completion = '<C-Space>'
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_autoclose_preview_window_after_insertion = 1
