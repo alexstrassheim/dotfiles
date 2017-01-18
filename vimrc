@@ -94,23 +94,24 @@ endif
 
 " maps
 nmap <F4> :TagbarToggle<CR>
+
 " resize
 nnoremap <silent> <Leader>j :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>k :exe "resize " . (winheight(0) * 2/3)<CR>
 nnoremap <silent> <Leader>h :exe "10winc < " <CR>
 nnoremap <silent> <Leader>l :exe "10winc > " <CR>
+
 " Ctrl-Space for completions. Heck Yeah!
 let mapleader="\<space>"
+
 nnoremap <leader>rv :source $MYVIMRC<CR>
+nnoremap <silent> <F5> :!open report.pdf<CR><CR>
 
 " turn off search highlight
 nnoremap <leader><leader> :nohlsearch<CR>
 
 " open ag.vim
 nnoremap <leader><leader>a :Ag
-
-" jump to tag
-" nnoremap t <C-]>
 
 " split navigation
 nnoremap <C-j> <C-w><C-j>
@@ -135,7 +136,6 @@ inoremap <S-Tab> <C-V><Tab>
 
 " FileType for  objc
 au BufNewFile,BufRead *.xm set filetype=objc
-
 
 "toggel linenumber
 function! ToggleNu()
@@ -178,7 +178,6 @@ function! ToggleSpell()
 endfunction
 nnoremap <silent> <F6> :call ToggleSpell()<CR>
 
-nnoremap <silent> <F5> :!open report.pdf<CR><CR>
 
 " UltiSnips
 let g:UltiSnipsEditSplit="vertical"
