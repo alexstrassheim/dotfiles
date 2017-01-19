@@ -75,6 +75,8 @@ set undodir=~/.vim/undodir
 set autoread
 set backspace=2
 set pastetoggle=<F2>
+set splitbelow
+set splitright
 " set list listchars=tab:»·,trail:· " show extra space characters
 " set mouse=a                       " enable mouse support
 " set ttimeoutlen=100               " decrease timeout for faster insert with 'O'
@@ -97,14 +99,14 @@ nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 2/3)<CR>
 nnoremap <silent> <Leader>< :exe "10winc < " <CR>
 nnoremap <silent> <Leader>> :exe "10winc > " <CR>
 " Ctrl-Space for completions. Heck Yeah!
-let mapleader="\<space>"
+let mapleader="\,"
 nnoremap <leader>rv :source $MYVIMRC<CR>
 
 " turn off search highlight
 nnoremap <leader><leader> :nohlsearch<CR>
 
 " open ag.vim
-nnoremap <leader><leader>a :Ag
+nnoremap <leader><leader>a :Ag<space>
 
 " jump to tag
 " nnoremap t <C-]>
