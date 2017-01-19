@@ -44,7 +44,6 @@ Plugin 'ingo-library'
 Plugin 'Align'
 Plugin 'AlignFromCursor'
 
-
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -85,6 +84,8 @@ set splitright
 " set wildmenu                      " enable bash style tab completion
 " set wildmode=list:longest,full
 " set cm=blowfish2
+
+" colorscheme skittles_berry
 
 " vim help; search tags with special char
 setl iskeyword=!-~,^*,^\|,^\",192-255"
@@ -224,3 +225,16 @@ let g:ycm_filetype_blacklist = {
       \ 'pandoc' : 1,
       \ 'infolog' : 1
       \}
+
+
+highlight Normal term=none cterm=none ctermfg=White ctermbg=Black gui=none guifg=White guibg=Black
+
+" highlight DiffAdd cterm=none ctermfg=fg ctermbg=Purple gui=none guifg=fg guibg=Blue
+highlight DiffChange cterm=none ctermfg=fg ctermbg=Blue gui=none guifg=fg guibg=Blue
+" highlight DiffDelete cterm=none ctermfg=fg ctermbg=Blue gui=none guifg=fg guibg=Blue
+highlight DiffText cterm=none ctermfg=bg ctermbg=White gui=none guifg=bg guibg=White
+
+hi DiffAdd        ctermfg=NONE ctermbg=24 guifg=#f8f8f2 guibg=#13354a
+" hi DiffChange     term=bold ctermbg=238 guifg=#89807d guibg=#4c4745
+hi DiffDelete     ctermfg=125 ctermbg=125 guifg=#960050 guibg=#1e0010
+" hi DiffText term=reverse cterm=bold ctermfg=0 ctermbg=202 gui=bold guifg=#ad81ff guibg=#4a7800
