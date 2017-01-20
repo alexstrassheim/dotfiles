@@ -10,7 +10,7 @@ DISABLE_AUTO_TITLE="true"
 COMPLETION_WAITING_DOTS="true"
 
 # Pluginlist
-plugins=(openssl git systemadmin colored-man mosh)
+plugins=(nmap git colored-man mosh)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -63,32 +63,25 @@ source ~/.zshrc_contents/private
 alias lls="ls -la | grep ^l"
 alias watch="watch -n 1 grep -e Dirty: -e  Writeback: /proc/meminfo"
 
-
 # -----------
 # OS specific
 # -----------
 if [[ `uname` == 'Darwin' ]]; then
     # MacOS
-    #
 
-    # Ruby
-    source /usr/local/share/chruby/chruby.sh
+    # ZSH completions
+    fpath=(/usr/local/share/zsh-completions $fpath)
 
     # ixon
     alias vim="stty stop '' -ixoff ; vim"
+else
+   # Linux
 
- else
-    # Linux
-    #
+     # ixon
+     stty -ixon
+     screenfetch
 
-    # Ruby
-    source /usr/share/chruby/chruby.sh
-
-    source /usr/share/doc/pkgfile/command-not-found.zsh
-
-    # ixon
-    stty -ixon
-    screenfetch
+     source /usr/share/doc/pkgfile/command-not-found.zsh
 fi
 
 # ------
@@ -96,7 +89,11 @@ fi
 # ------
 function ra {
     tempfile="$(mktemp -t tmp.XXXXXX)"
+if [[ `uname` == 'Darwin' ]]; then
+    /usr/local/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+else
     /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+fi
     test -f "$tempfile" &&
     if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
         cd -- "$(cat "$tempfile")"

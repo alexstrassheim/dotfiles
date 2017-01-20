@@ -8,7 +8,7 @@ audible_bell = false
 visible_bell = true
 urgent_on_bell = true
 clickable_url = true
-font = Monospace 12
+font = Monospace 10.5
 scrollback_lines = 10000
 search_wrap = true
 #icon_name = terminal
@@ -31,13 +31,15 @@ browser = firefox
 
 fullscreen = false
 
+
+
 [colors]
 # Base16 Railscasts
 # Scheme: Ryan Bates (http://railscasts.com)
 
 foreground      = #e6e1dc
 foreground_bold = #e6e1dc
-cursor          = #bcbbba
+cursor          = #e6e1dc
 background      = #2b2b2b
 
 # 16 color space
@@ -66,4 +68,4 @@ color19 = #3a4055
 color20 = #d4cfc9
 color21 = #f4f1ed
 
-# vim: ft=sh cms=#%s
+
