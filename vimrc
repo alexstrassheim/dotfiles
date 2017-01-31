@@ -29,6 +29,7 @@ Plugin 'Raimondi/delimitMate'                  " automatic closing of quotes, pa
 Plugin 'terryma/vim-multiple-cursors'          " True Sublime Text style multiple selections for Vim
 Plugin 'scrooloose/syntastic'                  " asynchronous build and test dispatcher
 Plugin 'tpope/vim-fugitive'                    " asynchronous build and test dispatcher
+Plugin 'airblade/vim-gitgutter'
 Plugin 'godlygeek/tabular'
 Plugin 'chrisbra/Colorizer'
 Plugin 'Chiel92/vim-autoformat'
@@ -94,6 +95,7 @@ runtime macros/matchit.vim        " use % to jump between start/end of methods
 
 " maps
 nmap <F4> :TagbarToggle<CR>
+nmap <F6> :SyntasticToggleMode<CR>
 " resize
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 2/3)<CR>
