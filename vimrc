@@ -83,7 +83,7 @@ set splitright
 " set clipboard=unnamed             " use the system clipboard
 " set wildmenu                      " enable bash style tab completion
 " set wildmode=list:longest,full
-" set cm=blowfish2
+set cm=blowfish2
 
 " colorscheme skittles_berry
 
@@ -94,6 +94,7 @@ runtime macros/matchit.vim        " use % to jump between start/end of methods
 
 " maps
 nmap <F4> :TagbarToggle<CR>
+nmap <F6> :SyntasticToggleMode<CR>
 " resize
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 2/3)<CR>
