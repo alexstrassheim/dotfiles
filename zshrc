@@ -1,7 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=${HOME}/.oh-my-zsh
-# ZSH_THEME="candy"
-ZSH_THEME="arrow"
+ZSH_THEME="candy"
 
 # Uncomment the following line to disable auto-setting terminal title.
 DISABLE_AUTO_TITLE="true"
@@ -10,7 +9,7 @@ DISABLE_AUTO_TITLE="true"
 COMPLETION_WAITING_DOTS="true"
 
 # Pluginlist
-plugins=(nmap git colored-man mosh)
+plugins=(openssl git systemadmin colored-man mosh)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -55,6 +54,12 @@ source ~/.zshrc_contents/private
 # list all symbolic links in current directory
 # --------------------------------------------
 alias lls="ls -la | grep ^l"
+alias watch="watch -n 1 grep -e Dirty: -e  Writeback: /proc/meminfo"
+
+# ------------------
+# custom script path
+# ------------------
+[[ -d "${HOME}/.local/bin" ]] && export PATH="${HOME}/.local/bin:${PATH}"
 
 # -----------
 # OS specific
@@ -64,7 +69,6 @@ if [[ `uname` == 'Darwin' ]]; then
     # PATH
     export PATH="/usr/local/sbin/:$PATH"
     # Ruby
-    source /usr/local/share/chruby/chruby.sh
 
     # ZSH completions
     fpath=(/usr/local/share/zsh-completions $fpath)
@@ -75,27 +79,9 @@ if [[ `uname` == 'Darwin' ]]; then
 else
    # Linux
 
-
-    # Theos
-    export PATH="${HOME}/Pentesttools/theos/toolchain/linux/iphone/bin/:$PATH"
-    export THEOS=${HOME}/Pentesttools/theos
-    export THEOS_DEVICE_IP=localhost THEOS_DEVICE_PORT=2222
-
-    # Ruby
-    source /usr/share/chruby/chruby.sh
-    source /usr/share/chruby/auto.sh
-
-    # script path
-    # [[ -d "${HOME}/.local/bin" ]] && export PATH="${HOME}/.local/bin:${PATH}"
-
-    # keychain
-    # eval 'keychain --eval --quiet --nogui --agents ssh --confhost id_rsa'
-    eval $(keychain --eval --quiet id_rsa --confhost)
-
      # ixon
      stty -ixon
      screenfetch
-
      source /usr/share/doc/pkgfile/command-not-found.zsh
 fi
 

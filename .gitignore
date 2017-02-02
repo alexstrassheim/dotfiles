@@ -1,0 +1,16 @@
+
+
+
+# swap
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.orig
+# session
+Session.vim
+# temporary
+.netrwhist
+*~
+# auto-generated tag files
+tags
+
+

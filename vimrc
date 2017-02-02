@@ -238,5 +238,3 @@ highlight DiffText cterm=none ctermfg=bg ctermbg=White gui=none guifg=bg guibg=W
 
 hi DiffAdd        ctermfg=NONE ctermbg=24 guifg=#f8f8f2 guibg=#13354a
 " hi DiffChange     term=bold ctermbg=238 guifg=#89807d guibg=#4c4745
-hi DiffDelete     ctermfg=125 ctermbg=125 guifg=#960050 guibg=#1e0010
-" hi DiffText term=reverse cterm=bold ctermfg=0 ctermbg=202 gui=bold guifg=#ad81ff guibg=#4a7800
