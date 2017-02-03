@@ -9,7 +9,8 @@ DISABLE_AUTO_TITLE="true"
 COMPLETION_WAITING_DOTS="true"
 
 # Pluginlist
-plugins=(openssl git systemadmin colored-man mosh)
+# plugins=(openssl git systemadmin colored-man mosh)
+plugins=(colored-man)
 
 source $ZSH/oh-my-zsh.sh
 
