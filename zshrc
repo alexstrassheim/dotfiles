@@ -1,7 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=${HOME}/.oh-my-zsh
-# ZSH_THEME="candy"
-ZSH_THEME="arrow"
+ZSH_THEME="candy"
 
 # Uncomment the following line to disable auto-setting terminal title.
 DISABLE_AUTO_TITLE="true"
@@ -10,10 +9,10 @@ DISABLE_AUTO_TITLE="true"
 COMPLETION_WAITING_DOTS="true"
 
 # Pluginlist
-plugins=(nmap git colored-man mosh)
+# plugins=(openssl git systemadmin colored-man mosh)
+plugins=(colored-man)
 
 source $ZSH/oh-my-zsh.sh
-
 
 #--------
 # History
@@ -69,8 +68,9 @@ alias watch="watch -n 1 grep -e Dirty: -e  Writeback: /proc/meminfo"
 if [[ `uname` == 'Darwin' ]]; then
     # MacOS
 
-    # ZSH completions
-    fpath=(/usr/local/share/zsh-completions $fpath)
+    # PATH
+    export PATH="/usr/local/sbin/:$PATH"
+    # Ruby
 
     # ixon
     alias vim="stty stop '' -ixoff ; vim"
@@ -80,7 +80,6 @@ else
      # ixon
      stty -ixon
      screenfetch
-
      source /usr/share/doc/pkgfile/command-not-found.zsh
 fi
 

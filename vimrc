@@ -45,6 +45,8 @@ Plugin 'ingo-library'
 Plugin 'Align'
 Plugin 'AlignFromCursor'
 
+Plugin 'junegunn/goyo.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
