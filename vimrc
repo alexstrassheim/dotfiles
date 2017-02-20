@@ -142,7 +142,7 @@ let g:tex_flavor = "latex"
 " hint to keep lines short
 if exists('+colorcolumn')
   set colorcolumn=61
-  highlight ColorColumn ctermbg=235
+  highlight ColorColumn ctermbg=238
 endif
 autocmd FileType mail setlocal colorcolumn=61
 autocmd FileType mail setlocal textwidth=60
@@ -173,7 +173,8 @@ nnoremap <silent> <F3> :call ToggleNu()<CR>
 
 " switch spellcheck languages
 hi clear SpellBad
-highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
+" highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
+  highlight SpellBad ctermbg=124
 let g:myLangList=["nospell","de_de","en_us","de_de,en_us"]
 function! ToggleSpell()
     if !exists( "b:myLang" )
