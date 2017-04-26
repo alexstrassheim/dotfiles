@@ -38,6 +38,8 @@ Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'tpope/vim-surround'
 Plugin 'kelwin/vim-smali'
 Plugin 'a0lex/Theosvi'
+Plugin 'keith/swift.vim'
+Plugin 'ashisha/image.vim'
 
 " Plugin 'vim-scripts/AlignFromCursor'
 
@@ -149,9 +151,7 @@ autocmd FileType mail setlocal textwidth=60
 autocmd FileType snippets setlocal colorcolumn=61
 autocmd FileType snippets setlocal textwidth=60
 
-
 au BufNewFile,BufRead *.xm set filetype=objc
-
 
 "toggel linenumber
 function! ToggleNu()
