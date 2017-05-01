@@ -86,7 +86,7 @@ set splitright
 " set clipboard=unnamed             " use the system clipboard
 " set wildmenu                      " enable bash style tab completion
 " set wildmode=list:longest,full
-" set cm=blowfish2
+set cm=blowfish2
 
 " colorscheme skittles_berry
 
