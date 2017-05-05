@@ -38,7 +38,7 @@ Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'tpope/vim-surround'
 Plugin 'kelwin/vim-smali'
 Plugin 'a0lex/Theosvi'
-
+Plugin 'chriskempson/base16-vim' 
 " Plugin 'vim-scripts/AlignFromCursor'
 
 Plugin 'ingo-library'
@@ -230,13 +230,17 @@ let g:ycm_filetype_blacklist = {
       \ 'infolog' : 1
       \}
 
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif 
 
-highlight Normal term=none cterm=none ctermfg=White ctermbg=Black gui=none guifg=White guibg=Black
-
-" highlight DiffAdd cterm=none ctermfg=fg ctermbg=Purple gui=none guifg=fg guibg=Blue
-highlight DiffChange cterm=none ctermfg=fg ctermbg=Blue gui=none guifg=fg guibg=Blue
-" highlight DiffDelete cterm=none ctermfg=fg ctermbg=Blue gui=none guifg=fg guibg=Blue
-highlight DiffText cterm=none ctermfg=bg ctermbg=White gui=none guifg=bg guibg=White
-
-hi DiffAdd        ctermfg=NONE ctermbg=24 guifg=#f8f8f2 guibg=#13354a
-" hi DiffChange     term=bold ctermbg=238 guifg=#89807d guibg=#4c4745
+" highlight Normal term=none cterm=none ctermfg=White ctermbg=Black gui=none guifg=White guibg=Black
+"
+" " highlight DiffAdd cterm=none ctermfg=fg ctermbg=Purple gui=none guifg=fg guibg=Blue
+" highlight DiffChange cterm=none ctermfg=fg ctermbg=Blue gui=none guifg=fg guibg=Blue
+" " highlight DiffDelete cterm=none ctermfg=fg ctermbg=Blue gui=none guifg=fg guibg=Blue
+" highlight DiffText cterm=none ctermfg=bg ctermbg=White gui=none guifg=bg guibg=White
+"
+" hi DiffAdd        ctermfg=NONE ctermbg=24 guifg=#f8f8f2 guibg=#13354a
+" " hi DiffChange     term=bold ctermbg=238 guifg=#89807d guibg=#4c4745
