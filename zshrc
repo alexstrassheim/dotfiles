@@ -8,7 +8,7 @@ DISABLE_AUTO_TITLE="true"
 
 # Pluginlist
 # plugins=(openssl git systemadmin colored-man mosh)
-plugins=(colored-man vi-mode zsh-completions zsh-autosuggestions zsh-syntax-highlighting git)
+plugins=(git colored-man vi-mode zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
 
 export RPS1="%{$reset_color%}"
 source $ZSH/oh-my-zsh.sh
@@ -108,3 +108,5 @@ fi
 }
 # This binds Ctrl-O to ranger-cd:
 bindkey '^o' ra'^m'
+
+bindkey -M viins 'jk' vi-cmd-mode
