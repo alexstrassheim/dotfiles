@@ -10,6 +10,7 @@ DISABLE_AUTO_TITLE="true"
 # plugins=(openssl git systemadmin colored-man mosh)
 plugins=(colored-man vi-mode zsh-autosuggestions zsh-syntax-highlighting git)
 
+export RPS1="%{$reset_color%}"
 source $ZSH/oh-my-zsh.sh
 
 #--------
