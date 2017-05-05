@@ -37,6 +37,8 @@ SAVEHIST=10000
 # unset HISTFILE
 # ln /dev/null ~/.bash_history -sf
 
+bindkey -v
+
 #---------
 # Language
 #---------
