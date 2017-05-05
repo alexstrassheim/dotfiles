@@ -59,7 +59,7 @@ source ~/.zshrc_contents/private
 # list all symbolic links in current directory
 # --------------------------------------------
 alias lls="ls -la | grep ^l"
-alias watch="watch -n 1 grep -e Dirty: -e  Writeback: /proc/meminfo"
+alias watchusb="watch -n 1 grep -e Dirty: -e  Writeback: /proc/meminfo"
 
 # ------------------
 # custom script path
