@@ -1,18 +1,16 @@
 # Path to your oh-my-zsh installation.
 export ZSH=${HOME}/.oh-my-zsh
-# ZSH_THEME="pure"
-ZSH_THEME="refined"
+ZSH_THEME="spaceship"
 
 # Uncomment the following line to disable auto-setting terminal title.
 DISABLE_AUTO_TITLE="true"
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
 
 # Pluginlist
 # plugins=(openssl git systemadmin colored-man mosh)
-plugins=(colored-man)
+plugins=(git colored-man vi-mode zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
 
+export RPS1="%{$reset_color%}"
 source $ZSH/oh-my-zsh.sh
 
 #--------
@@ -37,6 +35,11 @@ SAVEHIST=10000
 # export HISTSIZE=0
 # unset HISTFILE
 # ln /dev/null ~/.bash_history -sf
+
+
+BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+
 
 #---------
 # Language
@@ -102,3 +105,5 @@ fi
 }
 # This binds Ctrl-O to ranger-cd:
 bindkey '^o' ra'^m'
+
+bindkey -M viins 'jk' vi-cmd-mode
