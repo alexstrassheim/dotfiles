@@ -58,21 +58,21 @@ export EDITOR='vim'
 #                 OS specific settings
 
 if [[ `uname` == 'Darwin' ]]; then
-    # MacOS
+  # MacOS
 
-    # PATH
-    export PATH="/usr/local/sbin/:$PATH"
-    # Ruby
+  # PATH
+  export PATH="/usr/local/sbin/:$PATH"
 
-    # ixon
-    alias vim="stty stop '' -ixoff ; vim"
+  # ixon
+  alias vim="stty stop '' -ixoff ; vim"
 else
-   # Linux
-
-     # ixon
-     stty -ixon
-     screenfetch
-     source /usr/share/doc/pkgfile/command-not-found.zsh
+  # Linux
+  # Ruby
+  source /usr/share/chruby/chruby.sh
+  # ixon
+  stty -ixon
+  screenfetch
+  source /usr/share/doc/pkgfile/command-not-found.zsh
 fi
 
 
