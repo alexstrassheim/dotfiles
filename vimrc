@@ -10,18 +10,16 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
+" Plugins
 Plugin 'chrisbra/SudoEdit.vim'
-
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'rking/ag.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'tomtom/tcomment_vim'
-
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-
 Plugin 'tpope/vim-dispatch'                    " asynchronous build and test dispatcher
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'ntpeters/vim-better-whitespace'
@@ -34,21 +32,16 @@ Plugin 'godlygeek/tabular'
 Plugin 'chrisbra/Colorizer'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'JamshedVesuna/vim-markdown-preview'
-
 Plugin 'tpope/vim-surround'
 Plugin 'kelwin/vim-smali'
-Plugin 'a0lex/Theosvi'
 Plugin 'keith/swift.vim'
 Plugin 'ashisha/image.vim'
-
-" Plugin 'vim-scripts/AlignFromCursor'
-
+Plugin 'junegunn/goyo.vim'
+Plugin 'chriskempson/base16-vim'
+Plugin 'a0lex/Theosvi'
 Plugin 'ingo-library'
 Plugin 'Align'
 Plugin 'AlignFromCursor'
-
-Plugin 'junegunn/goyo.vim'
-Plugin 'chriskempson/base16-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -82,16 +75,21 @@ set backspace=2
 set pastetoggle=<F2>
 set splitbelow
 set splitright
-" set list listchars=tab:»·,trail:· " show extra space characters
-" set mouse=a                       " enable mouse support
-" set ttimeoutlen=100               " decrease timeout for faster insert with 'O'
-" set vb                            " enable visual bell (disable audio bell)
-" set clipboard=unnamed             " use the system clipboard
-" set wildmenu                      " enable bash style tab completion
-" set wildmode=list:longest,full
 set cm=blowfish2
 
-" colorscheme skittles_berry
+" theme
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+
+" hi Normal term=none cterm=none ctermfg=White ctermbg=Black gui=none guifg=White guibg=Black
+" hi DiffAdd ctermfg=NONE ctermbg=24 guifg=#f8f8f2 guibg=#13354a
+" hi DiffChange cterm=none ctermfg=fg ctermbg=Blue gui=none guifg=fg guibg=Blue
+" hi DiffDelete cterm=none ctermfg=fg ctermbg=Blue gui=none guifg=fg guibg=Blue
+" hi DiffText cterm=none ctermfg=bg ctermbg=White gui=none guifg=bg guibg=White
+" hi DiffChange term=bold ctermbg=238 guifg=#89807d guibg=#4c4745
+
 
 " vim help; search tags with special char
 setl iskeyword=!-~,^*,^\|,^\",192-255"
@@ -99,60 +97,88 @@ setl iskeyword=!-~,^*,^\|,^\",192-255"
 runtime macros/matchit.vim        " use % to jump between start/end of methods
 
 " maps
+let mapleader="\,"
+nnoremap <leader>rv :source $MYVIMRC<CR>
 nmap <F4> :TagbarToggle<CR>
 nmap <F6> :SyntasticToggleMode<CR>
-" resize
+nnoremap <silent> <F5> :!open report.pdf<CR><CR>
+nnoremap <leader><leader> :nohlsearch<CR>
+nnoremap <leader><leader>a :Ag<space>
+" resize window
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 2/3)<CR>
 nnoremap <silent> <Leader>< :exe "10winc < " <CR>
 nnoremap <silent> <Leader>> :exe "10winc > " <CR>
-" Ctrl-Space for completions. Heck Yeah!
-let mapleader="\,"
-nnoremap <leader>rv :source $MYVIMRC<CR>
-nnoremap <silent> <F5> :!open report.pdf<CR><CR>
-
-" turn off search highlight
-nnoremap <leader><leader> :nohlsearch<CR>
-
-" open ag.vim
-nnoremap <leader><leader>a :Ag<space>
-
-" jump to tag
-" nnoremap t <C-]>
-
 " split navigation
 nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>
 nnoremap <C-h> <C-w><C-h>
-
 " quick save
 noremap <C-s> <ESC>:w<CR>
 inoremap <C-s> <ESC>:w<CR>
-
 " remap ESC
 inoremap jk <ESC>
 cnoremap jk <ESC>
-
 " movement
 nnoremap j gj
 nnoremap k gk
+" jump to tag
+" nnoremap t <C-]>
 
 " latex filetype
 let g:tex_flavor = "latex"
-" autocmd FileType tex setlocal textwidth=80
 
 " hint to keep lines short
 if exists('+colorcolumn')
-  set colorcolumn=61
-  highlight ColorColumn ctermbg=238
+  set colorcolumn=80
 endif
+
 autocmd FileType mail setlocal colorcolumn=61
 autocmd FileType mail setlocal textwidth=60
 autocmd FileType snippets setlocal colorcolumn=61
 autocmd FileType snippets setlocal textwidth=60
-
+" autocmd FileType tex setlocal textwidth=80
 au BufNewFile,BufRead *.xm set filetype=objc
+
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" UltiSnips
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetsDir='~/.vim/mysnippet'
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippet"]
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsListSnippets="<c-h>"
+
+" youcompleteme
+let g:EclimCompletionMethod = 'omnifunc'
+" let g:ycm_python_binary_path = '/usr/bin/python3'
+let g:ycm_key_invoke_completion = '<C-Space>'
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_complete_in_comments = 1
+let g:ycm_filetype_blacklist = {
+      \ 'tagbar' : 1,
+      \ 'qf' : 1,
+      \ 'notes' : 1,
+      \ 'markdown' : 1,
+      \ 'unite' : 1,
+      \ 'text' : 1,
+      \ 'vimwiki' : 1,
+      \ 'pandoc' : 1,
+      \ 'infolog' : 1
+      \}
+
 
 "toggel linenumber
 function! ToggleNu()
@@ -196,56 +222,3 @@ function! ToggleSpell()
 endfunction
 nnoremap <silent> <F5> :call ToggleSpell()<CR>
 
-
-
-" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-" UltiSnips
-let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetsDir='~/.vim/mysnippet'
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippet"]
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-let g:UltiSnipsListSnippets="<c-h>"
-
-" youcompleteme
-let g:EclimCompletionMethod = 'omnifunc'
-" let g:ycm_python_binary_path = '/usr/bin/python3'
-let g:ycm_key_invoke_completion = '<C-Space>'
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_complete_in_comments = 1
-let g:ycm_filetype_blacklist = {
-      \ 'tagbar' : 1,
-      \ 'qf' : 1,
-      \ 'notes' : 1,
-      \ 'markdown' : 1,
-      \ 'unite' : 1,
-      \ 'text' : 1,
-      \ 'vimwiki' : 1,
-      \ 'pandoc' : 1,
-      \ 'infolog' : 1
-      \}
-
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
-
-" highlight Normal term=none cterm=none ctermfg=White ctermbg=Black gui=none guifg=White guibg=Black
-"
-" " highlight DiffAdd cterm=none ctermfg=fg ctermbg=Purple gui=none guifg=fg guibg=Blue
-" highlight DiffChange cterm=none ctermfg=fg ctermbg=Blue gui=none guifg=fg guibg=Blue
-" " highlight DiffDelete cterm=none ctermfg=fg ctermbg=Blue gui=none guifg=fg guibg=Blue
-" highlight DiffText cterm=none ctermfg=bg ctermbg=White gui=none guifg=bg guibg=White
-"
-" hi DiffAdd        ctermfg=NONE ctermbg=24 guifg=#f8f8f2 guibg=#13354a
-" " hi DiffChange     term=bold ctermbg=238 guifg=#89807d guibg=#4c4745
