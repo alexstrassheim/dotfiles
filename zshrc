@@ -25,25 +25,17 @@ source $ZSH/oh-my-zsh.sh
 #                          History
 
 HISTFILE=~/.zhistory
-# setopt APPEND_HISTORY
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
-# setopt HIST_EXPIRE_DUPS_FIRST
-# setopt EXTENDED_HISTORY
-# setopt SHARE_HISTORY
+setopt APPEND_HISTORY
+setopt SHARE_HISTORY
 
 
 #===========================================================
 #                     Cover your tracks
 
 # echo "" /var/log/auth.log
-# echo "" ~/.bash_history
-# rm ~/.bash_history -rf
-# history -c
-# export HISTFILESIZE=0
-# export HISTSIZE=0
-# unset HISTFILE
 # ln /dev/null ~/.bash_history -sf
 
 
