@@ -107,3 +107,4 @@ function ra {
 
 bindkey '^o' ra'^m'
 bindkey -M viins 'jk' vi-cmd-mode
+bindkey "^@" autosuggest-accept
