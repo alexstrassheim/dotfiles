@@ -99,9 +99,12 @@ runtime macros/matchit.vim        " use % to jump between start/end of methods
 " maps
 let mapleader="\,"
 nnoremap <leader>rv :source $MYVIMRC<CR>
+nnoremap <silent> <F3> :call ToggleNu()<CR>
 nmap <F4> :TagbarToggle<CR>
-nmap <F6> :SyntasticToggleMode<CR>
-nnoremap <silent> <F5> :!open report.pdf<CR><CR>
+nmap <F5> :SyntasticToggleMode<CR>
+nnoremap <silent> <F6> :call ToggleSpell()<CR>
+nnoremap <silent> <F7> :!open report.pdf<CR><CR>
+
 nnoremap <leader><leader> :nohlsearch<CR>
 nnoremap <leader><leader>a :Ag<space>
 " resize window
@@ -196,7 +199,7 @@ function! ToggleNu()
         set norelativenumber
     endif
 endfunction
-nnoremap <silent> <F3> :call ToggleNu()<CR>
+" nnoremap <silent> <F3> :call ToggleNu()<CR>
 
 " switch spellcheck languages
 hi clear SpellBad
@@ -220,5 +223,5 @@ function! ToggleSpell()
         endif
     echo "spell checking language:" g:myLangList[b:myLang]
 endfunction
-nnoremap <silent> <F5> :call ToggleSpell()<CR>
+" nnoremap <silent> <F6> :call ToggleSpell()<CR>
 
