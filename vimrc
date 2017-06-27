@@ -75,6 +75,7 @@ set backspace=2
 set pastetoggle=<F2>
 set splitbelow
 set splitright
+set clipboard=unnamed
 set cm=blowfish2
 
 " theme

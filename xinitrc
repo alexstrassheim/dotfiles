@@ -3,8 +3,7 @@ if [ `hostname` == "lex" ]; then
 else
     setxkbmap -layout us -variant altgr-intl -option ctrl:nocaps
 fi
-nm-applet &
 xinput set-prop 14 "Device Enabled" 0
 source ~/.zshrc
-nm-applet &
+wicd-gtk &
 exec awesome
