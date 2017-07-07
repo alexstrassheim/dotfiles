@@ -6,4 +6,5 @@ fi
 xinput set-prop 14 "Device Enabled" 0
 source ~/.zshrc
 nm-applet &
+xset -dpms s off
 exec awesome
