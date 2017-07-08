@@ -1,56 +1,33 @@
-" .vimrc
-"
-set nocompatible              " be iMproved, required
-filetype off                  " required
+call plug#begin('~/.vim/plugged')
+Plug 'junegunn/vim-easy-align'
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'chriskempson/base16-vim'
+Plug 'chrisbra/SudoEdit.vim'
+Plug 'rking/ag.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'airblade/vim-gitgutter'
+Plug 'majutsushi/tagbar'
+Plug 'tpope/vim-dispatch'
+Plug 'tomtom/tcomment_vim'
+Plug 'scrooloose/syntastic'
+Plug 'chrisbra/Colorizer'
+Plug 'tpope/vim-surround'
+Plug 'junegunn/goyo.vim'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'Raimondi/delimitMate'
+Plug 'Chiel92/vim-autoformat'
+Plug 'chrisbra/Colorizer'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+call plug#end()
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-" Plugins
-Plugin 'chrisbra/SudoEdit.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
-Plugin 'rking/ag.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'tpope/vim-dispatch'                    " asynchronous build and test dispatcher
-Plugin 'Lokaltog/vim-powerline'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'Raimondi/delimitMate'                  " automatic closing of quotes, parenthesis, brackets
-Plugin 'terryma/vim-multiple-cursors'          " True Sublime Text style multiple selections for Vim
-Plugin 'scrooloose/syntastic'                  " asynchronous build and test dispatcher
-Plugin 'tpope/vim-fugitive'                    " asynchronous build and test dispatcher
-Plugin 'airblade/vim-gitgutter'
-Plugin 'godlygeek/tabular'
-Plugin 'chrisbra/Colorizer'
-Plugin 'Chiel92/vim-autoformat'
-Plugin 'JamshedVesuna/vim-markdown-preview'
-Plugin 'tpope/vim-surround'
-Plugin 'kelwin/vim-smali'
-Plugin 'keith/swift.vim'
-Plugin 'ashisha/image.vim'
-Plugin 'junegunn/goyo.vim'
-Plugin 'chriskempson/base16-vim'
-Plugin 'a0lex/Theosvi'
-Plugin 'ingo-library'
-Plugin 'Align'
-Plugin 'AlignFromCursor'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-" Put non-Plugin stuff after this line
+" Settings
 set encoding=utf-8
 syntax on                         " show syntax highlighting
-set background=dark
 set autoindent                  " set auto indent
 set ts=4                          " set indent to 2 spaces
 set shiftwidth=2
@@ -77,6 +54,11 @@ set splitbelow
 set splitright
 set clipboard=unnamed
 set cm=blowfish2
+" set background=dark
+" runtime macros/matchit.vim        " use % to jump between start/end of methods
+" Whitespaces 
+set list          " Display unprintable characters f12 - switches
+set listchars=tab:•\ ,trail:•,extends:»,precedes:« " Unprintable chars mapping
 
 " theme
 if filereadable(expand("~/.vimrc_background"))
@@ -84,67 +66,47 @@ if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
 
-" hi Normal term=none cterm=none ctermfg=White ctermbg=Black gui=none guifg=White guibg=Black
-" hi DiffAdd ctermfg=NONE ctermbg=24 guifg=#f8f8f2 guibg=#13354a
-" hi DiffChange cterm=none ctermfg=fg ctermbg=Blue gui=none guifg=fg guibg=Blue
-" hi DiffDelete cterm=none ctermfg=fg ctermbg=Blue gui=none guifg=fg guibg=Blue
-" hi DiffText cterm=none ctermfg=bg ctermbg=White gui=none guifg=bg guibg=White
-" hi DiffChange term=bold ctermbg=238 guifg=#89807d guibg=#4c4745
-
-
-" vim help; search tags with special char
-setl iskeyword=!-~,^*,^\|,^\",192-255"
-
-runtime macros/matchit.vim        " use % to jump between start/end of methods
-
-" maps
-let mapleader="\,"
-nnoremap <leader>rv :source $MYVIMRC<CR>
-nnoremap <silent> <F3> :call ToggleNu()<CR>
-nmap <F4> :TagbarToggle<CR>
-nmap <F5> :SyntasticToggleMode<CR>
-nnoremap <silent> <F6> :call ToggleSpell()<CR>
-nnoremap <silent> <F7> :!open report.pdf<CR><CR>
-
-nnoremap <leader><leader> :nohlsearch<CR>
-nnoremap <leader><leader>a :Ag<space>
-" resize window
-nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 3/2)<CR>
-nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 2/3)<CR>
-nnoremap <silent> <Leader>< :exe "10winc < " <CR>
-nnoremap <silent> <Leader>> :exe "10winc > " <CR>
-" split navigation
-nnoremap <C-j> <C-w><C-j>
-nnoremap <C-k> <C-w><C-k>
-nnoremap <C-l> <C-w><C-l>
-nnoremap <C-h> <C-w><C-h>
-" quick save
-noremap <C-s> <ESC>:w<CR>
-inoremap <C-s> <ESC>:w<CR>
-" remap ESC
-inoremap jk <ESC>
-cnoremap jk <ESC>
-" movement
-nnoremap j gj
-nnoremap k gk
-" jump to tag
-" nnoremap t <C-]>
-
-" latex filetype
-let g:tex_flavor = "latex"
-
 " hint to keep lines short
 if exists('+colorcolumn')
   set colorcolumn=80
 endif
 
-autocmd FileType mail setlocal colorcolumn=61
-autocmd FileType mail setlocal textwidth=60
-autocmd FileType snippets setlocal colorcolumn=61
-autocmd FileType snippets setlocal textwidth=60
-" autocmd FileType tex setlocal textwidth=80
-au BufNewFile,BufRead *.xm set filetype=objc
+" reload config
+let mapleader="\,"
+nnoremap <leader>rv :source $MYVIMRC<CR>
 
+" quick save
+noremap <C-s> <ESC>:w<CR>
+inoremap <C-s> <ESC>:w<CR>
+
+" remap ESC
+inoremap jk <ESC>
+cnoremap jk <ESC>
+
+" movement
+nnoremap j gj
+nnoremap k gk
+
+" split navigation
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
+nnoremap <C-h> <C-w><C-h>
+
+" search
+nnoremap <leader><leader> :nohlsearch<CR>
+nnoremap <leader><leader>a :Ag<space>
+
+" mapping
+nmap <F6> :TagbarToggle<CR>
+nmap <F5> :SyntasticToggleMode<CR>
+
+" Switch Buffer
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprevious<CR>
+
+" AirLine
+let g:airline#extensions#tabline#enabled = 1
 
 " syntastic
 set statusline+=%#warningmsg#
@@ -165,12 +127,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsListSnippets="<c-h>"
 
 " youcompleteme
-let g:EclimCompletionMethod = 'omnifunc'
-" let g:ycm_python_binary_path = '/usr/bin/python3'
 let g:ycm_key_invoke_completion = '<C-Space>'
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_complete_in_comments = 1
 let g:ycm_filetype_blacklist = {
       \ 'tagbar' : 1,
       \ 'qf' : 1,
@@ -200,7 +157,7 @@ function! ToggleNu()
         set norelativenumber
     endif
 endfunction
-" nnoremap <silent> <F3> :call ToggleNu()<CR>
+nnoremap <silent> <F3> :call ToggleNu()<CR>
 
 " switch spellcheck languages
 hi clear SpellBad
@@ -224,5 +181,5 @@ function! ToggleSpell()
         endif
     echo "spell checking language:" g:myLangList[b:myLang]
 endfunction
-" nnoremap <silent> <F6> :call ToggleSpell()<CR>
+nnoremap <silent> <F4> :call ToggleSpell()<CR>
 
