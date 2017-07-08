@@ -140,7 +140,6 @@ let g:ycm_filetype_blacklist = {
       \ 'infolog' : 1
       \}
 
-
 "toggel linenumber
 function! ToggleNu()
     if !exists( "b:myNu" )

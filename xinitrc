@@ -5,5 +5,6 @@ else
 fi
 xinput set-prop 14 "Device Enabled" 0
 source ~/.zshrc
-wicd-gtk &
+nm-applet &
+xset -dpms s off
 exec awesome
