@@ -4,7 +4,6 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'chriskempson/base16-vim'
 Plug 'chrisbra/SudoEdit.vim'
 Plug 'rking/ag.vim'
@@ -23,6 +22,7 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'chrisbra/Colorizer'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 " Settings
@@ -107,6 +107,10 @@ nnoremap <S-Tab> :bprevious<CR>
 
 " AirLine
 let g:airline#extensions#tabline#enabled = 1
+
+" Change Filetype
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd BufNewFile,BufReadPost *.cls set filetype=tex
 
 " syntastic
 set statusline+=%#warningmsg#
