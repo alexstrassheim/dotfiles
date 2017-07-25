@@ -6,7 +6,7 @@ ZSH_THEME="spaceship"
 DISABLE_AUTO_TITLE="true"
 
 # Pluginlist
-plugins=(git openssl colored-man vi-mode zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git killall colored-man vi-mode zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
 
 
 #===========================================================
@@ -108,4 +108,6 @@ function ra {
 bindkey '^o' ra'^m'
 bindkey -M viins 'jk' vi-cmd-mode
 bindkey "^@" autosuggest-accept
-bindkey "^f" vi-forward-word-end
+bindkey '^f' vi-forward-blank-word
+
+
