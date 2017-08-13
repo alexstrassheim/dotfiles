@@ -8,7 +8,8 @@ audible_bell = false
 visible_bell = true
 urgent_on_bell = true
 clickable_url = true
-font = Monospace 12
+#font = Inconsolata 15
+font = Droid Sans Mono 9.5
 scrollback_lines = 10000
 search_wrap = true
 #icon_name = terminal
@@ -67,3 +68,5 @@ fullscreen = false
 # color19 = #3a4055
 # color20 = #d4cfc9
 # color21 = #f4f1ed
+
+
