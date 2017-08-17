@@ -106,7 +106,9 @@ function ra {
 #===========================================================
 #                   Settings for bindkey
 
-# bindkey '^o' ra'^m'
+bindkey '^o' ra'^m'
 bindkey -M viins 'jk' vi-cmd-mode
-# bindkey "^@" autosuggest-accept
-# bindkey "^f" vi-forward-word-end
+bindkey "^@" autosuggest-accept
+bindkey '^f' vi-forward-blank-word
+
+
