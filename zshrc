@@ -6,7 +6,7 @@ ZSH_THEME="spaceship"
 DISABLE_AUTO_TITLE="true"
 
 # Pluginlist
-plugins=(git killall colored-man vi-mode zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git heroku killall colored-man vi-mode zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
 
 
 #===========================================================
@@ -47,7 +47,7 @@ export LC_CTYPE=en_US.UTF-8
 export EDITOR='vim'
 
 
-#=========================================================== 
+#===========================================================
 #                 OS specific settings
 
 if [[ `uname` == 'Darwin' ]]; then
@@ -87,6 +87,7 @@ alias watchdata="watch -n 1 grep -e Dirty: -e  Writeback: /proc/meminfo"
 #===========================================================
 #                     ranger settings
 
+bindkey '^f' ra'^m'
 function ra {
   tempfile="$(mktemp -t tmp.XXXXXX)"
   if [[ `uname` == 'Darwin' ]]; then
@@ -105,9 +106,7 @@ function ra {
 #===========================================================
 #                   Settings for bindkey
 
-bindkey '^o' ra'^m'
 bindkey -M viins 'jk' vi-cmd-mode
 bindkey "^@" autosuggest-accept
 bindkey '^f' vi-forward-blank-word
-
 
