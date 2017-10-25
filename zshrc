@@ -102,6 +102,10 @@ function ra {
     rm -f -- "$tempfile"
   }
 
+if [[ $TERM == xterm-termite ]]; then
+  . /etc/profile.d/vte.sh
+  __vte_osc7
+fi
 
 #===========================================================
 #                   Settings for bindkey
