@@ -167,6 +167,7 @@ nnoremap <silent> <F3> :call ToggleNu()<CR>
 hi clear SpellBad
 " highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
   highlight SpellBad ctermbg=124
+  hi SpellBad cterm=underline
 let g:myLangList=["nospell","de_de","en_us","de_de,en_us"]
 function! ToggleSpell()
     if !exists( "b:myLang" )
