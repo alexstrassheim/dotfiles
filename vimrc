@@ -23,6 +23,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-vinegar'
+Plug 'Yggdroot/indentLine'
 call plug#end()
 
 " Settings
@@ -111,6 +112,10 @@ let g:airline#extensions#tabline#enabled = 1
 " Change Filetype
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd BufNewFile,BufReadPost *.cls set filetype=tex
+
+" indentLine
+let g:indentLine_char = '¦'
+let g:indentLine_indentLevel = 10
 
 " syntastic
 set statusline+=%#warningmsg#
