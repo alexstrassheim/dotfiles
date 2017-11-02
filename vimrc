@@ -24,6 +24,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-vinegar'
 Plug 'Yggdroot/indentLine'
+Plug 'vim-scripts/ZoomWin'
 call plug#end()
 
 " Settings
@@ -93,6 +94,7 @@ nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>
 nnoremap <C-h> <C-w><C-h>
+nnoremap <silent> <C-w>w :ZoomWin<CR>
 
 " search
 nnoremap <leader><leader> :nohlsearch<CR>
