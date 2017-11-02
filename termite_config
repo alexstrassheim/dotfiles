@@ -8,8 +8,8 @@ audible_bell = false
 visible_bell = true
 urgent_on_bell = true
 clickable_url = true
-font = Inconsolata 12
-# font = Droid Sans Mono 12
+#font = Inconsolata 15
+font = Droid Sans Mono 11
 scrollback_lines = 10000
 search_wrap = true
 #icon_name = terminal
@@ -22,7 +22,7 @@ cursor_blink = system
 cursor_shape = block
 
 # $BROWSER is used by default
-browser = chromium
+browser = qutebrowser
 
 # set size hints for the window
 #size_hints = false
