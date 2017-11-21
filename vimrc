@@ -25,6 +25,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-vinegar'
 Plug 'Yggdroot/indentLine'
 Plug 'vim-scripts/ZoomWin'
+Plug 'jamessan/vim-gnupg'
 call plug#end()
 
 " Settings
