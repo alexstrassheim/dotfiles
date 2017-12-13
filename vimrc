@@ -23,10 +23,11 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-vinegar'
-Plug 'Yggdroot/indentLine'
+" Plug 'Yggdroot/indentLine'
 Plug 'vim-scripts/ZoomWin'
 Plug 'jamessan/vim-gnupg'
 Plug 'keith/swift.vim'
+Plug 'vim-voom/VOoM'
 call plug#end()
 
 " Settings
@@ -117,9 +118,23 @@ let g:airline#extensions#tabline#enabled = 1
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd BufNewFile,BufReadPost *.cls set filetype=tex
 
+" set wrap on diff
+autocmd FilterWritePre * if &diff | setlocal wrap< | endif
+
 " indentLine
-let g:indentLine_char = '¦'
-let g:indentLine_indentLevel = 10
+" let g:indentLine_char = '¦'
+" let g:indentLine_indentLevel = 10
+
+" ctrlP -- Exclude
+set wildignore+=*/tmp/*,Rohdaten*,Material*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
 
 " syntastic
 set statusline+=%#warningmsg#
