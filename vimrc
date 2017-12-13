@@ -26,6 +26,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'Yggdroot/indentLine'
 Plug 'vim-scripts/ZoomWin'
 Plug 'jamessan/vim-gnupg'
+Plug 'keith/swift.vim'
 call plug#end()
 
 " Settings
