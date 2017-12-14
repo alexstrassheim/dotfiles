@@ -27,6 +27,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/ZoomWin'
 Plug 'jamessan/vim-gnupg'
 Plug 'vim-voom/VOoM'
+Plug 'scrooloose/nerdtree'
 call plug#end()
 
 " Settings
@@ -78,6 +79,9 @@ endif
 " reload config
 let mapleader="\,"
 nnoremap <leader>rv :source $MYVIMRC<CR>
+
+" Explore setting
+let g:netrw_banner = 0
 
 " quick save
 noremap <C-s> <ESC>:w<CR>
