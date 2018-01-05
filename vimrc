@@ -1,7 +1,7 @@
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-easy-align'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'Valloric/YouCompleteMe', { 'do': 'python3 ./install.py' }
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 Plug 'chriskempson/base16-vim'
 Plug 'chrisbra/SudoEdit.vim'
@@ -65,6 +65,12 @@ set cm=blowfish2
 " Whitespaces 
 set list          " Display unprintable characters f12 - switches
 set listchars=tab:•\ ,trail:•,extends:»,precedes:« " Unprintable chars mapping
+
+" Allow us to use Ctrl-s and Ctrl-q as keybinds
+silent !stty -ixon
+
+" Restore default behaviour when leaving Vim.
+autocmd VimLeave * silent !stty ixon
 
 " theme
 if filereadable(expand("~/.vimrc_background"))

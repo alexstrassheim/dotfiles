@@ -54,11 +54,11 @@ if [[ `uname` == 'Darwin' ]]; then
   # MacOS
 
   # PATH
-  export PATH="/usr/local/sbin/:$PATH"
+  export PATH="/usr/local/sbin:$PATH"
   export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
   # ixon
-  alias vim="stty stop '' -ixoff ; vim"
+  # alias vim="stty stop '' -ixoff ; vim"
 else
   # Linux
   # Ruby
