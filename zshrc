@@ -56,6 +56,7 @@ if [[ `uname` == 'Darwin' ]]; then
   # PATH
   export PATH="/usr/local/sbin:$PATH"
   export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+  # source /usr/local/bin/virtualenvwrapper.sh
 
   # ixon
   # alias vim="stty stop '' -ixoff ; vim"
@@ -114,3 +115,10 @@ fi
 bindkey -M viins 'jk' vi-cmd-mode
 bindkey "^@" autosuggest-accept
 bindkey '^f' vi-forward-blank-word
+
+export PATH="/usr/local/opt/qt/bin:$PATH"
+export PATH="/usr/local/opt/qt/bin:$PATH"
+export PATH="/usr/local/opt/gpg-agent/bin:$PATH"
+
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
