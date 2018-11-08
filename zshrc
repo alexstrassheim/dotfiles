@@ -20,7 +20,6 @@ export RPS1="%{$reset_color%}"
 
 source $ZSH/oh-my-zsh.sh
 
-
 #===========================================================
 #                          History
 
@@ -46,6 +45,13 @@ export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export EDITOR='vim'
 
+#===========================================================
+#                       private stuff
+
+[ -z "$TMUX" ] && export TERM=xterm-256color
+[[ -f ~/.zshrc_contents/private ]] && source ~/.zshrc_contents/private
+[[ -d "${HOME}/.local/bin" ]] && export PATH="${HOME}/.local/bin:${PATH}"
+
 
 #===========================================================
 #                 OS specific settings
@@ -55,11 +61,18 @@ if [[ `uname` == 'Darwin' ]]; then
 
   # PATH
   export PATH="/usr/local/sbin:$PATH"
-  export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+  # export PATH="/usr/local/opt/python/libexec/bin:$PATH"
   # source /usr/local/bin/virtualenvwrapper.sh
 
   # ixon
   # alias vim="stty stop '' -ixoff ; vim"
+
+  export PATH="/usr/local/opt/qt/bin:$PATH"
+  export PATH="/usr/local/opt/qt/bin:$PATH"
+  export PATH="/usr/local/opt/gpg-agent/bin:$PATH"
+
+  source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 else
   # Linux
   # Ruby
@@ -70,20 +83,6 @@ else
   source /usr/share/doc/pkgfile/command-not-found.zsh
 fi
 
-
-#===========================================================
-#                       private stuff
-
-source ~/.zshrc_contents/private
-[[ -d "${HOME}/.local/bin" ]] && export PATH="${HOME}/.local/bin:${PATH}"
-[ -z "$TMUX" ] && export TERM=xterm-256color
-
-
-#===========================================================
-#                       Public alias
-
-alias lls="ls -la | grep ^l"
-alias watchdata="watch -n 1 grep -e Dirty: -e  Writeback: /proc/meminfo"
 
 
 #===========================================================
@@ -109,16 +108,18 @@ if [[ $TERM == xterm-termite ]]; then
   __vte_osc7
 fi
 
+
+#===========================================================
+#                       Public alias
+
+alias lls="ls -la | grep ^l"
+alias watchdata="watch -n 1 grep -e Dirty: -e  Writeback: /proc/meminfo"
+
+
 #===========================================================
 #                   Settings for bindkey
 
 bindkey -M viins 'jk' vi-cmd-mode
 bindkey "^@" autosuggest-accept
 bindkey '^f' vi-forward-blank-word
-
-export PATH="/usr/local/opt/qt/bin:$PATH"
-export PATH="/usr/local/opt/qt/bin:$PATH"
-export PATH="/usr/local/opt/gpg-agent/bin:$PATH"
-
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
