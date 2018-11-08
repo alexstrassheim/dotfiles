@@ -12,4 +12,4 @@ brew cask install font-fira-code
 
 # Tmux
 
-![tmux](https://raw.githubusercontent.com/alexstrassheim/dotfiles/master/tmux.png)
+![tmux](https://raw.githubusercontent.com/alexstrassheim/dotfiles/master/tmux.png){:width="200px"}.
