@@ -49,7 +49,7 @@ export EDITOR='vim'
 #                       private stuff
 
 [ -z "$TMUX" ] && export TERM=xterm-256color
-[[ -d "${HOME}/.local/bin" ]] && export PATH="${HOME}/.local/bin:${PATH}"
+[[ -d "${HOME}/.local/bin" ]] && export PATH="$PATH:${HOME}/.local/bin"
 
 if [ -f ~/.zshrc_contents/private ]; then
   . ~/.zshrc_contents/private
@@ -61,7 +61,7 @@ fi
 if [[ `uname` == 'Darwin' ]]; then
   # MacOS
 
-  export PATH="/usr/local/sbin:$PATH"
+  export PATH="$PATH:/usr/local/sbin"
 
   # export PATH="/usr/local/opt/python/libexec/bin:$PATH"
   # source /usr/local/bin/virtualenvwrapper.sh
