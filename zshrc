@@ -49,9 +49,11 @@ export EDITOR='vim'
 #                       private stuff
 
 [ -z "$TMUX" ] && export TERM=xterm-256color
-[[ -f ~/.zshrc_contents/private ]] && source ~/.zshrc_contents/private
 [[ -d "${HOME}/.local/bin" ]] && export PATH="${HOME}/.local/bin:${PATH}"
 
+if [ -f ~/.zshrc_contents/private ]; then
+  . ~/.zshrc_contents/private
+fi
 
 #===========================================================
 #                 OS specific settings
@@ -59,20 +61,17 @@ export EDITOR='vim'
 if [[ `uname` == 'Darwin' ]]; then
   # MacOS
 
-  # PATH
   export PATH="/usr/local/sbin:$PATH"
+
   # export PATH="/usr/local/opt/python/libexec/bin:$PATH"
   # source /usr/local/bin/virtualenvwrapper.sh
-
-  # ixon
-  # alias vim="stty stop '' -ixoff ; vim"
-
-  export PATH="/usr/local/opt/qt/bin:$PATH"
-  export PATH="/usr/local/opt/qt/bin:$PATH"
-  export PATH="/usr/local/opt/gpg-agent/bin:$PATH"
+  # export PATH="/usr/local/opt/qt/bin:$PATH"
+  # export PATH="/usr/local/opt/qt/bin:$PATH"
+  # export PATH="/usr/local/opt/gpg-agent/bin:$PATH"
 
   source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
+  # ixon
+  # alias vim="stty stop '' -ixoff ; vim"
 else
   # Linux
   # Ruby
@@ -82,7 +81,6 @@ else
   screenfetch
   source /usr/share/doc/pkgfile/command-not-found.zsh
 fi
-
 
 
 #===========================================================
