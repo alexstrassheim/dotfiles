@@ -31,6 +31,7 @@ Plug 'vim-voom/VOoM'
 Plug 'scrooloose/nerdtree'
 Plug 'PProvost/vim-ps1'
 Plug 'cespare/vim-toml'
+Plug 'rhysd/vim-grammarous'
 call plug#end()
 
 " Settings
