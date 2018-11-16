@@ -221,7 +221,7 @@ let g:grammarous#enabled_rules = {'*' : ['PASSIVE_VOICE']}
 let g:languagetool_jar='/usr/local/Cellar/languagetool/4.3/libexec/languagetool-commandline.jar'
 let g:languagetool_disable_rules='WHITESPACE_RULE,EN_QUOTES,EN_UNPAIRED_BRACKETS'
 let g:languagetool_enable_rules='PASSIVE_VOICE'
-let g:languagetool_lang="en-US"
+let g:languagetool_lang="de-DE"
 
 
 
