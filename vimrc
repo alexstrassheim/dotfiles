@@ -31,6 +31,7 @@ Plug 'vim-voom/VOoM'
 Plug 'scrooloose/nerdtree'
 Plug 'PProvost/vim-ps1'
 Plug 'cespare/vim-toml'
+Plug 'dpelle/vim-LanguageTool'
 Plug 'rhysd/vim-grammarous'
 call plug#end()
 
@@ -189,6 +190,40 @@ let g:ycm_filetype_blacklist = {
       \ 'pandoc' : 1,
       \ 'infolog' : 1
       \}
+
+" vim-grammarous languagetool
+let g:grammarous#languagetool_cmd = 'languagetool'
+let g:grammarous#use_vim_spelllang = 0
+let g:grammarous#enable_spell_check = 1
+
+let g:grammarous#hooks = {}
+function! g:grammarous#hooks.on_check(errs) abort
+    nmap <buffer><C-n> <Plug>(grammarous-move-to-next-error)
+    nmap <buffer><C-p> <Plug>(grammarous-move-to-previous-error)
+    nmap <buffer><C-f> <Plug>(grammarous-fixit)
+endfunction
+
+function! g:grammarous#hooks.on_reset(errs) abort
+    nunmap <buffer><C-n>
+    nunmap <buffer><C-p>
+    nunmap <buffer><C-f>
+endfunction
+
+let g:grammarous#disabled_rules = {
+            \ '*' : ['WHITESPACE_RULE', 'EN_QUOTES', 'EN_UNPAIRED_BRACKETS'],
+            \ 'help' : ['WHITESPACE_RULE', 'EN_QUOTES', 'SENTENCE_WHITESPACE', 'UPPERCASE_SENTENCE_START'],
+            \ }
+
+let g:grammarous#enabled_rules = {'*' : ['PASSIVE_VOICE']}
+
+
+" vim-languagetool languagetool
+let g:languagetool_jar='/usr/local/Cellar/languagetool/4.3/libexec/languagetool-commandline.jar'
+let g:languagetool_disable_rules='WHITESPACE_RULE,EN_QUOTES,EN_UNPAIRED_BRACKETS'
+let g:languagetool_enable_rules='PASSIVE_VOICE'
+let g:languagetool_lang="de-DE"
+
+
 
 "toggel linenumber
 function! ToggleNu()
