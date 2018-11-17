@@ -23,7 +23,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-vinegar'
-" Plug 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine'
 Plug 'vim-scripts/ZoomWin'
 Plug 'jamessan/vim-gnupg'
 Plug 'keith/swift.vim'
@@ -64,8 +64,10 @@ set splitbelow
 set splitright
 set clipboard=unnamed
 set cm=blowfish2
+
 " set background=dark
 " runtime macros/matchit.vim        " use % to jump between start/end of methods
+
 " Whitespaces 
 set list          " Display unprintable characters f12 - switches
 set listchars=tab:•\ ,trail:•,extends:»,precedes:« " Unprintable chars mapping
@@ -84,23 +86,15 @@ silent !stty -ixon
 " Restore default behaviour when leaving Vim.
 autocmd VimLeave * silent !stty ixon
 
+" reload config
+let mapleader="\,"
+nnoremap <leader>rv :source $MYVIMRC<CR>
+
 " theme
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
 endif
-
-" hint to keep lines short
-if exists('+colorcolumn')
-  set colorcolumn=80
-endif
-
-" reload config
-let mapleader="\,"
-nnoremap <leader>rv :source $MYVIMRC<CR>
-
-" Explore setting
-let g:netrw_banner = 0
 
 " quick save
 noremap <C-s> <ESC>:w<CR>
@@ -109,6 +103,15 @@ inoremap <C-s> <ESC>:w<CR>
 " remap ESC
 inoremap jk <ESC>
 cnoremap jk <ESC>
+
+
+" hint to keep lines short
+if exists('+colorcolumn')
+  set colorcolumn=80
+endif
+
+" Explore setting
+let g:netrw_banner = 0
 
 " movement
 nnoremap j gj
@@ -135,6 +138,8 @@ nnoremap <S-Tab> :bprevious<CR>
 
 " AirLine
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme='simple'
 
 " Change Filetype
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
