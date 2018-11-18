@@ -149,8 +149,11 @@ autocmd BufNewFile,BufReadPost *.cls set filetype=tex
 autocmd FilterWritePre * if &diff | setlocal wrap< | endif
 
 " indentLine
-" let g:indentLine_char = '¦'
-" let g:indentLine_indentLevel = 10
+" let g:indentLine_setColors = 0
+let g:indentLine_char = '¦'
+let g:indentLine_concealcursor = 'inc'
+let g:indentLine_conceallevel = 2
+let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'startify', 'tagbar', 'vimfiler', 'markdown', 'minimap']
 
 " ctrlP -- Exclude
 set wildignore+=*/tmp/*,Rohdaten*,Material*,*.so,*.swp,*.zip     " MacOSX/Linux
