@@ -32,7 +32,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'PProvost/vim-ps1'
 Plug 'cespare/vim-toml'
 Plug 'dpelle/vim-LanguageTool'
-Plug 'rhysd/vim-grammarous'
+" Plug 'rhysd/vim-grammarous'
 call plug#end()
 
 " Settings
@@ -105,10 +105,10 @@ inoremap jk <ESC>
 cnoremap jk <ESC>
 
 
-" hint to keep lines short
-if exists('+colorcolumn')
-  set colorcolumn=80
-endif
+" " hint to keep lines short
+" if exists('+colorcolumn')
+"   set colorcolumn=80
+" endif
 
 " Explore setting
 let g:netrw_banner = 0
@@ -152,7 +152,7 @@ autocmd FilterWritePre * if &diff | setlocal wrap< | endif
 " let g:indentLine_setColors = 0
 let g:indentLine_char = '¦'
 let g:indentLine_concealcursor = 'inc'
-let g:indentLine_conceallevel = 2
+let g:indentLine_conceallevel = 1
 let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'startify', 'tagbar', 'vimfiler', 'markdown', 'minimap']
 
 " ctrlP -- Exclude
@@ -166,10 +166,7 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'some_bad_symbolic_links',
   \ }
 
-" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" " syntastic
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -199,8 +196,8 @@ let g:ycm_filetype_blacklist = {
       \ 'infolog' : 1
       \}
 
-" vim-grammarous languagetool
-let g:grammarous#languagetool_cmd = 'languagetool'
+"  vim-grammarous languagetool
+let g:grammarous#languagetool_cmd = '/usr/local/Cellar/languagetool/4.3/libexec/languagetool-commandline.jar'
 let g:grammarous#use_vim_spelllang = 0
 let g:grammarous#enable_spell_check = 1
 
