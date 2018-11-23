@@ -18,7 +18,6 @@ Plug 'junegunn/goyo.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'Raimondi/delimitMate'
 Plug 'Chiel92/vim-autoformat'
-Plug 'chrisbra/Colorizer'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -251,3 +250,6 @@ let g:languagetool_disable_rules='WHITESPACE_RULE,EN_QUOTES,EN_UNPAIRED_BRACKETS
 let g:languagetool_enable_rules='PASSIVE_VOICE'
 let g:languagetool_lang="de-DE"
 
+let g:easy_align_delimiters = {
+\ '%': { 'pattern': '%' }
+\ }
