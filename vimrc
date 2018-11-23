@@ -23,7 +23,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-vinegar'
-Plug 'Yggdroot/indentLine'
+" Plug 'Yggdroot/indentLine'
 Plug 'vim-scripts/ZoomWin'
 Plug 'jamessan/vim-gnupg'
 Plug 'keith/swift.vim'
@@ -105,10 +105,10 @@ inoremap jk <ESC>
 cnoremap jk <ESC>
 
 
-" hint to keep lines short
-if exists('+colorcolumn')
-  set colorcolumn=80
-endif
+" " hint to keep lines short
+" if exists('+colorcolumn')
+"   set colorcolumn=80
+" endif
 
 " Explore setting
 let g:netrw_banner = 0
