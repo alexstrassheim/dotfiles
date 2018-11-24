@@ -135,6 +135,7 @@ let g:airline_theme='base16'
 " Change Filetype
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd BufNewFile,BufReadPost *.cls set filetype=tex
+autocmd BufNewFile,BufReadPost *.tex set filetype=tex
 
 " set wrap on diff
 autocmd FilterWritePre * if &diff | setlocal wrap< | endif
