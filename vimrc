@@ -38,12 +38,15 @@ Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' } " A Vim Plugin for Lively
 call plug#end()
 
 " Settings
-set encoding=utf-8
 syntax on                         " show syntax highlighting
-set autoindent                  " set auto indent
+set encoding=utf-8
 set ts=4                          " set indent to 2 spaces
 set shiftwidth=2
 set updatetime=1000
+set scrolloff=2                   " minimum lines above/below cursor
+set laststatus=2                  " always show status bar
+set backspace=2
+set autoindent                    " set auto indent
 set expandtab                     " use spaces, not tab characters
 set relativenumber                " show relative line numbers
 set number
@@ -54,34 +57,18 @@ set cursorline                    " highlight current line
 set smartcase                     " pay attention to case when caps are used
 set incsearch                     " show search results as I type
 set ruler                         " show row and column in footer
-set scrolloff=2                   " minimum lines above/below cursor
-set laststatus=2                  " always show status bar
 set nofoldenable                  " disable code folding
 set noswapfile
-set undofile                      " Maintain undo history between sessions
-set undodir=~/.vim/undodir
 set autoread
-set backspace=2
-set pastetoggle=<F2>
 set splitbelow
 set splitright
 set clipboard=unnamed
 set cm=blowfish2
-
-" set background=dark
-" runtime macros/matchit.vim        " use % to jump between start/end of methods
-
-" Whitespaces 
-set list          " Display unprintable characters f12 - switches
+set list                         " Display unprintable characters f12 - switches
 set listchars=tab:•\ ,trail:•,extends:»,precedes:« " Unprintable chars mapping
-
-let loaded_matchparen=1 " Don't load matchit.vim (paren/bracket matching)
-set noshowmatch         " Don't match parentheses/brackets
-" set nocursorline        " Don't paint cursor line
-" set nocursorcolumn      " Don't paint cursor column
-set lazyredraw          " Wait to redraw
-set scrolljump=8        " Scroll 8 lines at a time at bottom/top
-let html_no_rendering=1 " Don't render italic, bold, links in HTML
+set undofile                     " Maintain undo history between sessions
+set undodir=~/.vim/undodir
+set pastetoggle=<F2>
 
 " Allow us to use Ctrl-s and Ctrl-q as keybinds
 silent !stty -ixon
@@ -106,7 +93,6 @@ inoremap <C-s> <ESC>:w<CR>
 " remap ESC
 inoremap jk <ESC>
 cnoremap jk <ESC>
-
 
 " " hint to keep lines short
 " if exists('+colorcolumn')
@@ -161,7 +147,6 @@ let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'startify', 'tagbar', 'v
 " ctrlP -- Exclude
 set wildignore+=*/tmp/*,Rohdaten*,Material*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
-
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
@@ -198,41 +183,7 @@ let g:ycm_filetype_blacklist = {
       \ 'pandoc' : 1,
       \ 'infolog' : 1
       \}
-
-"  vim-grammarous languagetool
-let g:grammarous#languagetool_cmd = '/usr/local/Cellar/languagetool/4.3/libexec/languagetool-commandline.jar'
-let g:grammarous#use_vim_spelllang = 0
-let g:grammarous#enable_spell_check = 1
-
-let g:grammarous#hooks = {}
-function! g:grammarous#hooks.on_check(errs) abort
-    nmap <buffer><C-n> <Plug>(grammarous-move-to-next-error)
-    nmap <buffer><C-p> <Plug>(grammarous-move-to-previous-error)
-    nmap <buffer><C-f> <Plug>(grammarous-fixit)
-endfunction
-
-function! g:grammarous#hooks.on_reset(errs) abort
-    nunmap <buffer><C-n>
-    nunmap <buffer><C-p>
-    nunmap <buffer><C-f>
-endfunction
-
-let g:grammarous#disabled_rules = {
-            \ '*' : ['WHITESPACE_RULE', 'EN_QUOTES', 'EN_UNPAIRED_BRACKETS'],
-            \ 'help' : ['WHITESPACE_RULE', 'EN_QUOTES', 'SENTENCE_WHITESPACE', 'UPPERCASE_SENTENCE_START'],
-            \ }
-
-let g:grammarous#enabled_rules = {'*' : ['PASSIVE_VOICE']}
-
-
-" vim-languagetool languagetool
-let g:languagetool_jar='/usr/local/Cellar/languagetool/4.3/libexec/languagetool-commandline.jar'
-let g:languagetool_disable_rules='WHITESPACE_RULE,EN_QUOTES,EN_UNPAIRED_BRACKETS'
-let g:languagetool_enable_rules='PASSIVE_VOICE'
-let g:languagetool_lang="de-DE"
-
-
-
+"
 "toggel linenumber
 function! ToggleNu()
     if !exists( "b:myNu" )
@@ -253,9 +204,10 @@ nnoremap <silent> <F3> :call ToggleNu()<CR>
 
 " switch spellcheck languages
 hi clear SpellBad
+
 " highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
-  highlight SpellBad ctermbg=124
-  hi SpellBad cterm=underline
+highlight SpellBad ctermbg=124
+hi SpellBad cterm=underline
 let g:myLangList=["nospell","de_de","en_us","de_de,en_us"]
 function! ToggleSpell()
     if !exists( "b:myLang" )
@@ -276,4 +228,37 @@ function! ToggleSpell()
 endfunction
 nnoremap <silent> <F4> :call ToggleSpell()<CR>
 
+"  vim-grammarous languagetool
+let g:grammarous#languagetool_cmd = '/usr/local/Cellar/languagetool/4.3/libexec/languagetool-commandline.jar'
+let g:grammarous#use_vim_spelllang = 0
+let g:grammarous#enable_spell_check = 1
+let g:grammarous#hooks = {}
+function! g:grammarous#hooks.on_check(errs) abort
+    nmap <buffer><C-n> <Plug>(grammarous-move-to-next-error)
+    nmap <buffer><C-p> <Plug>(grammarous-move-to-previous-error)
+    nmap <buffer><C-f> <Plug>(grammarous-fixit)
+endfunction
+function! g:grammarous#hooks.on_reset(errs) abort
+    nunmap <buffer><C-n>
+    nunmap <buffer><C-p>
+    nunmap <buffer><C-f>
+endfunction
+let g:grammarous#disabled_rules = {
+            \ '*' : ['WHITESPACE_RULE', 'EN_QUOTES', 'EN_UNPAIRED_BRACKETS'],
+            \ 'help' : ['WHITESPACE_RULE', 'EN_QUOTES', 'SENTENCE_WHITESPACE', 'UPPERCASE_SENTENCE_START'],
+            \ }
+let g:grammarous#enabled_rules = {'*' : ['PASSIVE_VOICE']}
+
+" vim-languagetool languagetool
+let g:languagetool_jar='/usr/local/Cellar/languagetool/4.3/libexec/languagetool-commandline.jar'
+let g:languagetool_disable_rules='WHITESPACE_RULE,EN_QUOTES,EN_UNPAIRED_BRACKETS'
+let g:languagetool_enable_rules='PASSIVE_VOICE'
+let g:languagetool_lang="de-DE"
+
+" Easy Align
+let g:easy_align_delimiters = {
+\ '%': { 'pattern': '%' }
+\ }
+
+" live preview
 let g:livepreview_previewer = 'zathura'
