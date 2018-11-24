@@ -262,3 +262,4 @@ let g:easy_align_delimiters = {
 
 " live preview
 let g:livepreview_previewer = 'zathura'
+let g:livepreview_cursorhold_recompile = 0
