@@ -33,6 +33,8 @@ Plug 'PProvost/vim-ps1'
 Plug 'cespare/vim-toml'
 Plug 'dpelle/vim-LanguageTool'
 " Plug 'rhysd/vim-grammarous'
+Plug 'lervag/vimtex'                                   " A Vim Tex Plugin
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' } " A Vim Plugin for Lively Previewing LaTeX PDF Output
 call plug#end()
 
 " Settings
@@ -41,6 +43,7 @@ syntax on                         " show syntax highlighting
 set autoindent                  " set auto indent
 set ts=4                          " set indent to 2 spaces
 set shiftwidth=2
+set updatetime=1000
 set expandtab                     " use spaces, not tab characters
 set relativenumber                " show relative line numbers
 set number
@@ -273,3 +276,4 @@ function! ToggleSpell()
 endfunction
 nnoremap <silent> <F4> :call ToggleSpell()<CR>
 
+let g:livepreview_previewer = 'zathura'
