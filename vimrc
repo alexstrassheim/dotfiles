@@ -32,6 +32,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/BufOnly.vim'
 Plug 'vim-scripts/ZoomWin'
 Plug 'vim-voom/VOoM'                                            " emulates a two-pane text outliner
+Plug 'blueyed/vim-diminactive'
 call plug#end()
 
 " Settings
@@ -66,6 +67,7 @@ set listchars=tab:•\ ,trail:•,extends:»,precedes:« " Unprintable chars map
 set undofile                     " Maintain undo history between sessions
 set undodir=~/.vim/undodir
 set pastetoggle=<F2>
+set timeoutlen=1000 ttimeoutlen=0
 filetype plugin indent on
 
 
