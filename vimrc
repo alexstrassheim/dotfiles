@@ -34,7 +34,7 @@ Plug 'cespare/vim-toml'
 Plug 'dpelle/vim-LanguageTool'
 " Plug 'rhysd/vim-grammarous'
 Plug 'lervag/vimtex'                                   " A Vim Tex Plugin
-Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' } " A Vim Plugin for Lively Previewing LaTeX PDF Output
+" Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' } " A Vim Plugin for Lively Previewing LaTeX PDF Output
 call plug#end()
 
 " Settings
