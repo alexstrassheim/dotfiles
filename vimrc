@@ -15,6 +15,7 @@ Plug 'dpelle/vim-LanguageTool'
 Plug 'jamessan/vim-gnupg'
 Plug 'junegunn/vim-easy-align'
 Plug 'keith/swift.vim'
+Plug 'lervag/vimtex'                                            " A Vim Tex Plugin
 Plug 'majutsushi/tagbar'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
@@ -28,9 +29,9 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'                                        " directory browser -
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-scripts/BufOnly.vim'
 Plug 'vim-scripts/ZoomWin'
 Plug 'vim-voom/VOoM'                                            " emulates a two-pane text outliner
-Plug 'lervag/vimtex'                                            " A Vim Tex Plugin
 call plug#end()
 
 " Settings
