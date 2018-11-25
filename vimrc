@@ -250,6 +250,7 @@ let g:languagetool_disable_rules='WHITESPACE_RULE,EN_QUOTES,EN_UNPAIRED_BRACKETS
 let g:languagetool_enable_rules='PASSIVE_VOICE'
 let g:languagetool_lang="de-DE"
 
+" easy-align
 let g:easy_align_delimiters = {
 \ '%': { 'pattern': '%' }
 \ }
