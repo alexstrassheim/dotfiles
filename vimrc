@@ -40,7 +40,7 @@ call plug#end()
 " Settings
 syntax on                         " show syntax highlighting
 set encoding=utf-8
-set ts=4                          " set indent to 2 spaces
+set ts=2                          " set indent to 2 spaces
 set shiftwidth=2
 set updatetime=100
 set scrolloff=2                   " minimum lines above/below cursor
@@ -144,7 +144,7 @@ autocmd FilterWritePre * if &diff | setlocal wrap< | endif
 " let g:indentLine_setColors = 0
 let g:indentLine_char = '¦'
 let g:indentLine_concealcursor = 'inc'
-let g:indentLine_conceallevel = 1
+let g:indentLine_conceallevel = 2
 let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'startify', 'tagbar', 'vimfiler', 'markdown', 'minimap']
 
 " ctrlP -- Exclude
