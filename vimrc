@@ -140,6 +140,7 @@ nnoremap <S-Tab> :bprevious<CR>
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme='base16'
+let g:airline#extensions#wordcount#filetypes = 'entersomerandomgibberish'
 
 
 " Change Filetype
@@ -266,4 +267,5 @@ let g:vimtex_view_method = 'skim'
 let g:vimtex_indent_conditionals = {
  \ 'open': '\v(\\newif)@<!\\if(f>|field|name|numequal|thenelse|beginwith)@!',
 \ }
+
 
