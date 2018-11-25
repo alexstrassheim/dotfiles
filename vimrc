@@ -18,6 +18,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'Raimondi/delimitMate'
 Plug 'Chiel92/vim-autoformat'
+Plug 'chrisbra/Colorizer'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -32,6 +33,8 @@ Plug 'PProvost/vim-ps1'
 Plug 'cespare/vim-toml'
 Plug 'dpelle/vim-LanguageTool'
 " Plug 'rhysd/vim-grammarous'
+Plug 'lervag/vimtex'                                   " A Vim Tex Plugin
+" Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' } " A Vim Plugin for Lively Previewing LaTeX PDF Output
 call plug#end()
 
 " Settings
@@ -39,6 +42,7 @@ syntax on                         " show syntax highlighting
 set encoding=utf-8
 set ts=4                          " set indent to 2 spaces
 set shiftwidth=2
+set updatetime=100
 set scrolloff=2                   " minimum lines above/below cursor
 set laststatus=2                  " always show status bar
 set backspace=2
@@ -65,6 +69,8 @@ set listchars=tab:•\ ,trail:•,extends:»,precedes:« " Unprintable chars map
 set undofile                     " Maintain undo history between sessions
 set undodir=~/.vim/undodir
 set pastetoggle=<F2>
+filetype plugin indent on
+
 
 " Allow us to use Ctrl-s and Ctrl-q as keybinds
 silent !stty -ixon
@@ -129,6 +135,7 @@ let g:airline_theme='base16'
 " Change Filetype
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd BufNewFile,BufReadPost *.cls set filetype=tex
+autocmd BufNewFile,BufReadPost *.tex set filetype=tex
 
 " set wrap on diff
 autocmd FilterWritePre * if &diff | setlocal wrap< | endif
@@ -200,6 +207,7 @@ nnoremap <silent> <F3> :call ToggleNu()<CR>
 
 " switch spellcheck languages
 hi clear SpellBad
+
 " highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
 highlight SpellBad ctermbg=124
 hi SpellBad cterm=underline
@@ -250,7 +258,12 @@ let g:languagetool_disable_rules='WHITESPACE_RULE,EN_QUOTES,EN_UNPAIRED_BRACKETS
 let g:languagetool_enable_rules='PASSIVE_VOICE'
 let g:languagetool_lang="de-DE"
 
-" easy-align
+" Easy Align
 let g:easy_align_delimiters = {
 \ '%': { 'pattern': '%' }
 \ }
+
+" live preview
+let g:livepreview_previewer = 'open -a Skim'
+let g:vimtex_view_method = 'skim'
+let g:vimtex_compiler_progname = 'nvr'
