@@ -1,11 +1,11 @@
 call plug#begin('~/.vim/plugged')
 Plug 'Chiel92/vim-autoformat'
 Plug 'PProvost/vim-ps1'
-Plug 'Raimondi/delimitMate'
+Plug 'Raimondi/delimitMate'                                     " automatic closing of quotes, parenthesis, brackets
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-Plug 'Valloric/YouCompleteMe', { 'do': 'python3 ./install.py' }
+Plug 'Valloric/YouCompleteMe', { 'do': 'python3 ./install.py' } " code-completion engine
 Plug 'Yggdroot/indentLine'
-Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'                                   " plugin which shows a git diff in the gutter
 Plug 'cespare/vim-toml'
 Plug 'chrisbra/Colorizer'
 Plug 'chrisbra/SudoEdit.vim'
@@ -13,7 +13,6 @@ Plug 'chriskempson/base16-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dpelle/vim-LanguageTool'
 Plug 'jamessan/vim-gnupg'
-Plug 'junegunn/goyo.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'keith/swift.vim'
 Plug 'majutsushi/tagbar'
@@ -26,12 +25,12 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-vinegar'                                        " directory browser -
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/ZoomWin'
-Plug 'vim-voom/VOoM'
-Plug 'lervag/vimtex'                                   " A Vim Tex Plugin
+Plug 'vim-voom/VOoM'                                            " emulates a two-pane text outliner
+Plug 'lervag/vimtex'                                            " A Vim Tex Plugin
 call plug#end()
 
 " Settings
@@ -40,7 +39,7 @@ set encoding=utf-8
 set ts=4                          " set indent to 4 spaces
 set shiftwidth=4
 set expandtab                     " use spaces, not tab characters
-set updatetime=100
+set updatetime=1000
 set scrolloff=2                   " minimum lines above/below cursor
 set laststatus=2                  " always show status bar
 set backspace=2
