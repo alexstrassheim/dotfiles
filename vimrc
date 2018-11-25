@@ -1,40 +1,37 @@
 call plug#begin('~/.vim/plugged')
-Plug 'junegunn/vim-easy-align'
+Plug 'Chiel92/vim-autoformat'
+Plug 'PProvost/vim-ps1'
+Plug 'Raimondi/delimitMate'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'Valloric/YouCompleteMe', { 'do': 'python3 ./install.py' }
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-Plug 'chriskempson/base16-vim'
-Plug 'chrisbra/SudoEdit.vim'
-Plug 'rking/ag.vim'
-Plug 'terryma/vim-multiple-cursors'
+Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
-Plug 'majutsushi/tagbar'
-Plug 'tpope/vim-dispatch'
-Plug 'tomtom/tcomment_vim'
-Plug 'scrooloose/syntastic'
+Plug 'cespare/vim-toml'
 Plug 'chrisbra/Colorizer'
-Plug 'tpope/vim-surround'
+Plug 'chrisbra/SudoEdit.vim'
+Plug 'chriskempson/base16-vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'dpelle/vim-LanguageTool'
+Plug 'jamessan/vim-gnupg'
 Plug 'junegunn/goyo.vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'keith/swift.vim'
+Plug 'majutsushi/tagbar'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'Raimondi/delimitMate'
-Plug 'Chiel92/vim-autoformat'
-Plug 'chrisbra/Colorizer'
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+Plug 'rking/ag.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tpope/vim-vinegar'
-Plug 'Yggdroot/indentLine'
 Plug 'vim-scripts/ZoomWin'
-Plug 'jamessan/vim-gnupg'
-Plug 'keith/swift.vim'
 Plug 'vim-voom/VOoM'
-Plug 'scrooloose/nerdtree'
-Plug 'PProvost/vim-ps1'
-Plug 'cespare/vim-toml'
-Plug 'dpelle/vim-LanguageTool'
-" Plug 'rhysd/vim-grammarous'
 Plug 'lervag/vimtex'                                   " A Vim Tex Plugin
-" Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' } " A Vim Plugin for Lively Previewing LaTeX PDF Output
 call plug#end()
 
 " Settings
@@ -75,12 +72,15 @@ filetype plugin indent on
 " Allow us to use Ctrl-s and Ctrl-q as keybinds
 silent !stty -ixon
 
+
 " Restore default behaviour when leaving Vim.
 autocmd VimLeave * silent !stty ixon
+
 
 " reload config
 let mapleader="\,"
 nnoremap <leader>rv :source $MYVIMRC<CR>
+
 
 " theme
 if filereadable(expand("~/.vimrc_background"))
@@ -88,25 +88,31 @@ if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
 
+
 " quick save
 noremap <C-s> <ESC>:w<CR>
 inoremap <C-s> <ESC>:w<CR>
 
+
 " remap ESC
 inoremap jk <ESC>
 cnoremap jk <ESC>
+
 
 " " hint to keep lines short
 " if exists('+colorcolumn')
 "   set colorcolumn=80
 " endif
 
+
 " Explore setting
 let g:netrw_banner = 0
+
 
 " movement
 nnoremap j gj
 nnoremap k gk
+
 
 " split navigation
 nnoremap <C-j> <C-w><C-j>
@@ -115,28 +121,34 @@ nnoremap <C-l> <C-w><C-l>
 nnoremap <C-h> <C-w><C-h>
 nnoremap <silent> <C-w>w :ZoomWin<CR>
 
+
 " search
 nnoremap <leader><leader> :nohlsearch<CR>
 nnoremap <leader><leader>a :Ag<space>
+
 
 " mapping
 nmap <F6> :TagbarToggle<CR>
 nmap <F5> :SyntasticToggleMode<CR>
 
+
 " Switch Buffer
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
+
 
 " AirLine
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme='base16'
 
+
 " Change Filetype
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd BufNewFile,BufReadPost *.cls set filetype=tex
 " autocmd BufNewFile,BufReadPost *.tex set filetype=tex
 let g:tex_flavor='latex'
+
 
 " set wrap on diff
 autocmd FilterWritePre * if &diff | setlocal wrap< | endif
@@ -157,12 +169,14 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'some_bad_symbolic_links',
   \ }
 
-" " syntastic
+
+" syntastic
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = { 'passive_filetypes': ['tex'] }
+
 
 " UltiSnips
 let g:UltiSnipsEditSplit="vertical"
@@ -172,6 +186,7 @@ let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsListSnippets="<c-h>"
+
 
 " youcompleteme
 let g:ycm_key_invoke_completion = '<C-Space>'
@@ -186,7 +201,8 @@ let g:ycm_filetype_blacklist = {
       \ 'pandoc' : 1,
       \ 'infolog' : 1
       \}
-"
+
+
 "toggel linenumber
 function! ToggleNu()
     if !exists( "b:myNu" )
@@ -205,9 +221,9 @@ function! ToggleNu()
 endfunction
 nnoremap <silent> <F3> :call ToggleNu()<CR>
 
+
 " switch spellcheck languages
 hi clear SpellBad
-
 " highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
 highlight SpellBad ctermbg=124
 hi SpellBad cterm=underline
@@ -231,26 +247,6 @@ function! ToggleSpell()
 endfunction
 nnoremap <silent> <F4> :call ToggleSpell()<CR>
 
-"  vim-grammarous languagetool
-let g:grammarous#languagetool_cmd = '/usr/local/Cellar/languagetool/4.3/libexec/languagetool-commandline.jar'
-let g:grammarous#use_vim_spelllang = 0
-let g:grammarous#enable_spell_check = 1
-let g:grammarous#hooks = {}
-function! g:grammarous#hooks.on_check(errs) abort
-    nmap <buffer><C-n> <Plug>(grammarous-move-to-next-error)
-    nmap <buffer><C-p> <Plug>(grammarous-move-to-previous-error)
-    nmap <buffer><C-f> <Plug>(grammarous-fixit)
-endfunction
-function! g:grammarous#hooks.on_reset(errs) abort
-    nunmap <buffer><C-n>
-    nunmap <buffer><C-p>
-    nunmap <buffer><C-f>
-endfunction
-let g:grammarous#disabled_rules = {
-            \ '*' : ['WHITESPACE_RULE', 'EN_QUOTES', 'EN_UNPAIRED_BRACKETS'],
-            \ 'help' : ['WHITESPACE_RULE', 'EN_QUOTES', 'SENTENCE_WHITESPACE', 'UPPERCASE_SENTENCE_START'],
-            \ }
-let g:grammarous#enabled_rules = {'*' : ['PASSIVE_VOICE']}
 
 " vim-languagetool languagetool
 let g:languagetool_jar='/usr/local/Cellar/languagetool/4.3/libexec/languagetool-commandline.jar'
@@ -258,10 +254,12 @@ let g:languagetool_disable_rules='WHITESPACE_RULE,EN_QUOTES,EN_UNPAIRED_BRACKETS
 let g:languagetool_enable_rules='PASSIVE_VOICE'
 let g:languagetool_lang="de-DE"
 
+
 " Easy Align
 let g:easy_align_delimiters = {
 \ '%': { 'pattern': '%' }
 \ }
+
 
 " vimtex
 let g:vimtex_view_method = 'skim'
@@ -269,3 +267,4 @@ let g:vimtex_view_method = 'skim'
 let g:vimtex_indent_conditionals = {
  \ 'open': '\v(\\newif)@<!\\if(f>|field|name|numequal|thenelse|beginwith)@!',
 \ }
+
