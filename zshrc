@@ -111,6 +111,7 @@ fi
 #                       Public alias
 
 alias lls="ls -la | grep ^l"
+alias ls=exa
 alias watchdata="watch -n 1 grep -e Dirty: -e  Writeback: /proc/meminfo"
 
 
