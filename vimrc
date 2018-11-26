@@ -40,13 +40,14 @@ call plug#end()
 " Settings
 syntax on                         " show syntax highlighting
 set encoding=utf-8
-set ts=2                          " set indent to 2 spaces
+set ts=4                          " set indent to 4 spaces
 set shiftwidth=2
 set updatetime=100
 set scrolloff=2                   " minimum lines above/below cursor
 set laststatus=2                  " always show status bar
 set backspace=2
 set autoindent                    " set auto indent
+set shiftround
 set expandtab                     " use spaces, not tab characters
 set relativenumber                " show relative line numbers
 set number
@@ -146,6 +147,7 @@ let g:indentLine_char = '¦'
 let g:indentLine_concealcursor = 'inc'
 let g:indentLine_conceallevel = 2
 let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'startify', 'tagbar', 'vimfiler', 'markdown', 'minimap']
+let g:indentLine_showFirstIndentLevel = 0
 
 " ctrlP -- Exclude
 set wildignore+=*/tmp/*,Rohdaten*,Material*,*.so,*.swp,*.zip     " MacOSX/Linux
@@ -267,3 +269,8 @@ let g:easy_align_delimiters = {
 let g:livepreview_previewer = 'open -a Skim'
 let g:vimtex_view_method = 'skim'
 let g:vimtex_compiler_progname = 'nvr'
+
+" auto format
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
+let g:autoformat_remove_trailing_spaces = 0
