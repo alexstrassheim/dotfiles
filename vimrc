@@ -266,6 +266,7 @@ let g:easy_align_delimiters = {
 
 
 " vimtex
+autocmd BufReadPre *.tex let b:vimtex_main = 'report.tex'
 let g:vimtex_view_method = 'skim'
 " let g:vimtex_indent_conditionals = {}
 let g:vimtex_indent_conditionals = {
@@ -287,8 +288,20 @@ let g:vimtex_compiler_latexrun_engines = {
     \ 'lualatex'         : 'lualatex',
     \ 'xelatex'          : 'xelatex',
     \}
-
-
+let g:vimtex_compiler_latexmk = {
+    \ 'backend' : 'jobs',
+    \ 'background' : 1,
+    \ 'build_dir' : './output',
+    \ 'callback' : 1,
+    \ 'continuous' : 1,
+    \ 'executable' : 'latexmk',
+    \ 'options' : [
+    \   '-verbose',
+    \   '-file-line-error',
+    \   '-synctex=1',
+    \   '-interaction=nonstopmode',
+    \ ],
+    \}
 
 
 
