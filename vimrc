@@ -268,10 +268,27 @@ let g:easy_align_delimiters = {
 " vimtex
 let g:vimtex_view_method = 'skim'
 " let g:vimtex_indent_conditionals = {}
-let g:vimtex_compiler_latexmk_engines = {
-    \ '_'         : '-xelatex',
-    \}
 let g:vimtex_indent_conditionals = {
  \ 'open': '\v(\\newif)@<!\\if(f>|field|name|numequal|thenelse|beginwith)@!',
 \ }
+let g:vimtex_compiler_latexmk_engines = {
+    \ '_'                : '-xelatex',
+    \ 'pdflatex'         : '-pdf',
+    \ 'dvipdfex'         : '-pdfdvi',
+    \ 'lualatex'         : '-lualatex',
+    \ 'xelatex'          : '-xelatex',
+    \ 'context (pdftex)' : '-pdf -pdflatex=texexec',
+    \ 'context (luatex)' : '-pdf -pdflatex=context',
+    \ 'context (xetex)'  : '-pdf -pdflatex=''texexec --xtx''',
+    \}
+let g:vimtex_compiler_latexrun_engines = {
+    \ '_'                : 'xelatex',
+    \ 'pdflatex'         : 'pdflatex',
+    \ 'lualatex'         : 'lualatex',
+    \ 'xelatex'          : 'xelatex',
+    \}
+
+
+
+
 
