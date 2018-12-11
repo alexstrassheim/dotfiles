@@ -159,7 +159,7 @@ autocmd FilterWritePre * if &diff | setlocal wrap< | endif
 
 " indentLine
 let g:indentLine_char = '¦'
-let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'startify', 'tagbar', 'vimfiler', 'markdown', 'minimap']
+let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'startify', 'tagbar', 'vimfiler', 'markdown', 'minimap', 'tex']
 let g:indentLine_showFirstIndentLevel = 0
 
 
