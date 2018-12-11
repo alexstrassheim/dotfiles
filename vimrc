@@ -268,6 +268,9 @@ let g:easy_align_delimiters = {
 " vimtex
 let g:vimtex_view_method = 'skim'
 " let g:vimtex_indent_conditionals = {}
+let g:vimtex_compiler_latexmk_engines = {
+    \ '_'         : '-xelatex',
+    \}
 let g:vimtex_indent_conditionals = {
  \ 'open': '\v(\\newif)@<!\\if(f>|field|name|numequal|thenelse|beginwith)@!',
 \ }
