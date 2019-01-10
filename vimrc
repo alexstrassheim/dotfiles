@@ -138,6 +138,8 @@ nmap <F5> :SyntasticToggleMode<CR>
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
 
+" Highlight
+hi MatchParen cterm=bold,underline ctermbg=none ctermfg=12
 
 " AirLine
 let g:airline#extensions#tabline#enabled = 1
@@ -272,36 +274,37 @@ let g:vimtex_view_method = 'skim'
 let g:vimtex_indent_conditionals = {
  \ 'open': '\v(\\newif)@<!\\if(f>|field|name|numequal|thenelse|beginwith)@!',
 \ }
-let g:vimtex_compiler_latexmk_engines = {
-    \ '_'                : '-xelatex',
-    \ 'pdflatex'         : '-pdf',
-    \ 'dvipdfex'         : '-pdfdvi',
-    \ 'lualatex'         : '-lualatex',
-    \ 'xelatex'          : '-xelatex',
-    \ 'context (pdftex)' : '-pdf -pdflatex=texexec',
-    \ 'context (luatex)' : '-pdf -pdflatex=context',
-    \ 'context (xetex)'  : '-pdf -pdflatex=''texexec --xtx''',
-    \}
-let g:vimtex_compiler_latexrun_engines = {
-    \ '_'                : 'xelatex',
-    \ 'pdflatex'         : 'pdflatex',
-    \ 'lualatex'         : 'lualatex',
-    \ 'xelatex'          : 'xelatex',
-    \}
-let g:vimtex_compiler_latexmk = {
-    \ 'backend' : 'jobs',
-    \ 'background' : 1,
-    \ 'build_dir' : './output',
-    \ 'callback' : 1,
-    \ 'continuous' : 1,
-    \ 'executable' : 'latexmk',
-    \ 'options' : [
-    \   '-verbose',
-    \   '-file-line-error',
-    \   '-synctex=1',
-    \   '-interaction=nonstopmode',
-    \ ],
-    \}
+
+" let g:vimtex_compiler_latexmk_engines = {
+"     \ '_'                : '-xelatex',
+"     \ 'pdflatex'         : '-pdf',
+"     \ 'dvipdfex'         : '-pdfdvi',
+"     \ 'lualatex'         : '-lualatex',
+"     \ 'xelatex'          : '-xelatex',
+"     \ 'context (pdftex)' : '-pdf -pdflatex=texexec',
+"     \ 'context (luatex)' : '-pdf -pdflatex=context',
+"     \ 'context (xetex)'  : '-pdf -pdflatex=''texexec --xtx''',
+"     \}
+" let g:vimtex_compiler_latexrun_engines = {
+"     \ '_'                : 'xelatex',
+"     \ 'pdflatex'         : 'pdflatex',
+"     \ 'lualatex'         : 'lualatex',
+"     \ 'xelatex'          : 'xelatex',
+"     \}
+" let g:vimtex_compiler_latexmk = {
+"     \ 'backend' : 'jobs',
+"     \ 'background' : 1,
+"     \ 'build_dir' : './output',
+"     \ 'callback' : 1,
+"     \ 'continuous' : 1,
+"     \ 'executable' : 'latexmk',
+"     \ 'options' : [
+"     \   '-verbose',
+"     \   '-file-line-error',
+"     \   '-synctex=1',
+"     \   '-interaction=nonstopmode',
+"     \ ],
+"     \}
 
 
 
