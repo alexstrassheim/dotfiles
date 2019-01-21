@@ -19,7 +19,7 @@ Plug 'lervag/vimtex'                                            " A Vim Tex Plug
 Plug 'majutsushi/tagbar'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-Plug 'rking/ag.vim'
+Plug 'mileszs/ack.vim'
 " Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'terryma/vim-multiple-cursors'
@@ -126,7 +126,12 @@ nnoremap <silent> <C-w>w :ZoomWin<CR>
 
 " search
 nnoremap <leader><leader> :nohlsearch<CR>
-nnoremap <leader><leader>a :Ag<space>
+
+" nnoremap <leader><leader>a :Ag<space>
+cnoreabbrev Ack Ack!
+nnoremap <Leader><Leader>a :Ack!<Space>
+
+let g:ackprg = 'ag --vimgrep'
 
 
 " mapping
