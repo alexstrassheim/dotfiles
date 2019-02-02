@@ -142,6 +142,7 @@ nmap <F5> :SyntasticToggleMode<CR>
 " Switch Buffer
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
+nmap <leader>q :bp <BAR> bd #<CR>
 
 " Highlight
 hi MatchParen cterm=bold,underline ctermbg=none ctermfg=12
@@ -281,7 +282,7 @@ let g:vimtex_indent_conditionals = {
 \ }
 
 let g:vimtex_compiler_latexmk_engines = {
-    \ '_'                : '-xelatex',
+    \ '_'                : '-lualatex',
     \ 'pdflatex'         : '-pdf',
     \ 'dvipdfex'         : '-pdfdvi',
     \ 'lualatex'         : '-lualatex',
@@ -291,7 +292,7 @@ let g:vimtex_compiler_latexmk_engines = {
     \ 'context (xetex)'  : '-pdf -pdflatex=''texexec --xtx''',
     \}
 let g:vimtex_compiler_latexrun_engines = {
-    \ '_'                : 'xelatex',
+    \ '_'                : 'lualatex',
     \ 'pdflatex'         : 'pdflatex',
     \ 'lualatex'         : 'lualatex',
     \ 'xelatex'          : 'xelatex',
