@@ -300,7 +300,7 @@ let g:vimtex_compiler_latexrun_engines = {
 let g:vimtex_compiler_latexmk = {
     \ 'backend' : 'jobs',
     \ 'background' : 1,
-    \ 'build_dir' : './output',
+    \ 'build_dir' : '/tmp/latex/output',
     \ 'callback' : 1,
     \ 'continuous' : 1,
     \ 'executable' : 'latexmk',
