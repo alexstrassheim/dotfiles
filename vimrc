@@ -9,7 +9,7 @@ Plug 'airblade/vim-gitgutter'                                   " plugin which s
 Plug 'cespare/vim-toml'
 Plug 'chrisbra/Colorizer'
 Plug 'chrisbra/SudoEdit.vim'
-Plug 'chriskempson/base16-vim'
+"Plug 'chriskempson/base16-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dpelle/vim-LanguageTool'
 Plug 'jamessan/vim-gnupg'
@@ -33,6 +33,7 @@ Plug 'vim-scripts/BufOnly.vim'
 Plug 'vim-scripts/ZoomWin'
 Plug 'vim-voom/VOoM'                                            " emulates a two-pane text outliner
 Plug 'blueyed/vim-diminactive'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 " Settings
@@ -85,10 +86,11 @@ nnoremap <leader>rv :source $MYVIMRC<CR>
 
 
 " theme
-if filereadable(expand("~/.vimrc_background"))
- let base16colorspace=256
- source ~/.vimrc_background
-endif
+colorscheme gruvbox
+"if filereadable(expand("~/.vimrc_background"))
+" let base16colorspace=256
+" source ~/.vimrc_background
+"endif
 
 
 " quick save
