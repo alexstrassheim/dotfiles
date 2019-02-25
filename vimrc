@@ -9,7 +9,7 @@ Plug 'airblade/vim-gitgutter'                                   " plugin which s
 Plug 'cespare/vim-toml'
 Plug 'chrisbra/Colorizer'
 Plug 'chrisbra/SudoEdit.vim'
-Plug 'chriskempson/base16-vim'
+" Plug 'chriskempson/base16-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dpelle/vim-LanguageTool'
 Plug 'jamessan/vim-gnupg'
@@ -85,10 +85,10 @@ nnoremap <leader>rv :source $MYVIMRC<CR>
 
 
 " theme
-if filereadable(expand("~/.vimrc_background"))
- let base16colorspace=256
- source ~/.vimrc_background
-endif
+"if filereadable(expand("~/.vimrc_background"))
+" let base16colorspace=256
+" source ~/.vimrc_background
+"endif
 
 
 " quick save
