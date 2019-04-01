@@ -34,6 +34,7 @@ Plug 'vim-scripts/ZoomWin'
 Plug 'vim-voom/VOoM'                                            " emulates a two-pane text outliner
 Plug 'blueyed/vim-diminactive'
 Plug 'morhetz/gruvbox'
+Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 
 " Settings
@@ -87,6 +88,8 @@ nnoremap <leader>rv :source $MYVIMRC<CR>
 
 " theme
 colorscheme gruvbox
+" set background=dark
+" color dracula
 "if filereadable(expand("~/.vimrc_background"))
 " let base16colorspace=256
 " source ~/.vimrc_background

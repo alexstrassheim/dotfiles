@@ -62,12 +62,13 @@ if [[ `uname` == 'Darwin' ]]; then
   # MacOS
 
   export PATH="$PATH:/usr/local/sbin"
-
+  export PATH="/usr/local/opt/qt/bin:$PATH"
   # export PATH="/usr/local/opt/python/libexec/bin:$PATH"
   # source /usr/local/bin/virtualenvwrapper.sh
   # export PATH="/usr/local/opt/qt/bin:$PATH"
   # export PATH="/usr/local/opt/qt/bin:$PATH"
   # export PATH="/usr/local/opt/gpg-agent/bin:$PATH"
+  export PATH="/usr/local/opt/inetutils/libexec/gnubin:$PATH"
   alias python='python3'
 
   source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
