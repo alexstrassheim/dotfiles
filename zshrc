@@ -69,6 +69,7 @@ if [[ `uname` == 'Darwin' ]]; then
   # export PATH="/usr/local/opt/qt/bin:$PATH"
   # export PATH="/usr/local/opt/gpg-agent/bin:$PATH"
   export PATH="/usr/local/opt/inetutils/libexec/gnubin:$PATH"
+  export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
   alias python='python3'
 
   source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh

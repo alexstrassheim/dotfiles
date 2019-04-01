@@ -103,7 +103,9 @@ inoremap <C-s> <ESC>:w<CR>
 
 " remap ESC
 inoremap jk <ESC>
-cnoremap jk <ESC>
+" vnoremap jk <ESC>
+" snoremap jk <ESC>
+" cnoremap jk <ESC>
 
 
 " " hint to keep lines short
