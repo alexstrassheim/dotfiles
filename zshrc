@@ -6,7 +6,7 @@ ZSH_THEME="spaceship"
 DISABLE_AUTO_TITLE="true"
 
 # Pluginlist
-plugins=(git heroku killall colored-man vi-mode zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(colored-man-pages git vi-mode zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
 
 
 #===========================================================
@@ -72,7 +72,6 @@ if [[ `uname` == 'Darwin' ]]; then
   export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
   alias python='python3'
 
-  source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
   # ixon
   # alias vim="stty stop '' -ixoff ; vim"
 else
