@@ -70,6 +70,9 @@ set undofile                     " Maintain undo history between sessions
 set undodir=~/.vim/undodir
 set pastetoggle=<F2>
 set timeoutlen=1000 ttimeoutlen=0
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 filetype plugin indent on
 
 
@@ -87,13 +90,12 @@ nnoremap <leader>rv :source $MYVIMRC<CR>
 
 
 " theme
+let g:gruvbox_vert_split='bg1'
+" Delete pipe characters on styling vertical split borders
+set fillchars+=vert:\ 
 colorscheme gruvbox
-" set background=dark
-" color dracula
-"if filereadable(expand("~/.vimrc_background"))
-" let base16colorspace=256
-" source ~/.vimrc_background
-"endif
+set background=dark
+
 
 
 " quick save
