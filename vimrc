@@ -35,6 +35,7 @@ Plug 'vim-voom/VOoM'                                            " emulates a two
 Plug 'blueyed/vim-diminactive'
 Plug 'morhetz/gruvbox'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'rhysd/vim-grammarous'
 call plug#end()
 
 " Settings
@@ -326,3 +327,8 @@ let g:vimtex_compiler_latexmk = {
     \ ],
     \}
 
+nmap gf <Plug>(grammarous-fixit)
+nmap gn <Plug>(grammarous-move-to-next-error)
+nmap gp <Plug>(grammarous-move-to-previous-error)
+" let g:grammarous#use_vim_spelllang = 0
+" let g:grammarous#enable_spell_check = 1
