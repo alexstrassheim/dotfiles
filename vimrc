@@ -35,6 +35,7 @@ Plug 'vim-voom/VOoM'                                            " emulates a two
 Plug 'blueyed/vim-diminactive'
 Plug 'morhetz/gruvbox'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'rhysd/vim-grammarous'
 call plug#end()
 
 " Settings
@@ -294,6 +295,9 @@ let g:vimtex_view_method = 'skim'
 let g:vimtex_indent_conditionals = {
  \ 'open': '\v(\\newif)@<!\\if(f>|field|name|numequal|thenelse|beginwith)@!',
 \ }
+let g:vimtex_echo_ignore_wait = 1
+" let g:vimtex_echo_verbose_input = 0
+" let g:vimtex_quickfix_latexlog = {'default' : 0}
 
 let g:vimtex_compiler_latexmk_engines = {
     \ '_'                : '-lualatex',
@@ -325,4 +329,9 @@ let g:vimtex_compiler_latexmk = {
     \   '-interaction=nonstopmode',
     \ ],
     \}
+
+" Grammarous
+nmap gf <Plug>(grammarous-fixit)
+nmap gn <Plug>(grammarous-move-to-next-error)
+nmap gp <Plug>(grammarous-move-to-previous-error)
 
