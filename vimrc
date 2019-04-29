@@ -296,8 +296,9 @@ let g:vimtex_indent_conditionals = {
  \ 'open': '\v(\\newif)@<!\\if(f>|field|name|numequal|thenelse|beginwith)@!',
 \ }
 let g:vimtex_echo_ignore_wait = 1
-" let g:vimtex_echo_verbose_input = 0
-" let g:vimtex_quickfix_latexlog = {'default' : 0}
+let g:vimtex_echo_verbose_input = 0
+let g:vimtex_quickfix_enabled = 0
+let g:vimtex_quickfix_latexlog = {'default' : 0}
 
 let g:vimtex_compiler_latexmk_engines = {
     \ '_'                : '-lualatex',
