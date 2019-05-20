@@ -6,7 +6,7 @@ ZSH_THEME="spaceship"
 DISABLE_AUTO_TITLE="true"
 
 # Pluginlist
-plugins=(colored-man-pages tmux history git vi-mode zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(colored-man-pages tmux history docker git vi-mode zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
 
 
 #===========================================================

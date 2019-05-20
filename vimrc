@@ -11,7 +11,6 @@ Plug 'chrisbra/Colorizer'
 Plug 'chrisbra/SudoEdit.vim'
 "Plug 'chriskempson/base16-vim'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'dpelle/vim-LanguageTool'
 Plug 'jamessan/vim-gnupg'
 Plug 'junegunn/vim-easy-align'
 Plug 'keith/swift.vim'
@@ -93,7 +92,7 @@ nnoremap <leader>rv :source $MYVIMRC<CR>
 " theme
 let g:gruvbox_vert_split='bg1'
 " Delete pipe characters on styling vertical split borders
-set fillchars+=vert:\ 
+set fillchars+=vert:\
 colorscheme gruvbox
 set background=dark
 
