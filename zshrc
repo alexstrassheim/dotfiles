@@ -4,9 +4,11 @@ ZSH_THEME="spaceship"
 
 # Uncomment the following line to disable auto-setting terminal title.
 DISABLE_AUTO_TITLE="true"
+ZSH_AUTOSUGGEST_USE_ASYNC=true
 
 # Pluginlist
-plugins=(colored-man-pages tmux history docker git vi-mode zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
+# plugins=(colored-man-pages tmux history docker git vi-mode zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
+plugins=()
 
 
 #===========================================================

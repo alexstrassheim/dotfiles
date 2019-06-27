@@ -72,6 +72,7 @@ set pastetoggle=<F2>
 set timeoutlen=1000 ttimeoutlen=0
 set termguicolors
 set viminfo='100,f1
+set visualbell t_vb=
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 filetype plugin indent on
