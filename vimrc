@@ -86,8 +86,8 @@ autocmd VimLeave * silent !stty ixon
 
 
 " Folding auto save
-au BufWinLeave * mkview
-au BufWinEnter * silent loadview
+au BufWinLeave ?* mkview 1
+au BufWinEnter ?* silent loadview 1
 
 " reload config
 let mapleader="\,"
