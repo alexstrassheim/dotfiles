@@ -32,12 +32,14 @@ Plug 'vim-scripts/BufOnly.vim'
 Plug 'vim-scripts/ZoomWin'
 Plug 'vim-voom/VOoM'                                            " emulates a two-pane text outliner
 Plug 'blueyed/vim-diminactive'
-Plug 'morhetz/gruvbox'
-Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'rhysd/vim-grammarous'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'arcticicestudio/nord-vim'
+Plug 'logico-software/typewriter'
 call plug#end()
 
-" Settings
+" " Settings
 syntax on                         " show syntax highlighting
 set encoding=utf-8
 set ts=4                          " set indent to 4 spaces
@@ -70,11 +72,8 @@ set undofile                     " Maintain undo history between sessions
 set undodir=~/.vim/undodir
 set pastetoggle=<F2>
 set timeoutlen=1000 ttimeoutlen=0
-set termguicolors
 set viminfo='100,f1
 set visualbell t_vb=
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 filetype plugin indent on
 
 
@@ -87,8 +86,8 @@ autocmd VimLeave * silent !stty ixon
 
 
 " Folding auto save
-" au BufWinLeave * mkview
-" au BufWinEnter * silent loadview
+au BufWinLeave * mkview
+au BufWinEnter * silent loadview
 
 " reload config
 let mapleader="\,"
@@ -96,12 +95,45 @@ nnoremap <leader>rv :source $MYVIMRC<CR>
 
 
 " theme
-let g:gruvbox_vert_split='bg1'
-" Delete pipe characters on styling vertical split borders
-set fillchars+=vert:\
-colorscheme gruvbox
-set background=dark
+colorscheme nord
 
+" Limelight
+" Color name (:help cterm-colors) or ANSI code
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+" Color name (:help gui-colors) or RGB color
+let g:limelight_conceal_guifg = 'DarkGray'
+let g:limelight_conceal_guifg = '#777777'
+
+
+" Highlight
+hi MatchParen cterm=bold,underline ctermbg=none ctermfg=12
+
+" AirLine
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme='base16'
+let g:airline#extensions#wordcount#enabled = 0
+
+
+" " Termguicolors settings
+" set termguicolors
+" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+" set background=dark
+" set t_Co=256
+
+" Activate FOCUS mode with F12
+nmap <F12> :Goyo <bar> Limelight!!<CR>"
+
+
+" Change the cursor from block to i-beam in INSERT mode
+let &t_SI = "\e[5 q"
+let &t_EI = "\e[1 q"
+augroup myCmds
+  au!
+  autocmd VimEnter * silent !echo -ne "\e[1 q"
+augroup END
 
 
 " quick save
@@ -158,15 +190,6 @@ nmap <F5> :SyntasticToggleMode<CR>
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
 nmap <leader>q :bp <BAR> bd #<CR>
-
-" Highlight
-hi MatchParen cterm=bold,underline ctermbg=none ctermfg=12
-
-" AirLine
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:airline_theme='base16'
-let g:airline#extensions#wordcount#enabled = 0
 
 
 " Change Filetype

@@ -7,15 +7,15 @@ DISABLE_AUTO_TITLE="true"
 ZSH_AUTOSUGGEST_USE_ASYNC=true
 
 # Pluginlist
-# plugins=(colored-man-pages tmux history docker git vi-mode zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
-plugins=()
+plugins=(colored-man-pages tmux history docker git vi-mode zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
+# plugins=()
 
 
 #===========================================================
 #                       Theme Settings
 
-BASE16_SHELL=$HOME/.config/base16-shell/
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+# BASE16_SHELL=$HOME/.config/base16-shell/
+# [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 # Disable <<<< when enter zsh vi insert mode
 export RPS1="%{$reset_color%}"
