@@ -37,6 +37,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'logico-software/typewriter'
+Plug 'dbmrq/vim-ditto'
 call plug#end()
 
 " " Settings
@@ -112,7 +113,7 @@ hi MatchParen cterm=bold,underline ctermbg=none ctermfg=12
 " AirLine
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='base16'
+" let g:airline_theme='base16'
 let g:airline#extensions#wordcount#enabled = 0
 
 
@@ -365,3 +366,27 @@ nmap gn <Plug>(grammarous-move-to-next-error)
 nmap gp <Plug>(grammarous-move-to-previous-error)
 " let g:grammarous#use_vim_spelllang = 0
 " let g:grammarous#enable_spell_check = 1
+
+
+" vim-better-whitespace
+ let g:strip_whitespace_confirm=0
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
+
+" dito
+" Use autocmds to check your text automatically and keep the highlighting
+" up to date (easier):
+au FileType markdown,text,tex DittoOn  " Turn on Ditto's autocmds
+nmap <leader>di <Plug>ToggleDitto      " Turn Ditto on and off
+
+" If you don't want the autocmds, you can also use an operator to check
+" specific parts of your text:
+" vmap <leader>d <Plug>Ditto	       " Call Ditto on visual selection
+" nmap <leader>d <Plug>Ditto	       " Call Ditto on operator movement
+
+nmap =d <Plug>DittoNext                " Jump to the next word
+nmap -d <Plug>DittoPrev                " Jump to the previous word
+nmap +d <Plug>DittoGood                " Ignore the word under the cursor
+nmap _d <Plug>DittoBad                 " Stop ignoring the word under the cursor
+nmap ]d <Plug>DittoMore                " Show the next matches
+nmap [d <Plug>DittoLess                " Show the previous matches
