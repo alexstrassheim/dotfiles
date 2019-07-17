@@ -36,6 +36,7 @@ Plug 'rhysd/vim-grammarous'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'arcticicestudio/nord-vim'
+Plug 'ayu-theme/ayu-vim'
 Plug 'logico-software/typewriter'
 Plug 'dbmrq/vim-ditto'
 call plug#end()
@@ -96,7 +97,18 @@ nnoremap <leader>rv :source $MYVIMRC<CR>
 
 
 " theme
-colorscheme nord
+"
+
+" Enable true color 启用终端24位色
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+" let ayucolor="light"  " for light version of theme
+let ayucolor="mirage" " for mirage version of theme
+" let ayucolor="dark"   " for dark version of theme
+colorscheme ayu
 
 " Limelight
 " Color name (:help cterm-colors) or ANSI code
@@ -117,12 +129,6 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#wordcount#enabled = 0
 
 
-" " Termguicolors settings
-" set termguicolors
-" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-" set background=dark
-" set t_Co=256
 
 " Activate FOCUS mode with F12
 nmap <F12> :Goyo <bar> Limelight!!<CR>"
@@ -204,10 +210,15 @@ let g:tex_flavor='latex'
 autocmd FilterWritePre * if &diff | setlocal wrap< | endif
 
 
-" indentLine
+" IndentLine {{
 let g:indentLine_char = '¦'
-let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'startify', 'tagbar', 'vimfiler', 'markdown', 'minimap', 'tex']
-let g:indentLine_showFirstIndentLevel = 0
+let g:indentLine_first_char = '¦'
+" let g:indentLine_char = ''
+" let g:indentLine_first_char = ''
+let g:indentLine_showFirstIndentLevel = 1
+let g:indentLine_setColors = 0
+" let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'startify', 'tagbar', 'vimfiler', 'markdown', 'minimap', 'tex']
+" }}
 
 
 " ctrlP -- Exclude
