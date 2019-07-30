@@ -126,3 +126,5 @@ bindkey -M viins 'jk' vi-cmd-mode
 bindkey "^@" autosuggest-accept
 bindkey '^f' vi-forward-blank-word
 
+# opam configuration
+test -r /Users/alex/.opam/opam-init/init.zsh && . /Users/alex/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
