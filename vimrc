@@ -1,43 +1,29 @@
 call plug#begin('~/.vim/plugged')
-Plug 'Chiel92/vim-autoformat'
-Plug 'PProvost/vim-ps1'
-Plug 'Raimondi/delimitMate'                                     " automatic closing of quotes, parenthesis, brackets
+Plug 'ayu-theme/ayu-vim'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'Valloric/YouCompleteMe', { 'do': 'python3 ./install.py' } " code-completion engine
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+Plug 'lervag/vimtex'                                            " A Vim Tex Plugin
+Plug 'Chiel92/vim-autoformat'
+Plug 'Raimondi/delimitMate'                                     " automatic closing of quotes, parenthesis, brackets
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'                                   " plugin which shows a git diff in the gutter
 Plug 'cespare/vim-toml'
 Plug 'chrisbra/Colorizer'
 Plug 'chrisbra/SudoEdit.vim'
-"Plug 'chriskempson/base16-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jamessan/vim-gnupg'
 Plug 'junegunn/vim-easy-align'
-Plug 'keith/swift.vim'
-Plug 'lervag/vimtex'                                            " A Vim Tex Plugin
-Plug 'majutsushi/tagbar'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 Plug 'mileszs/ack.vim'
-" Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-vinegar'                                        " directory browser -
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-scripts/BufOnly.vim'
-Plug 'vim-scripts/ZoomWin'
-Plug 'vim-voom/VOoM'                                            " emulates a two-pane text outliner
-Plug 'blueyed/vim-diminactive'
 Plug 'rhysd/vim-grammarous'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
-Plug 'arcticicestudio/nord-vim'
-Plug 'ayu-theme/ayu-vim'
-Plug 'logico-software/typewriter'
 Plug 'dbmrq/vim-ditto'
 call plug#end()
 
@@ -95,6 +81,15 @@ au BufWinEnter ?* silent loadview 1
 let mapleader="\,"
 nnoremap <leader>rv :source $MYVIMRC<CR>
 
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 20
+augroup ProjectDrawer
+  autocmd!
+  autocmd VimEnter * :Vexplore
+augroup END
 
 " theme
 "
@@ -131,7 +126,7 @@ let g:airline#extensions#wordcount#enabled = 0
 
 
 " Activate FOCUS mode with F12
-nmap <F12> :Goyo <bar> Limelight!!<CR>"
+" nmap <F12> :Goyo <bar> Limelight!!<CR>"
 
 
 " Change the cursor from block to i-beam in INSERT mode
@@ -233,9 +228,12 @@ let g:ctrlp_custom_ignore = {
 
 
 " syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = { 'passive_filetypes': ['tex'] }
 
