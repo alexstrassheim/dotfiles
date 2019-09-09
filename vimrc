@@ -30,8 +30,8 @@ call plug#end()
 " " Settings
 syntax on                         " show syntax highlighting
 set encoding=utf-8
-set ts=4                          " set indent to 4 spaces
-set shiftwidth=4
+set ts=3                          " set indent to 4 spaces
+set shiftwidth=3
 set expandtab                     " use spaces, not tab characters
 set updatetime=1000
 set scrolloff=2                   " minimum lines above/below cursor
@@ -213,6 +213,8 @@ let g:indentLine_first_char = '¦'
 let g:indentLine_showFirstIndentLevel = 1
 let g:indentLine_setColors = 0
 " let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'startify', 'tagbar', 'vimfiler', 'markdown', 'minimap', 'tex']
+set conceallevel=1
+let g:indentLine_conceallevel=1
 " }}
 
 
@@ -235,7 +237,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
-let g:syntastic_mode_map = { 'passive_filetypes': ['tex'] }
+let g:syntastic_mode_map = { 'passive_filetypes': ['tex','html'] }
+let syntastic_mode_map = { 'passive_filetypes': ['html'] }
 
 
 " UltiSnips
