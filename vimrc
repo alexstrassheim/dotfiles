@@ -81,11 +81,12 @@ au BufWinEnter ?* silent loadview 1
 let mapleader="\,"
 nnoremap <leader>rv :source $MYVIMRC<CR>
 
+" Lex
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
-let g:netrw_winsize = 20
+let g:netrw_winsize = 15
 augroup ProjectDrawer
   autocmd!
   autocmd VimEnter * :Vexplore
@@ -122,6 +123,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 " let g:airline_theme='base16'
 let g:airline#extensions#wordcount#enabled = 0
+let g:airline_theme='papercolor'
 
 
 
