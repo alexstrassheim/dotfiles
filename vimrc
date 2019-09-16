@@ -16,7 +16,7 @@ Plug 'jamessan/vim-gnupg'
 Plug 'junegunn/vim-easy-align'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'mileszs/ack.vim'
-Plug 'scrooloose/syntastic'
+Plug 'dense-analysis/ale'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-dispatch'
@@ -84,13 +84,14 @@ nnoremap <leader>rv :source $MYVIMRC<CR>
 " Lex
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
 let g:netrw_winsize = 15
-augroup ProjectDrawer
-  autocmd!
-  autocmd VimEnter * :Vexplore
-augroup END
+let g:netrw_preview = 1
+" let g:netrw_browse_split = 4
+" let g:netrw_altv = 1
+" augroup ProjectDrawer
+"   autocmd!
+"   autocmd VimEnter * :Lexplore
+" augroup END
 
 " theme
 "
@@ -106,13 +107,6 @@ let ayucolor="mirage" " for mirage version of theme
 " let ayucolor="dark"   " for dark version of theme
 colorscheme ayu
 
-" Limelight
-" Color name (:help cterm-colors) or ANSI code
-let g:limelight_conceal_ctermfg = 'gray'
-let g:limelight_conceal_ctermfg = 240
-" Color name (:help gui-colors) or RGB color
-let g:limelight_conceal_guifg = 'DarkGray'
-let g:limelight_conceal_guifg = '#777777'
 
 
 " Highlight
@@ -158,9 +152,6 @@ inoremap jk <ESC>
 " endif
 
 
-" Explore setting
-let g:netrw_banner = 0
-
 
 " movement
 nnoremap j gj
@@ -187,7 +178,6 @@ let g:ackprg = 'ag --vimgrep'
 
 " mapping
 nmap <F6> :TagbarToggle<CR>
-nmap <F5> :SyntasticToggleMode<CR>
 
 
 " Switch Buffer
@@ -229,18 +219,6 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
-
-
-" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_mode_map = { 'passive_filetypes': ['tex','html'] }
-let syntastic_mode_map = { 'passive_filetypes': ['html'] }
 
 
 " UltiSnips
@@ -333,6 +311,7 @@ let g:easy_align_delimiters = {
 
 " vimtex
 autocmd BufReadPre *.tex let b:vimtex_main = 'report.tex'
+let g:tex_conceal = ''
 let g:vimtex_view_method = 'skim'
 " let g:vimtex_indent_conditionals = {}
 let g:vimtex_indent_conditionals = {
