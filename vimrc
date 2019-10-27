@@ -65,14 +65,11 @@ set viminfo='100,f1
 set visualbell t_vb=
 filetype plugin indent on
 
-
 " Allow us to use Ctrl-s and Ctrl-q as keybinds
 silent !stty -ixon
 
-
 " Restore default behaviour when leaving Vim.
 autocmd VimLeave * silent !stty ixon
-
 
 " Folding auto save
 au BufWinLeave ?* mkview 1
@@ -82,82 +79,29 @@ au BufWinEnter ?* silent loadview 1
 let mapleader="\,"
 nnoremap <leader>rv :source $MYVIMRC<CR>
 
-" Lex
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_winsize = 15
-let g:netrw_preview = 1
-" let g:netrw_browse_split = 4
-" let g:netrw_altv = 1
-" augroup ProjectDrawer
-"   autocmd!
-"   autocmd VimEnter * :Lexplore
-" augroup END
+" Theme
+let ayucolor="mirage" " for mirage version of theme
+colorscheme ayu
 
-" theme
-"
-
-" Enable true color 启用终端24位色
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
-" let ayucolor="light"  " for light version of theme
-let ayucolor="mirage" " for mirage version of theme
-" let ayucolor="dark"   " for dark version of theme
-colorscheme ayu
-
-
 
 " Highlight
 hi MatchParen cterm=bold,underline ctermbg=none ctermfg=12
-
-" AirLine
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-" let g:airline_theme='base16'
-let g:airline#extensions#wordcount#enabled = 0
-let g:airline_theme='papercolor'
-
-
-
-" Activate FOCUS mode with F12
-" nmap <F12> :Goyo <bar> Limelight!!<CR>"
-
-
-" Change the cursor from block to i-beam in INSERT mode
-let &t_SI = "\e[5 q"
-let &t_EI = "\e[1 q"
-augroup myCmds
-  au!
-  autocmd VimEnter * silent !echo -ne "\e[1 q"
-augroup END
-
 
 " quick save
 noremap <C-s> <ESC>:w<CR>
 inoremap <C-s> <ESC>:w<CR>
 
-
 " remap ESC
 inoremap jk <ESC>
-" vnoremap jk <ESC>
-" snoremap jk <ESC>
-" cnoremap jk <ESC>
-
-
-" " hint to keep lines short
-" if exists('+colorcolumn')
-"   set colorcolumn=80
-" endif
-
-
 
 " movement
 nnoremap j gj
 nnoremap k gk
-
 
 " split navigation
 nnoremap <C-j> <C-w><C-j>
@@ -166,50 +110,54 @@ nnoremap <C-l> <C-w><C-l>
 nnoremap <C-h> <C-w><C-h>
 nnoremap <silent> <C-w>w :ZoomWin<CR>
 
-
 " search
 nnoremap <leader><leader> :nohlsearch<CR>
 
-" nnoremap <leader><leader>a :Ag<space>
+" AirLine
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#wordcount#enabled = 0
+let g:airline_theme='papercolor'
+
+" Change the cursor from block to i-beam in INSERT mode
+let &t_SI = "\e[5 q"
+let &t_EI = "\e[1 q"
+
+" Lex
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_winsize = 15
+let g:netrw_preview = 1
+
+" ag
 cnoreabbrev Ack Ack!
 nnoremap <Leader><Leader>a :Ack!<Space>
-
 let g:ackprg = 'ag --vimgrep'
 
 
 " mapping
 nmap <F6> :TagbarToggle<CR>
 
-
 " Switch Buffer
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
 nmap <leader>q :bp <BAR> bd #<CR>
 
-
 " Change Filetype
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd BufNewFile,BufReadPost *.cls set filetype=tex
-" autocmd BufNewFile,BufReadPost *.tex set filetype=tex
 let g:tex_flavor='latex'
-
 
 " set wrap on diff
 autocmd FilterWritePre * if &diff | setlocal wrap< | endif
 
-
-" IndentLine {{
+" IndentLine
 let g:indentLine_char = '¦'
 let g:indentLine_first_char = '¦'
-" let g:indentLine_char = ''
-" let g:indentLine_first_char = ''
 let g:indentLine_showFirstIndentLevel = 1
 let g:indentLine_setColors = 0
-" let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'startify', 'tagbar', 'vimfiler', 'markdown', 'minimap', 'tex']
-set conceallevel=1
 let g:indentLine_conceallevel=1
-" }}
-
+set conceallevel=0
 
 " ctrlP -- Exclude
 set wildignore+=*/tmp/*,Rohdaten*,Material*,*.so,*.swp,*.zip     " MacOSX/Linux
@@ -221,7 +169,6 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'some_bad_symbolic_links',
   \ }
 
-
 " UltiSnips
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetsDir='~/.vim/mysnippet'
@@ -230,7 +177,6 @@ let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsListSnippets="<c-h>"
-
 
 " youcompleteme
 let g:ycm_key_invoke_completion = '<C-Space>'
@@ -245,7 +191,6 @@ let g:ycm_filetype_blacklist = {
       \ 'pandoc' : 1,
       \ 'infolog' : 1
       \}
-
 
 "toggel linenumber
 function! ToggleNu()
@@ -265,10 +210,8 @@ function! ToggleNu()
 endfunction
 nnoremap <silent> <F3> :call ToggleNu()<CR>
 
-
 " switch spellcheck languages
 hi clear SpellBad
-" highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
 highlight SpellBad ctermbg=124
 hi SpellBad cterm=underline
 let g:myLangList=["nospell","de_de","en_us","de_de,en_us"]
@@ -291,30 +234,23 @@ function! ToggleSpell()
 endfunction
 nnoremap <silent> <F4> :call ToggleSpell()<CR>
 
-
 " vim-languagetool languagetool
 let g:languagetool_jar='/usr/local/Cellar/languagetool/4.3/libexec/languagetool-commandline.jar'
 let g:languagetool_disable_rules='WHITESPACE_RULE,EN_QUOTES,EN_UNPAIRED_BRACKETS'
 let g:languagetool_enable_rules='PASSIVE_VOICE'
 let g:languagetool_lang="de-DE"
 
-
 " Easy Align
-" Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
 let g:easy_align_delimiters = {
 \ '%': { 'pattern': '%' },
 \ ';': { 'pattern': ';' }
 \ }
 
-
 " vimtex
 autocmd BufReadPre *.tex let b:vimtex_main = 'report.tex'
 let g:tex_conceal = ''
 let g:vimtex_view_method = 'skim'
-" let g:vimtex_indent_conditionals = {}
 let g:vimtex_indent_conditionals = {
  \ 'open': '\v(\\newif)@<!\\if(f>|field|name|numequal|thenelse|beginwith)@!',
 \ }
@@ -322,7 +258,6 @@ let g:vimtex_echo_ignore_wait = 1
 let g:vimtex_echo_verbose_input = 0
 let g:vimtex_quickfix_enabled = 0
 let g:vimtex_quickfix_latexlog = {'default' : 0}
-
 let g:vimtex_compiler_latexmk_engines = {
     \ '_'                : '-lualatex',
     \ 'pdflatex'         : '-pdf',
@@ -358,9 +293,6 @@ let g:vimtex_compiler_latexmk = {
 nmap gf <Plug>(grammarous-fixit)
 nmap gn <Plug>(grammarous-move-to-next-error)
 nmap gp <Plug>(grammarous-move-to-previous-error)
-" let g:grammarous#use_vim_spelllang = 0
-" let g:grammarous#enable_spell_check = 1
-
 
 
 " Markdown preview
@@ -453,14 +385,8 @@ let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 
 " dito
-" Use autocmds to check your text automatically and keep the highlighting
-" up to date (easier):
 au FileType markdown,text,tex DittoOn  " Turn on Ditto's autocmds
 nmap <leader>di <Plug>ToggleDitto      " Turn Ditto on and off
-" If you don't want the autocmds, you can also use an operator to check
-" specific parts of your text:
-" vmap <leader>d <Plug>Ditto	       " Call Ditto on visual selection
-" nmap <leader>d <Plug>Ditto	       " Call Ditto on operator movement
 nmap =d <Plug>DittoNext                " Jump to the next word
 nmap -d <Plug>DittoPrev                " Jump to the previous word
 nmap +d <Plug>DittoGood                " Ignore the word under the cursor
