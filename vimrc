@@ -125,7 +125,7 @@ let &t_EI = "\e[1 q"
 
 " Lex
 let g:netrw_banner = 0
-let g:netrw_liststyle = 3
+let g:netrw_liststyle = 1
 let g:netrw_winsize = 15
 let g:netrw_preview = 1
 
@@ -287,6 +287,7 @@ let g:vimtex_compiler_latexmk = {
     \   '-interaction=nonstopmode',
     \ ],
     \}
+let g:vimtex_fold_enabled = 1
 
 " Grammarous
 nmap gf <Plug>(grammarous-fixit)
