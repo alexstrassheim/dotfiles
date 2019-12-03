@@ -287,6 +287,7 @@ let g:vimtex_compiler_latexmk = {
     \   '-interaction=nonstopmode',
     \ ],
     \}
+let g:vimtex_fold_enabled = 1
 
 " Grammarous
 nmap gf <Plug>(grammarous-fixit)
