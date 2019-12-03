@@ -7,7 +7,8 @@ DISABLE_AUTO_TITLE="true"
 ZSH_AUTOSUGGEST_USE_ASYNC=true
 
 # Pluginlist
-plugins=(colored-man-pages tmux history docker git vi-mode zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
+# plugins=(colored-man-pages tmux history docker git vi-mode zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(colored-man-pages tmux history git vi-mode)
 # plugins=()
 
 
@@ -128,3 +129,7 @@ bindkey '^f' vi-forward-blank-word
 
 # opam configuration
 test -r /Users/alex/.opam/opam-init/init.zsh && . /Users/alex/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+fpath=(/usr/local/share/zsh-completions $fpath)
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
