@@ -125,7 +125,7 @@ let &t_EI = "\e[1 q"
 
 " Lex
 let g:netrw_banner = 0
-let g:netrw_liststyle = 3
+let g:netrw_liststyle = 1
 let g:netrw_winsize = 15
 let g:netrw_preview = 1
 
