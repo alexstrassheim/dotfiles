@@ -1,8 +1,13 @@
 call plug#begin('~/.vim/plugged')
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 Plug 'ayu-theme/ayu-vim'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-Plug 'Valloric/YouCompleteMe', { 'do': 'python3 ./install.py' } " code-completion engine
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 Plug 'lervag/vimtex'                                            " A Vim Tex Plugin
 Plug 'Chiel92/vim-autoformat'
 Plug 'Raimondi/delimitMate'                                     " automatic closing of quotes, parenthesis, brackets
@@ -70,10 +75,6 @@ silent !stty -ixon
 
 " Restore default behaviour when leaving Vim.
 autocmd VimLeave * silent !stty ixon
-
-" Folding auto save
-au BufWinLeave ?* mkview 1
-au BufWinEnter ?* silent loadview 1
 
 " reload config
 let mapleader="\,"
@@ -177,19 +178,8 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsListSnippets="<c-h>"
 
-" youcompleteme
-let g:ycm_key_invoke_completion = '<C-Space>'
-let g:ycm_filetype_blacklist = {
-      \ 'tagbar' : 1,
-      \ 'qf' : 1,
-      \ 'notes' : 1,
-      \ 'markdown' : 1,
-      \ 'unite' : 1,
-      \ 'text' : 1,
-      \ 'vimwiki' : 1,
-      \ 'pandoc' : 1,
-      \ 'infolog' : 1
-      \}
+" Shougo deoplete.nvim
+let g:deoplete#enable_at_startup = 1
 
 "toggel linenumber
 function! ToggleNu()
@@ -287,7 +277,6 @@ let g:vimtex_compiler_latexmk = {
     \   '-interaction=nonstopmode',
     \ ],
     \}
-let g:vimtex_fold_enabled = 1
 
 " Grammarous
 nmap gf <Plug>(grammarous-fixit)
