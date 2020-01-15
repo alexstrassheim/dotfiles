@@ -7,7 +7,6 @@ Plug 'lervag/vimtex'                                            " A Vim Tex Plug
 Plug 'Chiel92/vim-autoformat'
 Plug 'Raimondi/delimitMate'                                     " automatic closing of quotes, parenthesis, brackets
 Plug 'Yggdroot/indentLine'
-Plug 'airblade/vim-gitgutter'                                   " plugin which shows a git diff in the gutter
 Plug 'cespare/vim-toml'
 Plug 'chrisbra/Colorizer'
 Plug 'chrisbra/SudoEdit.vim'
@@ -48,7 +47,7 @@ set cursorline                    " highlight current line
 set smartcase                     " pay attention to case when caps are used
 set incsearch                     " show search results as I type
 set ruler                         " show row and column in footer
-set nofoldenable                  " disable code folding
+" set nofoldenable                  " disable code folding
 set noswapfile
 set autoread
 set splitbelow
@@ -74,6 +73,18 @@ autocmd VimLeave * silent !stty ixon
 " Folding auto save
 au BufWinLeave ?* mkview 1
 au BufWinEnter ?* silent loadview 1
+
+" Folding settings
+set foldmethod=syntax
+set foldlevelstart=1
+let javaScript_fold=1         " JavaScript
+let perl_fold=1               " Perl
+let php_folding=1             " PHP
+let r_syntax_folding=1        " R
+let ruby_fold=1               " Ruby
+let sh_fold_enabled=1         " sh
+let vimsyn_folding='af'       " Vim script
+let xml_syntax_folding=1      " XML
 
 " reload config
 let mapleader="\,"
