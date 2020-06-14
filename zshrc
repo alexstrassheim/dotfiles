@@ -73,7 +73,7 @@ if [[ `uname` == 'Darwin' ]]; then
   # export PATH="/usr/local/opt/gpg-agent/bin:$PATH"
   export PATH="/usr/local/opt/inetutils/libexec/gnubin:$PATH"
   export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
-  alias python='python3'
+  # alias python='python3'
 
   # ixon
   # alias vim="stty stop '' -ixoff ; vim"
@@ -133,3 +133,6 @@ test -r /Users/alex/.opam/opam-init/init.zsh && . /Users/alex/.opam/opam-init/in
 fpath=(/usr/local/share/zsh-completions $fpath)
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export PATH="/usr/local/opt/qt/bin:$PATH"
+alias pip=/usr/local/bin/pip3
+alias python=/usr/local/bin/python3.7

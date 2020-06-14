@@ -1,4 +1,5 @@
 call plug#begin('~/.vim/plugged')
+" Plug 'ycm-core/YouCompleteMe'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -6,34 +7,35 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+Plug 'tomtom/tcomment_vim'
 Plug 'ayu-theme/ayu-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'lervag/vimtex'                                            " A Vim Tex Plugin
 Plug 'Chiel92/vim-autoformat'
-Plug 'Raimondi/delimitMate'                                     " automatic closing of quotes, parenthesis, brackets
-Plug 'Yggdroot/indentLine'
 Plug 'cespare/vim-toml'
-Plug 'chrisbra/Colorizer'
-Plug 'chrisbra/SudoEdit.vim'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'jamessan/vim-gnupg'
-Plug 'junegunn/vim-easy-align'
+Plug 'Raimondi/delimitMate'                                     " automatic closing of quotes, parenthesis, brackets
+Plug 'tpope/vim-surround'
+Plug 'Yggdroot/indentLine'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'mileszs/ack.vim'
-Plug 'dense-analysis/ale'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'tomtom/tcomment_vim'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-surround'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'rhysd/vim-grammarous'
-Plug 'dbmrq/vim-ditto'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()}}
+Plug 'chrisbra/Colorizer'
+" Plug 'chrisbra/SudoEdit.vim'
+" Plug 'junegunn/vim-easy-align'
+" Plug 'dense-analysis/ale'
+" Plug 'terryma/vim-multiple-cursors'
+" Plug 'jamessan/vim-gnupg'
+" Plug 'rhysd/vim-grammarous'
+" Plug 'dbmrq/vim-ditto'
+" Plug 'tpope/vim-dispatch'
+" Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()}}
 call plug#end()
 
 " " Settings
 syntax on                         " show syntax highlighting
+set pyxversion=3
 set encoding=utf-8
 set ts=3                          " set indent to 4 spaces
 set shiftwidth=3
@@ -67,6 +69,7 @@ set pastetoggle=<F2>
 set timeoutlen=1000 ttimeoutlen=0
 set viminfo='100,f1
 set visualbell t_vb=
+set pyxversion=3
 filetype plugin indent on
 
 " Allow us to use Ctrl-s and Ctrl-q as keybinds
@@ -75,30 +78,6 @@ silent !stty -ixon
 " Restore default behaviour when leaving Vim.
 autocmd VimLeave * silent !stty ixon
 
-<<<<<<< HEAD
-" Folding auto save
-au BufWinLeave ?* mkview 1
-au BufWinEnter ?* silent loadview 1
-
-" Folding settings
-set foldmethod=syntax
-set foldlevelstart=1
-let javaScript_fold=1         " JavaScript
-let perl_fold=1               " Perl
-let php_folding=1             " PHP
-let r_syntax_folding=1        " R
-let ruby_fold=1               " Ruby
-let sh_fold_enabled=1         " sh
-let vimsyn_folding='af'       " Vim script
-let xml_syntax_folding=1      " XML
-
-||||||| 5e61cf8
-" Folding auto save
-au BufWinLeave ?* mkview 1
-au BufWinEnter ?* silent loadview 1
-
-=======
->>>>>>> e05b4a6af12698e625ae230f4cab50a72b6f960f
 " reload config
 let mapleader="\,"
 nnoremap <leader>rv :source $MYVIMRC<CR>
@@ -142,6 +121,10 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#wordcount#enabled = 0
 let g:airline_theme='papercolor'
+
+
+" Deoplete
+let g:deoplete#enable_at_startup = 1
 
 " Change the cursor from block to i-beam in INSERT mode
 let &t_SI = "\e[5 q"
@@ -201,8 +184,8 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsListSnippets="<c-h>"
 
-" Shougo deoplete.nvim
-let g:deoplete#enable_at_startup = 1
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 "toggel linenumber
 function! ToggleNu()
@@ -266,6 +249,7 @@ let g:vimtex_view_method = 'skim'
 let g:vimtex_indent_conditionals = {
  \ 'open': '\v(\\newif)@<!\\if(f>|field|name|numequal|thenelse|beginwith)@!',
 \ }
+let g:vimtex_fold_enabled =1
 let g:vimtex_echo_ignore_wait = 1
 let g:vimtex_echo_verbose_input = 0
 let g:vimtex_quickfix_enabled = 0
@@ -306,43 +290,7 @@ nmap gf <Plug>(grammarous-fixit)
 nmap gn <Plug>(grammarous-move-to-next-error)
 nmap gp <Plug>(grammarous-move-to-previous-error)
 
-
-" Markdown preview
-let g:mkdp_auto_start = 0
-let g:mkdp_auto_close = 1
-let g:mkdp_refresh_slow = 0
-let g:mkdp_command_for_global = 0
-let g:mkdp_open_to_the_world = 0
-let g:mkdp_open_ip = ''
-let g:mkdp_browser = ''
-let g:mkdp_echo_preview_url = 0
-let g:mkdp_browserfunc = ''
-let g:mkdp_preview_options = {
-    \ 'mkit': {},
-    \ 'katex': {},
-    \ 'uml': {},
-    \ 'maid': {},
-    \ 'disable_sync_scroll': 0,
-    \ 'sync_scroll_type': 'middle',
-    \ 'hide_yaml_meta': 1,
-    \ 'sequence_diagrams': {}
-    \ }
-let g:mkdp_markdown_css = ''
-let g:mkdp_highlight_css = ''
-let g:mkdp_port = ''
-let g:mkdp_page_title = '「${name}」'
-
 " vim-better-whitespace
- let g:strip_whitespace_confirm=0
+let g:strip_whitespace_confirm=0
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
-
-" dito
-au FileType markdown,text,tex DittoOn  " Turn on Ditto's autocmds
-nmap <leader>di <Plug>ToggleDitto      " Turn Ditto on and off
-nmap =d <Plug>DittoNext                " Jump to the next word
-nmap -d <Plug>DittoPrev                " Jump to the previous word
-nmap +d <Plug>DittoGood                " Ignore the word under the cursor
-nmap _d <Plug>DittoBad                 " Stop ignoring the word under the cursor
-nmap ]d <Plug>DittoMore                " Show the next matches
-nmap [d <Plug>DittoLess                " Show the previous matches
