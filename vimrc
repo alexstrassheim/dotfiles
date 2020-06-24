@@ -1,5 +1,5 @@
 call plug#begin('~/.vim/plugged')
-" Plug 'ycm-core/YouCompleteMe'
+
 if has('nvim')
    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -14,14 +14,16 @@ Plug 'tomtom/tcomment_vim'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-Plug 'lervag/vimtex'                                            " A Vim Tex Plugin
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'lervag/vimtex'
 Plug 'Konfekt/FastFold'
 Plug 'Chiel92/vim-autoformat'
 Plug 'pangloss/vim-javascript'
+Plug 'sbdchd/neoformat'
 Plug 'cespare/vim-toml'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'Raimondi/delimitMate'                                     " automatic closing of quotes, parenthesis, brackets
+Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-surround'
 Plug 'Yggdroot/indentLine'
 Plug 'ntpeters/vim-better-whitespace'
@@ -31,11 +33,12 @@ Plug 'junegunn/vim-easy-align'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'rhysd/vim-grammarous'
 Plug 'dbmrq/vim-ditto'
-" Plug 'dense-analysis/ale'
-" Plug 'chrisbra/SudoEdit.vim'
-" Plug 'tpope/vim-dispatch'
-" Plug 'jamessan/vim-gnupg'
-" Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()}}
+" " Plug 'dense-analysis/ale'
+" " Plug 'chrisbra/SudoEdit.vim'
+" " Plug 'tpope/vim-dispatch'
+" " Plug 'jamessan/vim-gnupg'
+" " Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()}}
+
 call plug#end()
 
 " " Settings
@@ -45,8 +48,8 @@ set encoding=utf-8
 set ts=3                          " set indent to 4 spaces
 set shiftwidth=3
 set expandtab                     " use spaces, not tab characters
-set updatetime=300
-set scrolloff=5                   " minimum lines above/below cursor
+set updatetime=750
+set scrolloff=6                   " minimum lines above/below cursor
 set laststatus=2                  " always show status bar
 set backspace=2
 set autoindent                    " set auto indent
@@ -89,9 +92,9 @@ nnoremap <leader>rv :source $MYVIMRC<CR>
 " Theme
 " let g:airline_theme='one'
 if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
+   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+   set termguicolors
 endif
 set background=dark
 colorscheme one
@@ -163,12 +166,13 @@ let g:tex_flavor='latex'
 autocmd FilterWritePre * if &diff | setlocal wrap< | endif
 
 " IndentLine
-let g:indentLine_char = '¦'
-let g:indentLine_first_char = '¦'
-let g:indentLine_setColors = 0
-let g:indentLine_conceallevel = 2
-set conceallevel=0
-"
+" let g:indentLine_char = '¦'
+" let g:indentLine_first_char = '¦'
+" let g:indentLine_setColors = 0
+" let g:indentLine_concealcursor = ''
+" let g:indentLine_conceallevel = 1
+" set conceallevel=1
+
 
 
 " ctrlP -- Exclude
@@ -176,10 +180,10 @@ set wildignore+=*/tmp/*,Rohdaten*,Material*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
+         \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+         \ 'file': '\v\.(exe|so|dll)$',
+         \ 'link': 'some_bad_symbolic_links',
+         \ }
 
 " UltiSnips
 let g:UltiSnipsEditSplit="vertical"
@@ -195,19 +199,19 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 "toggel linenumber
 function! ToggleNu()
-    if !exists( "b:myNu" )
-        let b:myNu = 0
-    endif
-    let b:myNu = b:myNu + 1
-    if b:myNu > 2 | let b:myNu = 0 | endif
-    if b:myNu == 0
-        set number
-    elseif b:myNu == 1
-        set relativenumber
-    else
-        set nonumber
-        set norelativenumber
-    endif
+   if !exists( "b:myNu" )
+      let b:myNu = 0
+   endif
+   let b:myNu = b:myNu + 1
+   if b:myNu > 2 | let b:myNu = 0 | endif
+   if b:myNu == 0
+      set number
+   elseif b:myNu == 1
+      set relativenumber
+   else
+      set nonumber
+      set norelativenumber
+   endif
 endfunction
 nnoremap <silent> <F3> :call ToggleNu()<CR>
 
@@ -217,21 +221,21 @@ highlight SpellBad ctermbg=124
 hi SpellBad cterm=underline
 let g:myLangList=["nospell","de_de","en_us","de_de,en_us"]
 function! ToggleSpell()
-    if !exists( "b:myLang" )
-        if &spell
-            let b:myLang=index(g:myLangList, &spelllang)
-        else
-            let b:myLang=0
-        endif
-    endif
-        let b:myLang=b:myLang+1
-        if b:myLang>=len(g:myLangList) | let b:myLang=0 | endif
-        if b:myLang==0
-            setlocal nospell
-        else
-            execute "setlocal spell spelllang=".get(g:myLangList, b:myLang)
-        endif
-    echo "spell checking language:" g:myLangList[b:myLang]
+   if !exists( "b:myLang" )
+      if &spell
+         let b:myLang=index(g:myLangList, &spelllang)
+      else
+         let b:myLang=0
+      endif
+   endif
+   let b:myLang=b:myLang+1
+   if b:myLang>=len(g:myLangList) | let b:myLang=0 | endif
+   if b:myLang==0
+      setlocal nospell
+   else
+      execute "setlocal spell spelllang=".get(g:myLangList, b:myLang)
+   endif
+   echo "spell checking language:" g:myLangList[b:myLang]
 endfunction
 nnoremap <silent> <F4> :call ToggleSpell()<CR>
 
@@ -244,52 +248,52 @@ let g:languagetool_lang="de-DE"
 " Easy Align
 xmap ga <Plug>(EasyAlign)
 let g:easy_align_delimiters = {
-\ '%': { 'pattern': '%' },
-\ ';': { 'pattern': ';' }
-\ }
+         \ '%': { 'pattern': '%' },
+         \ ';': { 'pattern': ';' }
+         \ }
 
 " vimtex
 autocmd BufReadPre *.tex let b:vimtex_main = 'report.tex'
 let g:tex_conceal = ''
 let g:vimtex_view_method = 'skim'
-let g:vimtex_indent_conditionals = {
- \ 'open': '\v(\\newif)@<!\\if(f>|field|name|numequal|thenelse|beginwith)@!',
-\ }
+" let g:vimtex_indent_conditionals = {
+"  \ 'open': '\v(\\newif)@<!\\if(f>|field|name|numequal|thenelse|beginwith)@!',
+" \ }
 let g:vimtex_fold_enabled = 0
 let g:vimtex_echo_ignore_wait = 1
 let g:vimtex_echo_verbose_input = 0
 let g:vimtex_quickfix_enabled = 0
 let g:vimtex_quickfix_latexlog = {'default' : 0}
 let g:vimtex_compiler_latexmk_engines = {
-    \ '_'                : '-lualatex',
-    \ 'pdflatex'         : '-pdf',
-    \ 'dvipdfex'         : '-pdfdvi',
-    \ 'lualatex'         : '-lualatex',
-    \ 'xelatex'          : '-xelatex',
-    \ 'context (pdftex)' : '-pdf -pdflatex=texexec',
-    \ 'context (luatex)' : '-pdf -pdflatex=context',
-    \ 'context (xetex)'  : '-pdf -pdflatex=''texexec --xtx''',
-    \}
+         \ '_'                : '-lualatex',
+         \ 'pdflatex'         : '-pdf',
+         \ 'dvipdfex'         : '-pdfdvi',
+         \ 'lualatex'         : '-lualatex',
+         \ 'xelatex'          : '-xelatex',
+         \ 'context (pdftex)' : '-pdf -pdflatex=texexec',
+         \ 'context (luatex)' : '-pdf -pdflatex=context',
+         \ 'context (xetex)'  : '-pdf -pdflatex=''texexec --xtx''',
+         \}
 let g:vimtex_compiler_latexrun_engines = {
-    \ '_'                : 'lualatex',
-    \ 'pdflatex'         : 'pdflatex',
-    \ 'lualatex'         : 'lualatex',
-    \ 'xelatex'          : 'xelatex',
-    \}
+         \ '_'                : 'lualatex',
+         \ 'pdflatex'         : 'pdflatex',
+         \ 'lualatex'         : 'lualatex',
+         \ 'xelatex'          : 'xelatex',
+         \}
 let g:vimtex_compiler_latexmk = {
-    \ 'backend' : 'jobs',
-    \ 'background' : 1,
-    \ 'build_dir' : '/tmp/latex/output',
-    \ 'callback' : 1,
-    \ 'continuous' : 1,
-    \ 'executable' : 'latexmk',
-    \ 'options' : [
-    \   '-verbose',
-    \   '-file-line-error',
-    \   '-synctex=1',
-    \   '-interaction=nonstopmode',
-    \ ],
-    \}
+         \ 'backend' : 'jobs',
+         \ 'background' : 1,
+         \ 'build_dir' : '/tmp/latex/output',
+         \ 'callback' : 1,
+         \ 'continuous' : 1,
+         \ 'executable' : 'latexmk',
+         \ 'options' : [
+         \   '-verbose',
+         \   '-file-line-error',
+         \   '-synctex=1',
+         \   '-interaction=nonstopmode',
+         \ ],
+         \}
 
 " FastFold
 let g:tex_fold_enabled = 1

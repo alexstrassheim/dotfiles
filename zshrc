@@ -41,12 +41,17 @@ setopt SHARE_HISTORY
 # ln /dev/null ~/.bash_history -sf
 
 
+if type nvim > /dev/null 2>&1; then
+  alias vim='nvim'
+fi
+
+
 #===========================================================
 #                          Language
 
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
-export EDITOR='vim'
+export EDITOR='nvim'
 
 #===========================================================
 #                       private stuff
@@ -66,14 +71,12 @@ if [[ `uname` == 'Darwin' ]]; then
 
   export PATH="$PATH:/usr/local/sbin"
   export PATH="/usr/local/opt/qt/bin:$PATH"
-  # export PATH="/usr/local/opt/python/libexec/bin:$PATH"
   # source /usr/local/bin/virtualenvwrapper.sh
   # export PATH="/usr/local/opt/qt/bin:$PATH"
   # export PATH="/usr/local/opt/qt/bin:$PATH"
   # export PATH="/usr/local/opt/gpg-agent/bin:$PATH"
   export PATH="/usr/local/opt/inetutils/libexec/gnubin:$PATH"
   export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
-  # alias python='python3'
 
   # ixon
   # alias vim="stty stop '' -ixoff ; vim"
@@ -134,5 +137,3 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PATH="/usr/local/opt/qt/bin:$PATH"
-alias pip=/usr/local/bin/pip3
-alias python=/usr/local/bin/python3.7
