@@ -20,6 +20,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-surround'
 " Plug 'Yggdroot/indentLine'
+Plug 'Konfekt/FastFold'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'mileszs/ack.vim'
 Plug 'chrisbra/Colorizer'
@@ -27,7 +28,6 @@ Plug 'junegunn/vim-easy-align'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'rhysd/vim-grammarous'
 Plug 'dbmrq/vim-ditto'
-Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
@@ -121,6 +121,7 @@ nmap <leader>q :bp <BAR> bd #<CR>
 " Change Filetype
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd BufNewFile,BufReadPost *.cls set filetype=tex
+" autocmd BufNewFile,BufReadPost *.tex set foldlevel=1
 let g:tex_flavor='latex'
 
 " set wrap on diff
@@ -147,7 +148,7 @@ nnoremap <silent> <F3> :call ToggleNu()<CR>
 " switch spellcheck languages
 hi clear SpellBad
 highlight SpellBad ctermbg=124
-hi SpellBad cterm=underline
+hi SpellBad cterm=underline guibg=#ff2929 ctermbg=224
 let g:myLangList=["nospell","de_de","en_us","de_de,en_us"]
 function! ToggleSpell()
    if !exists( "b:myLang" )
@@ -174,13 +175,6 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#wordcount#enabled = 0
 let g:airline_theme='papercolor'
 
-" NERDTreee
-let g:NERDTreeShowHidden = 1
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeIgnore = []
-let g:NERDTreeStatusline = ''
-" Automaticaly close nvim if NERDTree is only thing left open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " ctrlP -- Exclude
 set wildignore+=*/tmp/*,Rohdaten*,Material*,*.so,*.swp,*.zip     " MacOSX/Linux
@@ -248,9 +242,9 @@ let g:vimtex_compiler_latexmk = {
          \   '-interaction=nonstopmode',
          \ ],
          \}
-" let g:vimtex_indent_conditionals = {
-"  \ 'open': '\v(\\newif)@<!\\if(f>|field|name|numequal|thenelse|beginwith)@!',
-" \ }
+let g:vimtex_indent_conditionals = {
+ \ 'open': '\v(\\newif)@<!\\if(f>|field|name|numequal|thenelse|beginwith)@!',
+\ }
 
 
 " Grammarous
@@ -266,6 +260,9 @@ let g:strip_whitespace_on_save=1
 au BufNewFile,BufRead *.log,*.css,*.html,*.htm  :ColorHighlight!
 let g:colorizer_auto_map = 1
 
+" Fast Folding
+let g:tex_fold_enabled = 1
+let g:vimsyn_folding = 'af'
 
 " Coc
 let g:coc_global_extensions = [
@@ -327,3 +324,7 @@ endfunction
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Explorer
+nmap <space>e :CocCommand explorer<CR>
+autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif

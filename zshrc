@@ -69,6 +69,7 @@ fi
 if [[ `uname` == 'Darwin' ]]; then
   # MacOS
 
+  alias python='python3'
   export PATH="$PATH:/usr/local/sbin"
   export PATH="/usr/local/opt/qt/bin:$PATH"
   # source /usr/local/bin/virtualenvwrapper.sh
@@ -137,3 +138,4 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PATH="/usr/local/opt/qt/bin:$PATH"
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
