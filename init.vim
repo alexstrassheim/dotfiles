@@ -2,8 +2,8 @@ call plug#begin('~/.vim/plugged')
  " Highlighting and language support
 Plug 'leafgarland/typescript-vim'
 Plug 'joukevandermaas/vim-ember-hbs'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'nullvoxpopuli/coc-ember', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'majutsushi/tagbar'
 Plug 'dracula/vim' "Theme
 Plug 'tomtom/tcomment_vim'
@@ -55,7 +55,7 @@ set list                         " Display unprintable characters f12 -
 set pastetoggle=<F2>
 set visualbell t_vb=
 set timeoutlen=750 ttimeoutlen=0
-
+set sessionoptions-=folds
 
 " Allow us to use Ctrl-s and Ctrl-q as keybinds
 silent !stty -ixon
@@ -122,7 +122,6 @@ nmap <leader>q :bp <BAR> bd #<CR>
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd BufNewFile,BufReadPost *.cls set filetype=tex
 " autocmd BufNewFile,BufReadPost *.tex set foldlevel=1
-let g:tex_flavor='latex'
 
 " set wrap on diff
 autocmd FilterWritePre * if &diff | setlocal wrap< | endif
@@ -177,7 +176,7 @@ let g:airline_theme='papercolor'
 
 
 " ctrlP -- Exclude
-set wildignore+=*/tmp/*,Rohdaten*,Material*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*/tmp/*,Material*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_custom_ignore = {
@@ -206,6 +205,7 @@ let g:easy_align_delimiters = {
 
 " vimtex
 autocmd BufReadPre *.tex let b:vimtex_main = 'report.tex'
+let g:tex_flavor='latex'
 let g:vimtex_view_method = 'skim'
 let g:tex_conceal = ''
 let g:vimtex_compiler_progname = 'nvr'
@@ -247,6 +247,14 @@ let g:vimtex_indent_conditionals = {
 \ }
 
 
+" FastFold
+nmap zuz <Plug>(FastFoldUpdate)
+let g:fastfold_savehook = 1
+let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
+let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
+let g:tex_fold_enabled = 1
+" let g:vimsyn_folding = 'af'
+
 " Grammarous
 nmap gn <Plug>(grammarous-move-to-next-error)
 nmap gp <Plug>(grammarous-move-to-previous-error)
@@ -260,9 +268,6 @@ let g:strip_whitespace_on_save=1
 au BufNewFile,BufRead *.log,*.css,*.html,*.htm  :ColorHighlight!
 let g:colorizer_auto_map = 1
 
-" Fast Folding
-let g:tex_fold_enabled = 1
-let g:vimsyn_folding = 'af'
 
 " Coc
 let g:coc_global_extensions = [
