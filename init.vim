@@ -2,7 +2,6 @@ call plug#begin('~/.vim/plugged')
  " Highlighting and language support
 Plug 'leafgarland/typescript-vim'
 Plug 'joukevandermaas/vim-ember-hbs'
-Plug 'nullvoxpopuli/coc-ember', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'psliwka/vim-smoothie'
 Plug 'majutsushi/tagbar'
@@ -271,7 +270,6 @@ let g:strip_whitespace_on_save=1
 " Colorizer
 au BufNewFile,BufRead *.log,*.css,*.html,*.htm  :ColorHighlight!
 let g:colorizer_auto_map = 1
-
 
 " Coc
 let g:coc_global_extensions = [

@@ -98,7 +98,8 @@ alias watchdata="watch -n 1 grep -e Dirty: -e  Writeback: /proc/meminfo"
 
 bindkey -M viins 'jk' vi-cmd-mode
 bindkey "^@" autosuggest-accept
-bindkey '^f' vi-forward-blank-word
+# bindkey '^f' vi-forward-blank-word
+bindkey '^f' vi-forward-word
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
