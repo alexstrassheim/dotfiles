@@ -4,8 +4,9 @@ Plug 'leafgarland/typescript-vim'
 Plug 'joukevandermaas/vim-ember-hbs'
 Plug 'nullvoxpopuli/coc-ember', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'psliwka/vim-smoothie'
 Plug 'majutsushi/tagbar'
-Plug 'dracula/vim' "Theme
+Plug 'morhetz/gruvbox'
 Plug 'tomtom/tcomment_vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -37,8 +38,7 @@ set encoding=UTF-8
 set ts=3                          " set indent to 4 spaces
 set shiftwidth=3
 set expandtab                     " use spaces, not tab characters
-set updatetime=200
-set cmdheight=2
+set cmdheight=1
 set scrolloff=6                   " minimum lines above/below cursor
 set laststatus=2                  " always show status bar
 set relativenumber                " show relative line numbers
@@ -54,7 +54,10 @@ set clipboard=unnamed
 set list                         " Display unprintable characters f12 -
 set pastetoggle=<F2>
 set visualbell t_vb=
-set timeoutlen=750 ttimeoutlen=0
+set undodir=~/.config/nvim/undo-dir
+set undofile
+" set updatetime=200
+" set timeoutlen=750 ttimeoutlen=0
 set sessionoptions-=folds
 
 " Allow us to use Ctrl-s and Ctrl-q as keybinds
@@ -70,10 +73,11 @@ if (has("termguicolors"))
    set termguicolors
 endif
 syntax enable
-colorscheme dracula
+colorscheme gruvbox
 
 " Highlight
 hi MatchParen cterm=bold,underline ctermbg=none ctermfg=12
+highlight Comment cterm=italic gui=italic
 
 " quick save
 noremap <C-s> <ESC>:w<CR>
@@ -172,7 +176,7 @@ nnoremap <silent> <F4> :call ToggleSpell()<CR>
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#wordcount#enabled = 0
-let g:airline_theme='papercolor'
+let g:airline_theme='base16_gruvbox_dark_hard'
 
 
 " ctrlP -- Exclude

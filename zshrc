@@ -42,7 +42,7 @@ export EDITOR='nvim'
 #===========================================================
 #                       private stuff
 
-[ -z "$TMUX" ] && export TERM=xterm-256color
+[ -z "$TMUX" ] && export TERM=alacritty
 [[ -d "${HOME}/.local/bin" ]] && export PATH="$PATH:${HOME}/.local/bin"
 
 if [ -f ~/.zshrc_contents/private ]; then
@@ -80,10 +80,10 @@ function ra {
     rm -f -- "$tempfile"
   }
 
-if [[ $TERM == xterm-termite ]]; then
-  . /etc/profile.d/vte.sh
-  __vte_osc7
-fi
+# if [[ $TERM == xterm-termite ]]; then
+#   . /etc/profile.d/vte.sh
+#   __vte_osc7
+# fi
 
 #===========================================================
 #                       Public alias
