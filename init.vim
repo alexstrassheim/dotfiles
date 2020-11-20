@@ -55,8 +55,8 @@ set pastetoggle=<F2>
 set visualbell t_vb=
 set undodir=~/.config/nvim/undo-dir
 set undofile
-" set updatetime=200
-" set timeoutlen=750 ttimeoutlen=0
+set updatetime=200
+set timeoutlen=750 ttimeoutlen=0
 set sessionoptions-=folds
 
 " Allow us to use Ctrl-s and Ctrl-q as keybinds
