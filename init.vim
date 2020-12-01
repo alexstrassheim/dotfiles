@@ -1,34 +1,37 @@
 call plug#begin('~/.vim/plugged')
  " Highlighting and language support
-Plug 'leafgarland/typescript-vim'
-Plug 'joukevandermaas/vim-ember-hbs'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'psliwka/vim-smoothie'
-Plug 'majutsushi/tagbar'
 Plug 'morhetz/gruvbox'
-Plug 'tomtom/tcomment_vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'lervag/vimtex'
+Plug 'tomtom/tcomment_vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'lervag/vimtex'
 Plug 'Chiel92/vim-autoformat'
-Plug 'pangloss/vim-javascript'
-Plug 'sbdchd/neoformat'
-Plug 'cespare/vim-toml'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-surround'
-" Plug 'Yggdroot/indentLine'
-Plug 'Konfekt/FastFold'
+Plug 'Yggdroot/indentLine'
+Plug 'plasticboy/vim-markdown'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'mileszs/ack.vim'
 Plug 'chrisbra/Colorizer'
+Plug 'leafgarland/typescript-vim'
+Plug 'joukevandermaas/vim-ember-hbs'
+Plug 'majutsushi/tagbar'
+Plug 'pangloss/vim-javascript'
+Plug 'sbdchd/neoformat'
+Plug 'cespare/vim-toml'
 Plug 'junegunn/vim-easy-align'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'rhysd/vim-grammarous'
 Plug 'dbmrq/vim-ditto'
 Plug 'ryanoasis/vim-devicons'
+Plug 'maksimr/vim-jsbeautify'
+Plug 'alexstrassheim/Theosvi'
+" Plug 'psliwka/vim-smoothie'
+Plug 'Konfekt/FastFold'
 call plug#end()
 
 
@@ -124,6 +127,7 @@ nmap <leader>q :bp <BAR> bd #<CR>
 " Change Filetype
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd BufNewFile,BufReadPost *.cls set filetype=tex
+autocmd BufNewFile,BufRead .x,.xm,.xmm,*.l.mm set filetype=logos
 " autocmd BufNewFile,BufReadPost *.tex set foldlevel=1
 
 " set wrap on diff
@@ -256,7 +260,7 @@ let g:fastfold_savehook = 1
 let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
 let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
 let g:tex_fold_enabled = 1
-" let g:vimsyn_folding = 'af'
+let g:vimsyn_folding = 'af'
 
 " Grammarous
 nmap gn <Plug>(grammarous-move-to-next-error)
@@ -330,8 +334,8 @@ function! s:show_documentation()
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Explorer
-nmap <space>e :CocCommand explorer<CR>
+nmap <space>e :CocCommand explorer ./<CR>
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif

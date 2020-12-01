@@ -27,8 +27,8 @@ source $ZSH/oh-my-zsh.sh
 
 HISTFILE=~/.zhistory
 HISTFILE=$HOME/.zsh_history
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 setopt APPEND_HISTORY
 setopt SHARE_HISTORY
 
@@ -61,7 +61,7 @@ fi
 
 if [[ `uname` == 'Darwin' ]]; then
   # MacOS
-  alias python='python3'
+  # alias python='python3'
   export PATH="$PATH:/usr/local/sbin"
   export PATH="/usr/local/opt/inetutils/libexec/gnubin:$PATH"
   export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
@@ -112,6 +112,11 @@ bindkey '^l' clear-screen
 fpath=(/usr/local/share/zsh-completions $fpath)
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
+export THEOS=~/theos
+export PATH=$THEOS/bin:$PATH
+export THEOS_DEVICE_IP=localhost THEOS_DEVICE_PORT=2222
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

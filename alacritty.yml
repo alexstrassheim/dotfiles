@@ -9,13 +9,13 @@ window:
   dynamic_padding: true
 
   # Startup Mode (changes require restart)
-  startup_mode: Fullscreen
+  # startup_mode: Fullscreen
 
 # Sample Font configuration for font: Monoid.
 # Feel free to use different font configuration family & face for each sections
 font:
   # The size to use.
-  size: 13
+  size: 14
   # The normal (roman) font face to use.
   normal:
     family: Fira Code
@@ -43,7 +43,8 @@ font:
   # to your convenience but make sure to adjust 'glyph_offset' appropriately post that
   offset:
     x: 0
-    y: 14
+    # y: 14
+    y: 4
 
   # Note: This requires RESTART
   # By default when you change the offset above you'll see an issue, where the texts are bottom
@@ -52,7 +53,7 @@ font:
   glyph_offset:
     x: 0
     # Keeping this as half of offset to vertically align the text in cursor
-    y: 7
+    y: 2
 
   # Better font rendering for mac
   use_thin_strokes: true
