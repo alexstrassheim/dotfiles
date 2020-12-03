@@ -7,13 +7,10 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tomtom/tcomment_vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'lervag/vimtex'
 Plug 'Chiel92/vim-autoformat'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-surround'
-Plug 'Yggdroot/indentLine'
-Plug 'plasticboy/vim-markdown'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'mileszs/ack.vim'
 Plug 'chrisbra/Colorizer'
@@ -30,12 +27,16 @@ Plug 'dbmrq/vim-ditto'
 Plug 'ryanoasis/vim-devicons'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'alexstrassheim/Theosvi'
-" Plug 'psliwka/vim-smoothie'
 Plug 'Konfekt/FastFold'
+Plug 'zhimsel/vim-stay'
+Plug 'dpelle/vim-LanguageTool'
 call plug#end()
 
 
 " Settings
+set sessionoptions-=folds
+set viewoptions=cursor,folds,slash,unix
+set viewoptions-=options
 set encoding=UTF-8
 set ts=3                          " set indent to 4 spaces
 set shiftwidth=3
@@ -60,7 +61,6 @@ set undodir=~/.config/nvim/undo-dir
 set undofile
 set updatetime=200
 set timeoutlen=750 ttimeoutlen=0
-set sessionoptions-=folds
 
 " Allow us to use Ctrl-s and Ctrl-q as keybinds
 silent !stty -ixon
@@ -210,57 +210,50 @@ let g:easy_align_delimiters = {
          \ ';': { 'pattern': ';' }
          \ }
 
+
 " vimtex
-autocmd BufReadPre *.tex let b:vimtex_main = 'report.tex'
-let g:tex_flavor='latex'
-let g:vimtex_view_method = 'skim'
-let g:tex_conceal = ''
-let g:vimtex_compiler_progname = 'nvr'
-let g:vimtex_echo_ignore_wait = 1
-let g:vimtex_echo_verbose_input = 0
-let g:vimtex_quickfix_enabled = 0
-let g:vimtex_quickfix_latexlog = {'default' : 0}
-let g:vimtex_compiler_latexmk_engines = {
-         \ '_'                : '-lualatex',
-         \ 'pdflatex'         : '-pdf',
-         \ 'dvipdfex'         : '-pdfdvi',
-         \ 'lualatex'         : '-lualatex',
-         \ 'xelatex'          : '-xelatex',
-         \ 'context (pdftex)' : '-pdf -pdflatex=texexec',
-         \ 'context (luatex)' : '-pdf -pdflatex=context',
-         \ 'context (xetex)'  : '-pdf -pdflatex=''texexec --xtx''',
-         \}
-let g:vimtex_compiler_latexrun_engines = {
-         \ '_'                : 'lualatex',
-         \ 'pdflatex'         : 'pdflatex',
-         \ 'lualatex'         : 'lualatex',
-         \ 'xelatex'          : 'xelatex',
-         \}
-let g:vimtex_compiler_latexmk = {
-         \ 'background' : 1,
-         \ 'build_dir' : '/tmp/latex/output',
-         \ 'callback' : 1,
-         \ 'continuous' : 1,
-         \ 'executable' : 'latexmk',
-         \ 'options' : [
-         \   '-verbose',
-         \   '-file-line-error',
-         \   '-synctex=1',
-         \   '-interaction=nonstopmode',
-         \ ],
-         \}
-let g:vimtex_indent_conditionals = {
- \ 'open': '\v(\\newif)@<!\\if(f>|field|name|numequal|thenelse|beginwith)@!',
-\ }
-
-
-" FastFold
-nmap zuz <Plug>(FastFoldUpdate)
-let g:fastfold_savehook = 1
-let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
-let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
-let g:tex_fold_enabled = 1
-let g:vimsyn_folding = 'af'
+"  let g:vimtex_fold_enabled = 1
+" autocmd BufReadPre *.tex let b:vimtex_main = 'report.tex'
+" let g:tex_flavor='latex'
+" let g:vimtex_view_method = 'skim'
+" let g:tex_conceal = ''
+" let g:vimtex_compiler_progname = 'nvr'
+" let g:vimtex_echo_ignore_wait = 1
+" let g:vimtex_echo_verbose_input = 0
+" let g:vimtex_quickfix_enabled = 0
+" let g:vimtex_quickfix_latexlog = {'default' : 0}
+" let g:vimtex_compiler_latexmk_engines = {
+"          \ '_'                : '-lualatex',
+"          \ 'pdflatex'         : '-pdf',
+"          \ 'dvipdfex'         : '-pdfdvi',
+"          \ 'lualatex'         : '-lualatex',
+"          \ 'xelatex'          : '-xelatex',
+"          \ 'context (pdftex)' : '-pdf -pdflatex=texexec',
+"          \ 'context (luatex)' : '-pdf -pdflatex=context',
+"          \ 'context (xetex)'  : '-pdf -pdflatex=''texexec --xtx''',
+"          \}
+" let g:vimtex_compiler_latexrun_engines = {
+"          \ '_'                : 'lualatex',
+"          \ 'pdflatex'         : 'pdflatex',
+"          \ 'lualatex'         : 'lualatex',
+"          \ 'xelatex'          : 'xelatex',
+"          \}
+" let g:vimtex_compiler_latexmk = {
+"          \ 'background' : 1,
+"          \ 'build_dir' : '/tmp/latex/output',
+"          \ 'callback' : 1,
+"          \ 'continuous' : 1,
+"          \ 'executable' : 'latexmk',
+"          \ 'options' : [
+"          \   '-verbose',
+"          \   '-file-line-error',
+"          \   '-synctex=1',
+"          \   '-interaction=nonstopmode',
+"          \ ],
+"          \}
+" let g:vimtex_indent_conditionals = {
+"  \ 'open': '\v(\\newif)@<!\\if(f>|field|name|numequal|thenelse|beginwith)@!',
+" \ }
 
 " Grammarous
 nmap gn <Plug>(grammarous-move-to-next-error)
@@ -339,3 +332,13 @@ endfunction
 " Explorer
 nmap <space>e :CocCommand explorer ./<CR>
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
+
+
+" FastFold
+let g:fastfold_savehook = 1
+let g:fastfold_fdmhook = 0
+nmap zuz <Plug>(FastFoldUpdate)
+let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
+let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
+let g:tex_fold_enabled=1
+let g:vimsyn_folding='af'

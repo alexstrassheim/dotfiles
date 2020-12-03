@@ -64,6 +64,7 @@ if [[ `uname` == 'Darwin' ]]; then
   # alias python='python3'
   export PATH="$PATH:/usr/local/sbin"
   export PATH="/usr/local/opt/inetutils/libexec/gnubin:$PATH"
+  export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
   export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
   export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
   export PATH="/usr/local/opt/node@14/bin:$PATH"
@@ -87,10 +88,6 @@ function ra {
     rm -f -- "$tempfile"
   }
 
-# if [[ $TERM == xterm-termite ]]; then
-#   . /etc/profile.d/vte.sh
-#   __vte_osc7
-# fi
 
 #===========================================================
 #                       Public alias
@@ -105,18 +102,12 @@ alias watchdata="watch -n 1 grep -e Dirty: -e  Writeback: /proc/meminfo"
 
 bindkey -M viins 'jk' vi-cmd-mode
 bindkey "^@" autosuggest-accept
-# bindkey '^f' vi-forward-blank-word
 bindkey '^f' vi-forward-word
 bindkey '^l' clear-screen
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-
-export THEOS=~/theos
-export PATH=$THEOS/bin:$PATH
-export THEOS_DEVICE_IP=localhost THEOS_DEVICE_PORT=2222
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
