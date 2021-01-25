@@ -1,85 +1,41 @@
 call plug#begin('~/.vim/plugged')
- " Highlighting and language support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tomtom/tcomment_vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'Chiel92/vim-autoformat'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'rhysd/vim-grammarous'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-surround'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'mileszs/ack.vim'
-Plug 'chrisbra/Colorizer'
-Plug 'leafgarland/typescript-vim'
-Plug 'joukevandermaas/vim-ember-hbs'
-Plug 'majutsushi/tagbar'
-Plug 'pangloss/vim-javascript'
-Plug 'sbdchd/neoformat'
-Plug 'cespare/vim-toml'
-Plug 'junegunn/vim-easy-align'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'rhysd/vim-grammarous'
-Plug 'dbmrq/vim-ditto'
-Plug 'ryanoasis/vim-devicons'
 Plug 'maksimr/vim-jsbeautify'
-Plug 'alexstrassheim/Theosvi'
-Plug 'Konfekt/FastFold'
-Plug 'zhimsel/vim-stay'
-Plug 'dpelle/vim-LanguageTool'
+Plug 'chrisbra/Colorizer'
 call plug#end()
 
-
 " Settings
-set sessionoptions-=folds
-set viewoptions=cursor,folds,slash,unix
-set viewoptions-=options
 set encoding=UTF-8
-set ts=3                          " set indent to 4 spaces
-set shiftwidth=3
-set expandtab                     " use spaces, not tab characters
-set cmdheight=1
-set scrolloff=6                   " minimum lines above/below cursor
-set laststatus=2                  " always show status bar
-set relativenumber                " show relative line numbers
-set number
-set showmatch                     " show bracket matches
-set ignorecase                    " ignore case in search
-set cursorline                    " highlight current line
-set smartcase                     " pay attention to case when caps are used
-set incsearch                     " show search results as I type
-set ruler                         " show row and column in footer
-set noswapfile
-set clipboard=unnamed
-set list                         " Display unprintable characters f12 -
-set pastetoggle=<F2>
-set visualbell t_vb=
 set undodir=~/.config/nvim/undo-dir
 set undofile
-set updatetime=200
-set timeoutlen=750 ttimeoutlen=0
+set number relativenumber
+set cursorline                    " highlight current line
+set clipboard+=unnamedplus
+set noswapfile
+set expandtab                     " use spaces, not tab characters
+set ts=3                          " set indent to 4 spaces
+set shiftwidth=3
+set t_Co=256
 
 " Allow us to use Ctrl-s and Ctrl-q as keybinds
 silent !stty -ixon
 
-
 " reload config
 let mapleader="\,"
 nnoremap <leader>rv :source $MYVIMRC<CR>
-
-" Theme
-if (has("termguicolors"))
-   set termguicolors
-endif
-syntax enable
-colorscheme gruvbox
-
-" Highlight
-hi MatchParen cterm=bold,underline ctermbg=none ctermfg=12
-highlight Comment cterm=italic gui=italic
 
 " quick save
 noremap <C-s> <ESC>:w<CR>
@@ -98,40 +54,28 @@ nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>
 nnoremap <C-h> <C-w><C-h>
 
+" Color Style
+color slate
+
+" Highlight
+hi MatchParen cterm=NONE ctermbg=DarkRed ctermfg=white
+hi Comment cterm=italic gui=italic
+hi CursorLine cterm=NONE ctermbg=234 ctermfg=NONE
+hi Search cterm=NONE  ctermbg=DarkBlue ctermfg=white
+hi VertSplit ctermbg=4 ctermfg=0
+
 " search
 nnoremap <leader><leader> :nohlsearch<CR>
-
-" Change the cursor from block to i-beam in INSERT mode
-let &t_SI = "\e[5 q"
-let &t_EI = "\e[1 q"
-
-" Lex
-let g:netrw_banner = 0
-let g:netrw_liststyle = 1
-let g:netrw_winsize = 15
-let g:netrw_preview = 1
 
 " ag
 cnoreabbrev Ack Ack!
 nnoremap <Leader><Leader>a :Ack!<Space>
 let g:ackprg = 'ag --vimgrep'
 
-" mapping
-nmap <F6> :TagbarToggle<CR>
-
 " Switch Buffer
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
 nmap <leader>q :bp <BAR> bd #<CR>
-
-" Change Filetype
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-autocmd BufNewFile,BufReadPost *.cls set filetype=tex
-autocmd BufNewFile,BufRead .x,.xm,.xmm,*.l.mm set filetype=logos
-" autocmd BufNewFile,BufReadPost *.tex set foldlevel=1
-
-" set wrap on diff
-autocmd FilterWritePre * if &diff | setlocal wrap< | endif
 
 "toggel linenumber
 function! ToggleNu()
@@ -175,12 +119,26 @@ function! ToggleSpell()
 endfunction
 nnoremap <silent> <F4> :call ToggleSpell()<CR>
 
-" AirLine
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#wordcount#enabled = 0
-let g:airline_theme='base16_gruvbox_dark_hard'
+" JsBeautify
+map <c-f> :call JsBeautify()<cr>
 
+" Denite define mappings
+nmap ; :Denite buffer<CR>
+autocmd FileType denite call s:denite_my_settings()
+function! s:denite_my_settings() abort
+  nnoremap <silent><buffer><expr> <CR>
+  \ denite#do_map('do_action')
+  nnoremap <silent><buffer><expr> d
+  \ denite#do_map('do_action', 'delete')
+  nnoremap <silent><buffer><expr> p
+  \ denite#do_map('do_action', 'preview')
+  nnoremap <silent><buffer><expr> q
+  \ denite#do_map('quit')
+  nnoremap <silent><buffer><expr> i
+  \ denite#do_map('open_filter_buffer')
+  nnoremap <silent><buffer><expr> <Space>
+  \ denite#do_map('toggle_select').'j'
+endfunction
 
 " ctrlP -- Exclude
 set wildignore+=*/tmp/*,Material*,*.so,*.swp,*.zip     " MacOSX/Linux
@@ -210,63 +168,20 @@ let g:easy_align_delimiters = {
          \ ';': { 'pattern': ';' }
          \ }
 
-
-" vimtex
-"  let g:vimtex_fold_enabled = 1
-" autocmd BufReadPre *.tex let b:vimtex_main = 'report.tex'
-" let g:tex_flavor='latex'
-" let g:vimtex_view_method = 'skim'
-" let g:tex_conceal = ''
-" let g:vimtex_compiler_progname = 'nvr'
-" let g:vimtex_echo_ignore_wait = 1
-" let g:vimtex_echo_verbose_input = 0
-" let g:vimtex_quickfix_enabled = 0
-" let g:vimtex_quickfix_latexlog = {'default' : 0}
-" let g:vimtex_compiler_latexmk_engines = {
-"          \ '_'                : '-lualatex',
-"          \ 'pdflatex'         : '-pdf',
-"          \ 'dvipdfex'         : '-pdfdvi',
-"          \ 'lualatex'         : '-lualatex',
-"          \ 'xelatex'          : '-xelatex',
-"          \ 'context (pdftex)' : '-pdf -pdflatex=texexec',
-"          \ 'context (luatex)' : '-pdf -pdflatex=context',
-"          \ 'context (xetex)'  : '-pdf -pdflatex=''texexec --xtx''',
-"          \}
-" let g:vimtex_compiler_latexrun_engines = {
-"          \ '_'                : 'lualatex',
-"          \ 'pdflatex'         : 'pdflatex',
-"          \ 'lualatex'         : 'lualatex',
-"          \ 'xelatex'          : 'xelatex',
-"          \}
-" let g:vimtex_compiler_latexmk = {
-"          \ 'background' : 1,
-"          \ 'build_dir' : '/tmp/latex/output',
-"          \ 'callback' : 1,
-"          \ 'continuous' : 1,
-"          \ 'executable' : 'latexmk',
-"          \ 'options' : [
-"          \   '-verbose',
-"          \   '-file-line-error',
-"          \   '-synctex=1',
-"          \   '-interaction=nonstopmode',
-"          \ ],
-"          \}
-" let g:vimtex_indent_conditionals = {
-"  \ 'open': '\v(\\newif)@<!\\if(f>|field|name|numequal|thenelse|beginwith)@!',
-" \ }
-
 " Grammarous
 nmap gn <Plug>(grammarous-move-to-next-error)
 nmap gp <Plug>(grammarous-move-to-previous-error)
+let g:grammarous#use_vim_spelllang=1
+let g:grammarous#disabled_rules = {
+            \ '*' : ['WHITESPACE_RULE', 'EN_QUOTES'],
+            \ 'help' : ['WHITESPACE_RULE', 'EN_QUOTES', 'SENTENCE_WHITESPACE', 'UPPERCASE_SENTENCE_START'],
+            \ }
 
-" vim-better-whitespace
-let g:strip_whitespace_confirm=0
-let g:better_whitespace_enabled=1
-let g:strip_whitespace_on_save=1
-
-" Colorizer
-au BufNewFile,BufRead *.log,*.css,*.html,*.htm  :ColorHighlight!
-let g:colorizer_auto_map = 1
+" AirLine
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#wordcount#enabled = 0
+let g:airline_theme='papercolor'
 
 " Coc
 let g:coc_global_extensions = [
@@ -277,7 +192,6 @@ let g:coc_global_extensions = [
   \ 'coc-html',
   \ 'coc-vimlsp',
   \ 'coc-highlight',
-  \ 'coc-prettier',
   \ 'coc-ember'
 \ ]
 
@@ -332,13 +246,4 @@ endfunction
 " Explorer
 nmap <space>e :CocCommand explorer ./<CR>
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
-
-
-" FastFold
-let g:fastfold_savehook = 1
-let g:fastfold_fdmhook = 0
-nmap zuz <Plug>(FastFoldUpdate)
-let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
-let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
-let g:tex_fold_enabled=1
-let g:vimsyn_folding='af'
+"
