@@ -25,15 +25,26 @@ source $ZSH/oh-my-zsh.sh
 #===========================================================
 #                          History
 
-HISTFILE=~/.zhistory
 HISTFILE=$HOME/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
-setopt APPEND_HISTORY
-setopt SHARE_HISTORY
+HISTSIZE=100000
+SAVEHIST=100000
+setopt appendhistory
+
+# setopt APPEND_HISTORY
+# setopt SHARE_HISTORY
+
+setopt INC_APPEND_HISTORY
+export HISTTIMEFORMAT="[%F %T] "
+setopt EXTENDED_HISTORY
+
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_ALLDUPS
+
+alias history="history -E"
+
 
 #===========================================================
-#                     Cover your tracks
+#                     Neovim
 
 if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
