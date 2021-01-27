@@ -15,12 +15,16 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'mileszs/ack.vim'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'chrisbra/Colorizer'
+Plug 'matze/vim-tex-fold'
+Plug 'guns/xterm-color-table.vim'
 call plug#end()
 
 " Settings
 set encoding=UTF-8
 set undodir=~/.config/nvim/undo-dir
 set undofile
+set ignorecase
+set smartcase
 set number relativenumber
 set cursorline                    " highlight current line
 set clipboard+=unnamedplus
@@ -28,6 +32,7 @@ set noswapfile
 set expandtab                     " use spaces, not tab characters
 set ts=3                          " set indent to 4 spaces
 set shiftwidth=3
+set redrawtime=10000
 set t_Co=256
 
 " Allow us to use Ctrl-s and Ctrl-q as keybinds
@@ -55,14 +60,18 @@ nnoremap <C-l> <C-w><C-l>
 nnoremap <C-h> <C-w><C-h>
 
 " Color Style
-color slate
+ color slate
 
 " Highlight
-hi MatchParen cterm=NONE ctermbg=DarkRed ctermfg=white
+hi MatchParen cterm=NONE ctermfg=white ctermbg=DarkRed 
 hi Comment cterm=italic gui=italic
-hi CursorLine cterm=NONE ctermbg=234 ctermfg=NONE
-hi Search cterm=NONE  ctermbg=DarkBlue ctermfg=white
-hi VertSplit ctermbg=4 ctermfg=0
+hi CursorLine cterm=NONE ctermfg=NONE ctermbg=234 
+hi Search cterm=NONE ctermfg=white ctermbg=DarkBlue 
+hi VertSplit ctermfg=0 ctermbg=4 
+hi clear SpellBad
+hi SpellBad ctermfg=15 ctermbg=90 
+hi Pmenu ctermfg=251 ctermbg=24
+hi PmenuSel ctermfg=160 ctermbg=0
 
 " search
 nnoremap <leader><leader> :nohlsearch<CR>
@@ -96,9 +105,6 @@ endfunction
 nnoremap <silent> <F3> :call ToggleNu()<CR>
 
 " switch spellcheck languages
-hi clear SpellBad
-highlight SpellBad ctermbg=124
-hi SpellBad cterm=underline guibg=#ff2929 ctermbg=224
 let g:myLangList=["nospell","de_de","en_us","de_de,en_us"]
 function! ToggleSpell()
    if !exists( "b:myLang" )
@@ -120,7 +126,7 @@ endfunction
 nnoremap <silent> <F4> :call ToggleSpell()<CR>
 
 " JsBeautify
-map <c-f> :call JsBeautify()<cr>
+map <leader>f :call JsBeautify()<cr>
 
 " ctrlP -- Exclude
 set wildignore+=*/tmp/*,Material*,*.so,*.swp,*.zip     " MacOSX/Linux
@@ -153,6 +159,7 @@ let g:easy_align_delimiters = {
 " Grammarous
 nmap gn <Plug>(grammarous-move-to-next-error)
 nmap gp <Plug>(grammarous-move-to-previous-error)
+let g:grammarous#use_location_list=1
 let g:grammarous#use_vim_spelllang=1
 let g:grammarous#disabled_rules = {
             \ '*' : ['WHITESPACE_RULE', 'EN_QUOTES'],
