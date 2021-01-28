@@ -32,7 +32,8 @@ set noswapfile
 set expandtab                     " use spaces, not tab characters
 set ts=3                          " set indent to 4 spaces
 set shiftwidth=3
-set redrawtime=10000
+set re=1
+" set redrawtime=10000
 set t_Co=256
 
 " Allow us to use Ctrl-s and Ctrl-q as keybinds
