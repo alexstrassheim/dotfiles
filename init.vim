@@ -17,6 +17,7 @@ Plug 'maksimr/vim-jsbeautify'
 Plug 'chrisbra/Colorizer'
 Plug 'matze/vim-tex-fold'
 Plug 'guns/xterm-color-table.vim'
+Plug 'AndrewRadev/linediff.vim'
 call plug#end()
 
 " Settings
@@ -33,7 +34,9 @@ set expandtab                     " use spaces, not tab characters
 set ts=3                          " set indent to 4 spaces
 set shiftwidth=3
 set redrawtime=10000
-" set redrawtime=10000
+set breakindent
+set formatoptions=l
+set lbr
 set t_Co=256
 
 " Allow us to use Ctrl-s and Ctrl-q as keybinds
