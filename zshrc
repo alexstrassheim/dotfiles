@@ -75,7 +75,6 @@ if [[ `uname` == 'Darwin' ]]; then
   # alias python='python3'
   export PATH="$PATH:/usr/local/sbin"
   export PATH="/usr/local/opt/inetutils/libexec/gnubin:$PATH"
-  export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
   export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
   export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
   export PATH="/usr/local/opt/node@14/bin:$PATH"
