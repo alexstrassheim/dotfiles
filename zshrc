@@ -5,22 +5,16 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Path to your oh-my-zsh installation.
-export ZSH=${HOME}/.oh-my-zsh
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH completions
+autoload -Uz compinit
+  compinit
+  zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
 
 # Uncomment the following line to disable auto-setting terminal title.
 DISABLE_AUTO_TITLE="true"
 ZSH_AUTOSUGGEST_USE_ASYNC=true
+CASE_SENSITIVE="false"
 
-# Pluginlist
-plugins=(colored-man-pages tmux history git vi-mode)
-
-#===========================================================
-#                       Theme Settings
-
-export RPS1="%{$reset_color%}"
-source $ZSH/oh-my-zsh.sh
 
 #===========================================================
 #                          History
@@ -72,12 +66,12 @@ fi
 
 if [[ `uname` == 'Darwin' ]]; then
   # MacOS
-  # alias python='python3'
-  export PATH="$PATH:/usr/local/sbin"
-  export PATH="/usr/local/opt/inetutils/libexec/gnubin:$PATH"
-  export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
-  export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-  export PATH="/usr/local/opt/node@14/bin:$PATH"
+  alias python='/usr/bin/python3'
+  export PATH="/usr/local/sbin:$PATH"
+  # export PATH="/usr/local/opt/inetutils/libexec/gnubin:$PATH"
+  # export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+  # export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+  # export PATH="/usr/local/opt/node@14/bin:$PATH"
 fi
 
 #===========================================================
@@ -111,7 +105,7 @@ alias watchdata="watch -n 1 grep -e Dirty: -e  Writeback: /proc/meminfo"
 #                   Settings for bindkey
 
 bindkey -M viins 'jk' vi-cmd-mode
-bindkey "^@" autosuggest-accept
+bindkey "^ " autosuggest-accept
 bindkey '^f' vi-forward-word
 bindkey '^l' clear-screen
 
@@ -121,3 +115,4 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+source ~/powerlevel10k/powerlevel10k.zsh-theme

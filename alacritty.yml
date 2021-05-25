@@ -10,6 +10,9 @@ window:
 
   # Startup Mode (changes require restart)
   # startup_mode: Fullscreen
+  dimensions:
+   columns: 200
+   lines: 40
 
 # Sample Font configuration for font: Monoid.
 # Feel free to use different font configuration family & face for each sections
