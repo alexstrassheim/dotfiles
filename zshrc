@@ -68,7 +68,8 @@ if [[ `uname` == 'Darwin' ]]; then
   # MacOS
   alias python='/usr/bin/python3'
   export PATH="/usr/local/sbin:$PATH"
-  # export PATH="/usr/local/opt/inetutils/libexec/gnubin:$PATH"
+  export PATH="/usr/local/opt/inetutils/libexec/gnubin:$PATH"
+  export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
   # export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
   # export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
   # export PATH="/usr/local/opt/node@14/bin:$PATH"
@@ -115,4 +116,4 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
