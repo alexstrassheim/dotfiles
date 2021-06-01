@@ -9,7 +9,7 @@ Plug 'honza/vim-snippets'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'rhysd/vim-grammarous'
+Plug 'dpelle/vim-LanguageTool'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-surround'
 Plug 'ntpeters/vim-better-whitespace'
@@ -38,6 +38,8 @@ set redrawtime=10000
 set breakindent
 set formatoptions=l
 set lbr
+set modeline
+set dictionary+=/usr/share/dict/words
 set t_Co=256
 
 " Allow us to use Ctrl-s and Ctrl-q as keybinds
@@ -218,7 +220,7 @@ endfunction
 
 " UltiSnips
 let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetsDir="~/.vim/mysnippet"
+let g:UltiSnipsSnippetsDir="~/.config/nvim/mysnippet/mysnippet"
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippet"]
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
@@ -239,15 +241,6 @@ let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 let g:strip_whitespace_confirm=0
 
-" Grammarous
-nmap gn <Plug>(grammarous-move-to-next-error)
-nmap gp <Plug>(grammarous-move-to-previous-error)
-let g:grammarous#use_location_list=1
-let g:grammarous#use_vim_spelllang=1
-let g:grammarous#disabled_rules = {
-            \ '*' : ['WHITESPACE_RULE', 'EN_QUOTES'],
-            \ 'help' : ['WHITESPACE_RULE', 'EN_QUOTES', 'SENTENCE_WHITESPACE', 'UPPERCASE_SENTENCE_START'],
-            \ }
 
 " AirLine
 let g:airline#extensions#tabline#enabled = 1
@@ -318,4 +311,8 @@ endfunction
 " Explorer
 nmap <space>e :CocCommand explorer ./<CR>
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
-"
+
+" LanguageTool
+let g:languagetool_cmd='/usr/local/bin/languagetool'
+let g:languagetool_disable_rules='ENGLISH_WORD_REPEAT_BEGINNING_RULE,WHITESPACE_RULE,COMMA_PARENTHESIS_WHITESPACE,EN_QUOTES,FRENCH_WHITESPACE,UPPERCASE_SENTENCE_START,APOS,UNLIKELY_OPENING_PUNCTUATION,UNIT_SPACE,WORD_CONTAINS_UNDERSCORE,DASH_RULE'
+

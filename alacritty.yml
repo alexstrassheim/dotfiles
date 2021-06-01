@@ -11,7 +11,7 @@ window:
   # Startup Mode (changes require restart)
   # startup_mode: Fullscreen
   dimensions:
-   columns: 200
+   columns: 160
    lines: 40
 
 # Sample Font configuration for font: Monoid.

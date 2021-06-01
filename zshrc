@@ -98,6 +98,7 @@ function ra {
 #                       Public alias
 
 alias lls="ls -la | grep ^l"
+alias ll="ls -la"
 alias ls=exa
 alias watchdata="watch -n 1 grep -e Dirty: -e  Writeback: /proc/meminfo"
 
