@@ -36,6 +36,11 @@ setopt HIST_IGNORE_ALLDUPS
 
 alias history="history -E"
 
+#===========================================================
+# Reverse search
+
+bindkey -v
+bindkey '^R' history-incremental-search-backward
 
 #===========================================================
 #                     Neovim
