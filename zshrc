@@ -8,6 +8,13 @@ fi
 # ZSH completions
 autoload -Uz compinit
   compinit
+
+#  if type brew &>/dev/null; then
+#     FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+#
+#     autoload -Uz compinit
+#     compinit
+#   fi
   zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
 
 # Uncomment the following line to disable auto-setting terminal title.
@@ -36,11 +43,6 @@ setopt HIST_IGNORE_ALLDUPS
 
 alias history="history -E"
 
-#===========================================================
-# Reverse search
-
-bindkey -v
-bindkey '^R' history-incremental-search-backward
 
 #===========================================================
 #                     Neovim
@@ -111,7 +113,11 @@ alias watchdata="watch -n 1 grep -e Dirty: -e  Writeback: /proc/meminfo"
 #===========================================================
 #                   Settings for bindkey
 
+
+bindkey -v
+bindkey '^R' history-incremental-search-backward
 bindkey -M viins 'jk' vi-cmd-mode
+bindkey "^?" backward-delete-char
 bindkey "^ " autosuggest-accept
 bindkey '^f' vi-forward-word
 bindkey '^l' clear-screen
@@ -123,3 +129,4 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+export PATH="/usr/local/opt/curl/bin:$PATH"
