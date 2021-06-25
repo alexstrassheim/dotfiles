@@ -17,6 +17,16 @@ autoload -Uz compinit
 #   fi
   zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
 
+#===========================================================
+#                   Settings for bindkey
+bindkey -v
+bindkey '^R' history-incremental-search-backward
+bindkey -M viins 'jk' vi-cmd-mode
+bindkey "^?" backward-delete-char
+bindkey "^ " autosuggest-accept
+bindkey '^f' vi-forward-word
+bindkey '^l' clear-screen
+
 # Uncomment the following line to disable auto-setting terminal title.
 DISABLE_AUTO_TITLE="true"
 ZSH_AUTOSUGGEST_USE_ASYNC=true
@@ -85,7 +95,7 @@ fi
 #===========================================================
 #                     ranger settings
 
-bindkey '^f' ra'^m'
+# bindkey '^f' ra'^m'
 function ra {
   tempfile="$(mktemp -t tmp.XXXXXX)"
   if [[ `uname` == 'Darwin' ]]; then
@@ -110,17 +120,6 @@ alias ls=exa
 alias watchdata="watch -n 1 grep -e Dirty: -e  Writeback: /proc/meminfo"
 
 
-#===========================================================
-#                   Settings for bindkey
-
-
-bindkey -v
-bindkey '^R' history-incremental-search-backward
-bindkey -M viins 'jk' vi-cmd-mode
-bindkey "^?" backward-delete-char
-bindkey "^ " autosuggest-accept
-bindkey '^f' vi-forward-word
-bindkey '^l' clear-screen
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
