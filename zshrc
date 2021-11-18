@@ -83,7 +83,7 @@ fi
 
 if [[ `uname` == 'Darwin' ]]; then
   # MacOS
-  alias python='/usr/bin/python3'
+  alias python='/usr/local/bin/python3'
   export PATH="/usr/local/sbin:$PATH"
   export PATH="/usr/local/opt/inetutils/libexec/gnubin:$PATH"
   export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
@@ -129,3 +129,10 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 export PATH="/usr/local/opt/curl/bin:$PATH"
+
+# Created by `userpath` on 2021-08-24 08:25:12
+export PATH="$PATH:/Users/alex/.local/bin"
+export PATH="/usr/local/opt/node@14/bin:$PATH"
+
+export ANDROID_SDK=${HOME}/Library/Android/sdk
+export PATH="${ANDROID_SDK}/tools:${ANDROID_SDK}/platform-tools:${PATH}"
