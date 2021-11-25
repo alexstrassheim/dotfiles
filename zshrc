@@ -101,3 +101,4 @@ export PATH="${ANDROID_SDK}/tools:${ANDROID_SDK}/platform-tools:${PATH}"
 # export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 # export PATH="/usr/local/opt/node@14/bin:$PATH"
 # export PATH="$PATH:${HOME}/.local/bin"
+
