@@ -17,6 +17,7 @@ setopt INC_APPEND_HISTORY
 setopt EXTENDED_HISTORY
 setopt HIST_FIND_NO_DUPS
 setopt HIST_IGNORE_ALLDUPS
+setopt auto_cd
 export HISTTIMEFORMAT="[%F %T] "
 alias history="history -E"
 zstyle ':completion:*'  matcher-list 'm:{a-z}={A-Z}'
@@ -73,13 +74,13 @@ alias ls=exa
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
 
-if [ -f ~/.zshrc_contents/private ]; then
-  . ~/.zshrc_contents/private
-fi
-
 FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 autoload -Uz compinit && compinit -i
+
+if [ -f ~/.zshrc_contents/private ]; then
+  . ~/.zshrc_contents/private
+fi
 
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -87,17 +88,16 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
+export PATH="/opt/homebrew/opt/node@14/bin:$PATH"
 
 export ANDROID_SDK=${HOME}/Library/Android/sdk
 export PATH="${ANDROID_SDK}/tools:${ANDROID_SDK}/platform-tools:${PATH}"
 
 # [[ -d "${HOME}/.local/bin" ]] && export PATH="$PATH:${HOME}/.local/bin"
-# alias python='/opt/homebrew/bin/python3'
 # export PATH="/usr/local/sbin:$PATH"
 # export PATH="/usr/local/opt/inetutils/libexec/gnubin:$PATH"
 # export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 # export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 # export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-# export PATH="/usr/local/opt/node@14/bin:$PATH"
 # export PATH="$PATH:${HOME}/.local/bin"
 
