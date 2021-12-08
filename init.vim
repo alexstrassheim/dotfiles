@@ -6,7 +6,7 @@ set nocompatible
 let mapleader = " "
 
 " Settings
-set updatetime=300
+set updatetime=50
 set shiftround
 set expandtab
 set foldlevelstart=99
