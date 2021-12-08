@@ -6,7 +6,7 @@ set nocompatible
 let mapleader = " "
 
 " Settings
-set updatetime=50
+set updatetime=300
 set shiftround
 set expandtab
 set foldlevelstart=99
@@ -154,6 +154,9 @@ let g:ackprg = 'ag --vimgrep'
 " Switch Buffer
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
+
+
+" Close Buffer
 nmap <leader>q :bp <BAR> bd #<CR>
 
 
@@ -255,6 +258,7 @@ let g:coc_global_extensions = [
             \ 'coc-ltex',
             \ 'coc-explorer',
             \ 'coc-pairs',
+            \ 'coc-flutter',
             \ ]
 
 function! s:check_back_space() abort
@@ -313,9 +317,6 @@ func GoCoC()
     " Applying codeAction to the selected region.
     xmap <leader>a  <Plug>(coc-codeaction-selected)
     nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-    " Apply AutoFix to problem on the current line.
-    nmap <leader>qf  <Plug>(coc-fix-current)
 endfun
 autocmd BufEnter * :call GoCoC()
 
