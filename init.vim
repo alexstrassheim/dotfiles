@@ -142,6 +142,8 @@ augroup MOREBUFFS
                 \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
                 \   exe "normal g`\"" |
                 \ endif
+
+    autocmd BufRead,BufNewFile *.markdown setlocal textwidth=80
 augroup END
 
 
