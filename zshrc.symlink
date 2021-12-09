@@ -51,9 +51,9 @@ bindkey '^l' clear-screen
 function ra {
   tempfile="$(mktemp -t tmp.XXXXXX)"
   if [[ `uname` == 'Darwin' ]]; then
-    /opt/homebrew/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    ranger --choosedir="$tempfile" "${@:-$(pwd)}"
   else
-    /opt/homebrew/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    ranger --choosedir="$tempfile" "${@:-$(pwd)}"
   fi
   test -f "$tempfile" &&
     if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
