@@ -9,7 +9,3 @@ Font: Fira Code Retina
 ```bash
 brew cask install font-fira-code
 ```
-
-## Tmux
-
-![tmux](https://raw.githubusercontent.com/alexstrassheim/dotfiles/master/tmux.png)

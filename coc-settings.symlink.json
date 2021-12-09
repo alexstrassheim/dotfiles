@@ -1,0 +1,17 @@
+{
+   "diagnostic.checkCurrentLine": true,
+   "coc.preferences.formatOnType": true,
+   "coc.preferences.formatOnSaveFiletypes": ["css", "markdown","python"],
+   "flutter.lsp.initialization.closingLabels": true,
+   "python.formatting.provider": "black",
+   "python.formatting.blackPath": "/opt/homebrew/bin/black",
+   "python.formatting.blackArgs": ["-l", "125", "--fast"],
+   "explorer.width": 50,
+   "explorer.icon.enableNerdfont": true,
+   "explorer.previewAction.onHover": false,
+   "explorer.keyMappings.global": {
+      "<cr>": ["expandable?", "expand", "open"],
+      "v": "open:vsplit"
+  },
+  "coc.preferences.extensionUpdateCheck": "daily"
+}
