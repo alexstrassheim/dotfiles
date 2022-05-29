@@ -1,17 +1,37 @@
 {
    "diagnostic.checkCurrentLine": true,
+   "suggest.floatConfig": {
+      "border": true,
+      "maxWidth": 120,
+      "focusable": true
+   },
+   "hover.floatConfig": {
+      "border": true,
+      "maxWidth": 120,
+      "focusable": true
+   },
+   "signature.floatConfig": {
+      "border": true,
+      "maxWidth": 120,
+      "focusable": true
+   },
+   "diagnostic.floatConfig": {
+      "border": true,
+      "maxWidth": 120,
+      "focusable": true
+   },
    "coc.preferences.formatOnType": true,
    "coc.preferences.formatOnSaveFiletypes": ["css", "markdown","python"],
    "flutter.lsp.initialization.closingLabels": true,
    "python.formatting.provider": "black",
    "python.formatting.blackPath": "/opt/homebrew/bin/black",
    "python.formatting.blackArgs": ["-l", "125", "--fast"],
-   "explorer.width": 50,
+   "explorer.width": 40,
    "explorer.icon.enableNerdfont": true,
    "explorer.previewAction.onHover": false,
    "explorer.keyMappings.global": {
       "<cr>": ["expandable?", "expand", "open"],
       "v": "open:vsplit"
-  },
-  "coc.preferences.extensionUpdateCheck": "daily"
+   },
+   "coc.preferences.extensionUpdateCheck": "daily"
 }
