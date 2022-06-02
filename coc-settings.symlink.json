@@ -2,30 +2,30 @@
    "diagnostic.checkCurrentLine": true,
    "suggest.floatConfig": {
       "border": true,
-      "maxWidth": 120,
-      "focusable": true
+      "maxWidth": 120
    },
    "hover.floatConfig": {
       "border": true,
-      "maxWidth": 120,
-      "focusable": true
+      "maxWidth": 120
    },
    "signature.floatConfig": {
       "border": true,
-      "maxWidth": 120,
-      "focusable": true
+      "maxWidth": 120
    },
    "diagnostic.floatConfig": {
       "border": true,
-      "maxWidth": 120,
-      "focusable": true
+      "maxWidth": 120
+      // "winblend": 15,
+      // "focusable": true,
+      // "highlight": "#400ee6",
+      // "borderhighlight": "#D9AE80"
    },
    "coc.preferences.formatOnType": true,
    "coc.preferences.formatOnSaveFiletypes": ["css", "markdown","python"],
    "flutter.lsp.initialization.closingLabels": true,
    "python.formatting.provider": "black",
    "python.formatting.blackPath": "/opt/homebrew/bin/black",
-   "python.formatting.blackArgs": ["-l", "125", "--fast"],
+   "python.formatting.blackArgs": ["-S","-C","--line-length", "150", "--fast"],
    "explorer.width": 40,
    "explorer.icon.enableNerdfont": true,
    "explorer.previewAction.onHover": false,

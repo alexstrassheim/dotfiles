@@ -40,7 +40,6 @@ else
     set signcolumn=yes
 endif
 
-
 " PLUGINS
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -73,11 +72,14 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Plug 'rafi/awesome-vim-colorschemes'
 Plug 'jacoborus/tender.vim'
+Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 
 Plug 'powerman/vim-plugin-AnsiEsc'
 
 " Plug 'preservim/tagbar'
 Plug 'liuchengxu/vista.vim'
+
+Plug 'tpope/vim-dadbod'
 call plug#end()
 
 
@@ -90,7 +92,9 @@ endif
 
 " Theme
 syntax enable
-colorscheme tender
+" colorscheme tender
+let g:catppuccin_flavour = "dusk" " latte, frappe, macchiato, mocha, dusk
+colorscheme catppuccin
 """"""""""""""""""""""""""""""""
 
 
@@ -137,6 +141,8 @@ nnoremap <silent> <Leader>- :vertical resize -5<CR>
 " highlight search off
 nnoremap <leader><leader> :nohlsearch<CR>
 
+" start vim with clean jumplist
+autocmd VimEnter * :clearjumps
 
 augroup MOREBUFFS
     autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
@@ -249,7 +255,6 @@ let g:strip_whitespace_confirm=0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#wordcount#enabled = 0
-" let g:airline_theme='papercolor'
 let g:airline_theme = 'tender'
 
 
@@ -344,3 +349,18 @@ let g:coc_filetype_map = {'tex': 'latex'}
 nmap <space>e :CocCommand explorer ./<CR>
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
 
+" Hightlight active Window
+" Background colors for active vs inactive windows
+" hi ActiveWindow guibg=#17252c
+hi InactiveWindow guibg=#0D1B22
+
+" Call method on window enter
+augroup WindowManagement
+  autocmd!
+  autocmd WinEnter * call Handle_Win_Enter()
+augroup END
+
+" Change highlight group of active/inactive windows
+function! Handle_Win_Enter()
+  setlocal winhighlight=Normal:ActiveWindow,NormalNC:InactiveWindow
+endfunction
