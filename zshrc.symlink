@@ -6,6 +6,13 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 #===========================================================
+# Language
+export LANG=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+export EDITOR='nvim'
+[ -z "$TMUX" ] && export TERM=alacritty
+
+#===========================================================
 # Settings and History
 DISABLE_AUTO_TITLE="true"
 ZSH_AUTOSUGGEST_USE_ASYNC=true
@@ -21,13 +28,6 @@ setopt auto_cd
 export HISTTIMEFORMAT="[%F %T] "
 alias history="history -E"
 zstyle ':completion:*'  matcher-list 'm:{a-z}={A-Z}'
-
-#===========================================================
-# Language
-export LANG=en_US.UTF-8
-export LC_CTYPE=en_US.UTF-8
-export EDITOR='nvim'
-[ -z "$TMUX" ] && export TERM=alacritty
 
 #===========================================================
 # Neovim
@@ -73,7 +73,24 @@ if [ -f ~/.zshrc_contents/private ]; then
 fi
 
 #===========================================================
+# Autoload Vritual Environment
+python_venv() {
+  MYVENV=./venv
+  # when you cd into a folder that contains $MYVENV
+  [[ -d $MYVENV ]] && source $MYVENV/bin/activate > /dev/null 2>&1
+  # when you cd into a folder that doesn't
+  [[ ! -d $MYVENV ]] && deactivate > /dev/null 2>&1
+}
+autoload -U add-zsh-hook
+add-zsh-hook chpwd python_venv
+
+python_venv
+
+#===========================================================
 # Settings for bindkey
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 bindkey -v
 bindkey '^R' history-incremental-search-backward
 bindkey -M viins 'jk' vi-cmd-mode
@@ -82,9 +99,6 @@ bindkey "^@" autosuggest-accept
 bindkey '^f' vi-forward-word
 bindkey '^l' clear-screen
 
-
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export PATH="$HOME/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
@@ -98,7 +112,11 @@ export PATH="${ANDROID_SDK}/tools:${ANDROID_SDK}/platform-tools:${PATH}"
 export CPATH=/opt/homebrew/include
 export LIBRARY_PATH=/opt/homebrew/lib
 
-
 export PATH="${HOME}/Desktop/xtensa-lx106-elf/bin:$PATH"
 export IDF_PATH=${HOME}/Desktop/esp/ESP8266_RTOS_SDK
-export PATH="/opt/homebrew/opt/python@3.10/bin:$PATH"
+# export PATH="/opt/homebrew/opt/python@3.10/bin:$PATH"
+
+zstyle ':completion:*' menu select
+fpath+=~/.zfunc
+
+
