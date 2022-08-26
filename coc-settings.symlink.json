@@ -24,7 +24,7 @@
    "coc.preferences.formatOnSaveFiletypes": ["css", "markdown","python"],
    "python.formatting.provider": "black",
    "python.formatting.blackPath": "/opt/homebrew/bin/black",
-   "python.formatting.blackArgs": ["-S","-C","--line-length", "140", "--fast"],
+   "python.formatting.blackArgs": ["--line-length", "140", "--fast"],
    "explorer.width": 40,
    "explorer.icon.enableNerdfont": true,
    "explorer.previewAction.onHover": false,

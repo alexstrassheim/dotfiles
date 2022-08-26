@@ -7,8 +7,9 @@ fi
 
 #===========================================================
 # Language
-export LANG=en_US.UTF-8
-export LC_CTYPE=en_US.UTF-8
+export LANG="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
 export EDITOR='nvim'
 [ -z "$TMUX" ] && export TERM=alacritty
 
@@ -75,15 +76,14 @@ fi
 #===========================================================
 # Autoload Vritual Environment
 python_venv() {
-  MYVENV=./venv
+  MYVENV=../venv
   # when you cd into a folder that contains $MYVENV
   [[ -d $MYVENV ]] && source $MYVENV/bin/activate > /dev/null 2>&1
   # when you cd into a folder that doesn't
-  [[ ! -d $MYVENV ]] && deactivate > /dev/null 2>&1
+  # [[ ! -d $MYVENV ]] && deactivate > /dev/null 2>&1
 }
 autoload -U add-zsh-hook
 add-zsh-hook chpwd python_venv
-
 python_venv
 
 #===========================================================
@@ -95,7 +95,7 @@ bindkey -v
 bindkey '^R' history-incremental-search-backward
 bindkey -M viins 'jk' vi-cmd-mode
 bindkey "^?" backward-delete-char
-bindkey "^@" autosuggest-accept
+bindkey '`' autosuggest-accept
 bindkey '^f' vi-forward-word
 bindkey '^l' clear-screen
 
