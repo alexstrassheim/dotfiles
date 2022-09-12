@@ -40,7 +40,8 @@ set nowritebackup
 " set cmdheight=2
 set shortmess+=c
 
-filetype on
+" filetype on
+filetype plugin indent on
 
 if has("nvim-0.5.0") || has("patch-8.1.1564")
     set signcolumn=number
@@ -59,8 +60,9 @@ Plug 'mileszs/ack.vim'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'AndrewRadev/linediff.vim'
 Plug 'sheerun/vim-polyglot'
-" Plug 'chrisbra/Colorizer'
 Plug 'mbbill/undotree'
+Plug 'powerman/vim-plugin-AnsiEsc'
+Plug 'liuchengxu/vista.vim'
 
 " " The man himself
 Plug 'tpope/vim-dispatch'
@@ -78,13 +80,9 @@ Plug 'matze/vim-tex-fold'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" Plug 'rafi/awesome-vim-colorschemes'
-Plug 'jacoborus/tender.vim'
-" Plug 'catppuccin/nvim', {'as': 'catppuccin'}
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
-Plug 'powerman/vim-plugin-AnsiEsc'
-
-Plug 'liuchengxu/vista.vim'
+Plug 'tmhedberg/SimpylFold'
 
 call plug#end()
 
@@ -98,7 +96,7 @@ endif
 
 " Theme
 syntax enable
-colorscheme tender
+colorscheme tokyonight-night
 " let g:catppuccin_flavour = "dusk" " latte, frappe, macchiato, mocha, dusk
 " colorscheme catppuccin
 """"""""""""""""""""""""""""""""
@@ -106,8 +104,17 @@ colorscheme tender
 
 hi MatchParen cterm=NONE ctermfg=white ctermbg=DarkRed
 hi Search cterm=NONE ctermfg=white ctermbg=DarkBlue
-hi clear SpellBad
-hi SpellBad ctermfg=15 ctermbg=90
+" hi clear SpellBad
+hi SpellBad ctermfg=15 ctermbg=90 guifg=#E15166
+
+
+" CoC-PLUGIN: LTeX
+let g:coc_filetype_map = {'tex': 'latex'}
+" syntax spell toplevel
+
+
+" Fold
+let g:SimpylFold_docstring_preview=1
 
 
 " Allow us to use Ctrl-s and Ctrl-q as keybinds
@@ -144,7 +151,7 @@ nnoremap <silent> <Leader>+ :vertical resize +5<CR>
 nnoremap <silent> <Leader>- :vertical resize -5<CR>
 
 
-" highlight search off
+" highlighting search off
 nnoremap <leader><leader> :nohlsearch<CR>
 
 " start vim with clean jumplist
@@ -261,7 +268,7 @@ let g:strip_whitespace_confirm=0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#wordcount#enabled = 0
-let g:airline_theme = 'tender'
+let g:airline_theme = 'atomic'
 
 
 " PLUGIN: CoC
@@ -274,6 +281,7 @@ let g:coc_global_extensions = [
             \ 'coc-highlight',
             \ 'coc-prettier',
             \ 'coc-vimlsp',
+            \ 'coc-json',
             \ 'coc-snippets',
             \ 'coc-texlab',
             \ 'coc-ltex',
@@ -441,12 +449,9 @@ endfun
 autocmd BufEnter * :call GoCoC()
 
 
-" CoC-PLUGIN: LTeX
-let g:coc_filetype_map = {'tex': 'latex'}
-
-
-
+" ------------------------
 " Hightlight active Window
+" ------------------------
 " Background colors for active vs inactive windows
 " hi ActiveWindow guibg=#17252c
 hi InactiveWindow guibg=#0D1B22
