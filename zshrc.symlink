@@ -67,24 +67,36 @@ source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+export PATH="$HOME/.local/bin:$PATH"
+poetry completions zsh > ~/.zfunc/_poetry
+fpath+=~/.zfunc
 autoload -Uz compinit && compinit -i
+
+
 
 if [ -f ~/.zshrc_contents/private ]; then
   . ~/.zshrc_contents/private
 fi
 
 #===========================================================
+# GPG
+# export GPG_TTY=$(tty)
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
+
+#===========================================================
 # Autoload Vritual Environment
-python_venv() {
-  MYVENV=../venv
-  # when you cd into a folder that contains $MYVENV
-  [[ -d $MYVENV ]] && source $MYVENV/bin/activate > /dev/null 2>&1
-  # when you cd into a folder that doesn't
-  # [[ ! -d $MYVENV ]] && deactivate > /dev/null 2>&1
-}
-autoload -U add-zsh-hook
-add-zsh-hook chpwd python_venv
-python_venv
+# python_venv() {
+#   MYVENV=../venv
+#   # when you cd into a folder that contains $MYVENV
+#   [[ -d $MYVENV ]] && source $MYVENV/bin/activate > /dev/null 2>&1
+#   # when you cd into a folder that doesn't
+#   # [[ ! -d $MYVENV ]] && deactivate > /dev/null 2>&1
+# }
+# autoload -U add-zsh-hook
+# add-zsh-hook chpwd python_venv
+# python_venv
 
 #===========================================================
 # Settings for bindkey
@@ -118,5 +130,4 @@ export IDF_PATH=${HOME}/Desktop/esp/ESP8266_RTOS_SDK
 
 zstyle ':completion:*' menu select
 fpath+=~/.zfunc
-
 
