@@ -1,5 +1,5 @@
 " Python
-let g:python3_host_prog = '/usr/bin/python3'
+" let g:python3_host_prog = '/usr/bin/python3'
 set nocompatible
 
 " Leader
@@ -84,6 +84,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
+Plug 'tmhedberg/SimpylFold'
 
 call plug#end()
 
@@ -97,7 +98,7 @@ endif
 
 " Theme
 syntax enable
-colorscheme tokyonight-night
+colorscheme tokyonight-storm
 " let g:catppuccin_flavour = "dusk" " latte, frappe, macchiato, mocha, dusk
 " colorscheme catppuccin
 """"""""""""""""""""""""""""""""
@@ -128,7 +129,6 @@ nnoremap <leader>rv :source $MYVIMRC<CR>
 
 " ESC remap
 " inoremap jk <ESC>
-
 
 " movement
 nnoremap j gj
@@ -281,7 +281,7 @@ let g:coc_filetype_map = {'tex': 'latex'}
 
 
 " CoC-PLUGIN: Explorer
-nmap <leader>e :CocCommand explorer ./<CR>
+nmap <space>e :CocCommand explorer ./<CR>
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
 
 let g:coc_global_extensions = [
@@ -296,6 +296,7 @@ let g:coc_global_extensions = [
             \ 'coc-snippets',
             \ 'coc-texlab',
             \ 'coc-ltex',
+            \ 'coc-solidity',
             \ ]
             " \ 'coc-highlight',
 
@@ -427,7 +428,7 @@ func GoCoC()
     " Show all diagnostics.
     nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
     " Manage extensions.
-    nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+    nnoremap <silent><nowait> <leader>e  :<C-u>CocList extensions<cr>
     " Show commands.
     nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
     " Find symbol of current document.

@@ -5,6 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+
 #===========================================================
 # Language
 export LANG="en_US.UTF-8"
@@ -69,7 +70,7 @@ FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
 export PATH="$HOME/.local/bin:$PATH"
-poetry completions zsh > ~/.zfunc/_poetry
+# poetry completions zsh > ~/.zfunc/_poetry
 fpath+=~/.zfunc
 autoload -Uz compinit && compinit -i
 
@@ -131,3 +132,9 @@ export IDF_PATH=${HOME}/Desktop/esp/ESP8266_RTOS_SDK
 zstyle ':completion:*' menu select
 fpath+=~/.zfunc
 
+# Weechat Config
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
