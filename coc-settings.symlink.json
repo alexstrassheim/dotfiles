@@ -21,6 +21,7 @@
       // "borderhighlight": "#D9AE80"
    },
    "coc.preferences.formatOnType": true,
+   "coc.preferences.extensionUpdateCheck": "daily",
    "coc.preferences.formatOnSaveFiletypes": ["css", "markdown","python"],
    "python.formatting.provider": "black",
    "python.formatting.blackPath": "/opt/homebrew/bin/black",
@@ -32,11 +33,11 @@
       "<cr>": ["expandable?", "expand", "open"],
       "v": "open:vsplit"
    },
-   "ltex.enabled": true,
+   "ltex.enabled": ["latex", "markdown"],
    "ltex.language": "en-US",
    "ltex.additionalRules.motherTongue": "en-US",
    "ltex.diagnosticSeverity": "information",
    "ltex.completionEnabled": true,
    "ltex.additionalRules.enablePickyRules": true,
-   "coc.preferences.extensionUpdateCheck": "daily"
+   "colors.enable": true
 }

@@ -276,7 +276,7 @@ let g:strip_whitespace_confirm=0
 " PLUGIN: CoC
 
 " CoC-PLUGIN: LTeX
-let g:coc_filetype_map = {'tex': 'latex'}
+" let g:coc_filetype_map = {'tex': 'latex'}
 " syntax spell toplevel
 
 
