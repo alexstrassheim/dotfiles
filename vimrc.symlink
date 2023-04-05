@@ -209,7 +209,7 @@ function! ToggleNu()
         set norelativenumber
     endif
 endfunction
-nnoremap <leader>r :call ToggleNu()<CR>
+nnoremap <leader>n :call ToggleNu()<CR>
 
 
 " Switch spellcheck languages
