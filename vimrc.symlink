@@ -65,6 +65,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'mbbill/undotree'
 Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'liuchengxu/vista.vim'
+" Plug 'Exafunction/codeium.vim'
+Plug 'github/copilot.vim'
 
 " " The man himself
 Plug 'tpope/vim-dispatch'
@@ -128,7 +130,7 @@ nnoremap <leader>rv :source $MYVIMRC<CR>
 
 
 " ESC remap
-" inoremap jk <ESC>
+inoremap jk <ESC>
 
 " movement
 nnoremap j gj
@@ -253,8 +255,8 @@ let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsListSnippets="<c-h>"
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 
 " PLUGIN: Easy Align
@@ -297,6 +299,7 @@ let g:coc_global_extensions = [
             \ 'coc-texlab',
             \ 'coc-ltex',
             \ 'coc-solidity',
+            \ 'coc-css',
             \ ]
             " \ 'coc-highlight',
 
@@ -443,6 +446,21 @@ func GoCoC()
     nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 endfun
 autocmd BufEnter * :call GoCoC()
+
+" " =========
+" " Codeium
+" " =========
+" imap <script><silent><nowait><expr> <C-g> codeium#Accept()
+" imap <C-;>   <Cmd>call codeium#CycleCompletions(1)<CR>
+" imap <C-,>   <Cmd>call codeium#CycleCompletions(-1)<CR>
+" imap <C-x>   <Cmd>call codeium#Clear()<CR>
+
+" =========
+" Copilot
+" =========
+
+" imap <silent><script><expr> <C-g> copilot#Accept("\<CR>")
+" let g:copilot_no_tab_map = v:true
 
 
 " " ------------------------
