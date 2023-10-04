@@ -12,7 +12,8 @@ export LANG="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export EDITOR='nvim'
-[ -z "$TMUX" ] && export TERM=alacritty
+# [ -z "$TMUX" ] && export TERM=alacritty
+[ -z "$TMUX" ] && export TERM=xterm-256color
 
 #===========================================================
 # Settings and History
@@ -64,17 +65,22 @@ alias ls=exa
 # PATHS
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
-
-FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
-FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 
 export PATH="$HOME/.local/bin:$PATH"
-# poetry completions zsh > ~/.zfunc/_poetry
-fpath+=~/.zfunc
-autoload -Uz compinit && compinit -i
 
+if type brew &>/dev/null; then
+   FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
+   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
+   autoload -Uz compinit
+   compinit
+fi
+
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+export PATH="$HOME/bin:$PATH"
 
 if [ -f ~/.zshrc_contents/private ]; then
   . ~/.zshrc_contents/private
@@ -87,23 +93,7 @@ export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
 
 #===========================================================
-# Autoload Vritual Environment
-# python_venv() {
-#   MYVENV=../venv
-#   # when you cd into a folder that contains $MYVENV
-#   [[ -d $MYVENV ]] && source $MYVENV/bin/activate > /dev/null 2>&1
-#   # when you cd into a folder that doesn't
-#   # [[ ! -d $MYVENV ]] && deactivate > /dev/null 2>&1
-# }
-# autoload -U add-zsh-hook
-# add-zsh-hook chpwd python_venv
-# python_venv
-
-#===========================================================
 # Settings for bindkey
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 bindkey -v
 bindkey '^R' history-incremental-search-backward
 bindkey -M viins 'jk' vi-cmd-mode
@@ -112,28 +102,8 @@ bindkey '`' autosuggest-accept
 bindkey '^f' vi-forward-word
 bindkey '^l' clear-screen
 
-
-export PATH="$HOME/bin:$PATH"
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/opt/homebrew/opt/curl/bin:$PATH"
-export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
-# export PATH="/opt/homebrew/opt/node@14/bin:$PATH"
-
-export ANDROID_SDK=${HOME}/Library/Android/sdk
-export PATH="${ANDROID_SDK}/tools:${ANDROID_SDK}/platform-tools:${PATH}"
-
-export CPATH=/opt/homebrew/include
-export LIBRARY_PATH=/opt/homebrew/lib
-
-export PATH="${HOME}/Desktop/xtensa-lx106-elf/bin:$PATH"
-export IDF_PATH=${HOME}/Desktop/esp/ESP8266_RTOS_SDK
-# export PATH="/opt/homebrew/opt/python@3.10/bin:$PATH"
-
 zstyle ':completion:*' menu select
 fpath+=~/.zfunc
-
-# Weechat Config
-export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
