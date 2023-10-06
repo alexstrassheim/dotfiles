@@ -5,14 +5,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-
 #===========================================================
 # Language
 export LANG="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export EDITOR='nvim'
-# [ -z "$TMUX" ] && export TERM=alacritty
 [ -z "$TMUX" ] && export TERM=xterm-256color
 
 #===========================================================
@@ -29,10 +27,14 @@ setopt HIST_FIND_NO_DUPS
 setopt HIST_IGNORE_ALLDUPS
 setopt auto_cd
 export HISTTIMEFORMAT="[%F %T] "
-alias history="history -E"
-zstyle ':completion:*'  matcher-list 'm:{a-z}={A-Z}'
 
 #===========================================================
+# Public alias
+alias history="history -E"
+alias lls="ls -la | grep ^l"
+alias ll="ls -la"
+alias ls=exa
+
 # Neovim
 if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
@@ -55,11 +57,6 @@ function ra {
     rm -f -- "$tempfile"
   }
 
-#===========================================================
-# Public alias
-alias lls="ls -la | grep ^l"
-alias ll="ls -la"
-alias ls=exa
 
 #===========================================================
 # PATHS
@@ -67,11 +64,11 @@ alias ls=exa
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 
-export PATH="$HOME/.local/bin:$PATH"
-
 if type brew &>/dev/null; then
    FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
    FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+   fpath+=~/.zfunc
 
    autoload -Uz compinit
    compinit
@@ -80,11 +77,13 @@ fi
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-export PATH="$HOME/bin:$PATH"
-
 if [ -f ~/.zshrc_contents/private ]; then
   . ~/.zshrc_contents/private
 fi
+
+# https://thevaluable.dev/zsh-completion-guide-examples/
+zstyle ':completion:*' menu select
+zstyle ':completion:*'  matcher-list 'm:{a-z}={A-Z}'
 
 #===========================================================
 # GPG
@@ -101,10 +100,3 @@ bindkey "^?" backward-delete-char
 bindkey '`' autosuggest-accept
 bindkey '^f' vi-forward-word
 bindkey '^l' clear-screen
-
-zstyle ':completion:*' menu select
-fpath+=~/.zfunc
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
