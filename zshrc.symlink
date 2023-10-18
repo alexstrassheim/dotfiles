@@ -33,7 +33,7 @@ export HISTTIMEFORMAT="[%F %T] "
 alias history="history -E"
 alias lls="ls -la | grep ^l"
 alias ll="ls -la"
-alias ls=exa
+alias ls=eza
 
 # Neovim
 if type nvim > /dev/null 2>&1; then
