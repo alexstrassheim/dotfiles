@@ -11,6 +11,7 @@ export LANG="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export EDITOR='nvim'
+
 [ -z "$TMUX" ] && export TERM=xterm-256color
 
 #===========================================================
@@ -83,6 +84,8 @@ if type brew &>/dev/null; then
    compinit
 fi
 
+export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -99,3 +102,5 @@ zstyle ':completion:*'  matcher-list 'm:{a-z}={A-Z}'
 export GPG_TTY=$(tty)
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
